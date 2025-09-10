@@ -16,6 +16,36 @@
 	--coreCream: #f5f5dc;
 	--coreBlush: #f0a0a0;
 	--coreGray: #808080;
+
+	/* Typography System */
+	--font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	--font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+	
+	/* Font Sizes - Fluid Typography Scale */
+	--text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.8rem);
+	--text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 0.9rem);
+	--text-base: clamp(1rem, 0.95rem + 0.25vw, 1.1rem);
+	--text-lg: clamp(1.125rem, 1rem + 0.625vw, 1.2rem);
+	--text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.3rem);
+	--text-2xl: clamp(1.5rem, 1.3rem + 1vw, 1.8rem);
+	--text-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);
+	--text-4xl: clamp(2.25rem, 1.8rem + 2.25vw, 3rem);
+	--text-5xl: clamp(3rem, 2.5rem + 2.5vw, 3.5rem);
+	--text-6xl: clamp(3.75rem, 3rem + 3.75vw, 4.5rem);
+	
+	/* Font Weights */
+	--font-light: 300;
+	--font-normal: 400;
+	--font-medium: 500;
+	--font-semibold: 600;
+	--font-bold: 700;
+	
+	/* Line Heights */
+	--leading-tight: 1.25;
+	--leading-snug: 1.375;
+	--leading-normal: 1.5;
+	--leading-relaxed: 1.625;
+	--leading-loose: 2;
 }
 
 /* Reset and Base Styles */
@@ -539,8 +569,8 @@ img {
 
 .footer-content {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 3rem;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 2rem;
 	align-items: start;
 	margin-bottom: 2rem;
 }
@@ -549,6 +579,27 @@ img {
 	color: var(--coreChampers);
 	margin-bottom: 1rem;
 	font-size: 1.2rem;
+}
+
+/* New footer section styles */
+.footer-links {
+	text-align: left;
+}
+
+.footer-links .quick-links {
+	align-items: flex-start;
+}
+
+.footer-newsletter {
+	text-align: left;
+}
+
+.footer-social {
+	text-align: left;
+}
+
+.footer-center {
+	text-align: center;
 }
 
 .footer-section p {
@@ -665,9 +716,8 @@ img {
 
 .quick-links {
 	display: flex;
-	flex-wrap: wrap;
-	gap: 15px;
-	justify-content: flex-end;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .quick-links a {
@@ -744,9 +794,16 @@ img {
 	}
 
 	.footer-content {
-		grid-template-columns: 1fr;
+		grid-template-columns: 1fr 1fr;
 		text-align: center;
 		gap: 2rem;
+	}
+	
+	.footer-links,
+	.footer-newsletter,
+	.footer-social,
+	.footer-center {
+		text-align: center;
 	}
 
 	.footer-left,
@@ -755,7 +812,7 @@ img {
 	}
 
 	.quick-links {
-		justify-content: center;
+		align-items: center;
 	}
 
 	.social-links {
@@ -770,6 +827,11 @@ img {
 
 	.hero h1 {
 		font-size: 2rem;
+	}
+	
+	.footer-content {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
 	}
 }
 
