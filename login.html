@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Red Hatters WA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Red Hatters WA Logo" class="logo">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="about-us.html" class="nav-link">About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about-us.html">Our Story</a></li>
+                        <li><a href="benefits.html">Benefits</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="events.html" class="nav-link">Events</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="events.html">Upcoming Events</a></li>
+                        <li><a href="events.html#calendar">Event Calendar</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="members-corner.html" class="nav-link">Members</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="member-role.html">Member Role</a></li>
+                        <li><a href="member-search.html">Member Search</a></li>
+                        <li><a href="discussions.html">Discussions</a></li>
+                        <li><a href="news-notes.html">News & Notes</a></li>
+                        <li><a href="members-corner.html">Members Corner</a></li>
+                        <li><a href="website-guide.html">Website Guide</a></li>
+                        <li><a href="member-handbook.html">Member Handbook</a></li>
+                        <li><a href="account.html">My Account</a></li>
+                        <li><a href="wa-chapters.html">WA Chapters</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="resources.html" class="nav-link">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="newsletter.html">Newsletter</a></li>
+                        <li><a href="games.html">Games</a></li>
+                        <li><a href="crafts.html">Crafts</a></li>
+                        <li><a href="printables.html">Printables</a></li>
+                        <li><a href="hatter-links.html">Hatter Links</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="contact-us.html" class="nav-link">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="donate.html" class="nav-link">Donate</a>
+                </li>
+                <li class="nav-item">
+                    <a href="offers.html" class="nav-link">Offers</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <a href="register.html" class="btn btn-outline-light me-2">Join</a>
+                <a href="login.html" class="btn btn-light">Sign In</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Member Login</h1>
+            <p>Access your member account and connect with fellow Red Hatters</p>
+        </div>
+    </section>
+
+    <!-- Login Form Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <h2 class="card-title text-center mb-4">Welcome Back!</h2>
+                            <form class="login-form">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" required>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="remember">
+                                    <label class="form-check-label" for="remember">
+                                        Remember me
+                                    </label>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <a href="#" class="text-decoration-none">Forgot your password?</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration CTA Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2>Not a Member Yet?</h2>
+                    <p class="lead">Join our vibrant community of Red Hatters and start your journey of fun, friendship, and fabulous adventures!</p>
+                    <a href="register.html" class="btn btn-primary btn-lg">Join Red Hatters WA</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5>Red Hatters WA</h5>
+                    <p>Join our vibrant community of women who believe in living life to the fullest, wearing red hats with pride, and creating lasting friendships.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="benefits.html">Benefits</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>Members</h6>
+                    <ul class="footer-links">
+                        <li><a href="member-role.html">Member Role</a></li>
+                        <li><a href="discussions.html">Discussions</a></li>
+                        <li><a href="news-notes.html">News & Notes</a></li>
+                        <li><a href="account.html">My Account</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>Resources</h6>
+                    <ul class="footer-links">
+                        <li><a href="newsletter.html">Newsletter</a></li>
+                        <li><a href="games.html">Games</a></li>
+                        <li><a href="crafts.html">Crafts</a></li>
+                        <li><a href="printables.html">Printables</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>Support</h6>
+                    <ul class="footer-links">
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="offers.html">Offers</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; <span id="current-year"></span> Red Hatters WA. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Made with <i class="fas fa-heart text-danger"></i> for Red Hatters everywhere</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Update current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Login form submission
+        document.querySelector('.login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Login functionality would be implemented here. This is a demo page.');
+        });
+    </script>
+</body>
+</html>

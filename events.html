@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Events - Red Hatters WA</title>
+	<meta name="description" content="Join Red Hatters events across Western Australia. Find upcoming social gatherings, activities, and special events." />
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<!-- Header -->
+	<header class="header" id="header">
+		<nav class="nav container">
+			<a href="index.html" class="logo">
+				<img src="images/RHSWA-horizontal.png" alt="Red Hatters WA" />
+			</a>
+			<ul class="nav-menu">
+				<li><a href="index.html">Home</a></li>
+				<li class="nav-dropdown">
+					<a href="#" class="dropdown-toggle">About</a>
+					<div class="dropdown-menu">
+						<a href="about-us.html">About Us</a>
+						<a href="benefits.html">Benefits</a>
+						<a href="faq.html">FAQ</a>
+						<a href="offers.html">Offers</a>
+						<a href="donate.html">Donate</a>
+						<a href="contact-us.html">Contact Us</a>
+					</div>
+				</li>
+				<li class="nav-dropdown">
+					<a href="#" class="dropdown-toggle">Members</a>
+					<div class="dropdown-menu">
+						<a href="member-role.html">Member Role</a>
+						<a href="member-search.html">Member Search</a>
+						<a href="discussions.html">Discussions</a>
+						<a href="news-notes.html">News and Notes</a>
+						<a href="members-corner.html">Members' Corner</a>
+						<a href="website-guide.html">Website Guide</a>
+						<a href="member-handbook.html">Member Handbook</a>
+						<a href="account.html">My Account</a>
+						<a href="wa-chapters.html">WA Chapters</a>
+						<a href="member-search.html">Find Members</a>
+					</div>
+				</li>
+				<li class="nav-dropdown">
+					<a href="#" class="dropdown-toggle">Resources</a>
+					<div class="dropdown-menu">
+						<a href="resources.html">Resources</a>
+						<a href="events.html" class="active">Events</a>
+						<a href="newsletter.html">Newsletter</a>
+						<a href="games.html">Games</a>
+						<a href="crafts.html">Crafts</a>
+						<a href="printables.html">Printables</a>
+						<a href="hatter-links.html">Hatter Links</a>
+					</div>
+				</li>
+			</ul>
+			<div class="nav-buttons">
+				<div class="split-button">
+					<a href="register.html" class="cta-button">Join</a>
+					<a href="login.html" class="login-button">Sign In</a>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="container">
+			<h1>Upcoming Events</h1>
+			<p>Join us for fun, friendship, and fabulous activities across Western Australia. From social gatherings to special celebrations, there's always something exciting happening!</p>
+		</div>
+	</section>
+
+	<!-- Event Filter Section -->
+	<section class="content-section">
+		<div class="container">
+			<div class="section-header">
+				<h2>Find Your Perfect Event</h2>
+				<p>Filter events by category to find activities that interest you most</p>
+			</div>
+			<div class="filter-buttons">
+				<button class="filter-btn active" data-filter="all">All Events</button>
+				<button class="filter-btn" data-filter="social">Social</button>
+				<button class="filter-btn" data-filter="travel">Travel</button>
+				<button class="filter-btn" data-filter="crafts">Crafts</button>
+				<button class="filter-btn" data-filter="dining">Dining</button>
+				<button class="filter-btn" data-filter="special">Special</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- Events Grid Section -->
+	<section class="content-section" style="background: var(--light-gray);">
+		<div class="container">
+			<div class="section-header">
+				<h2>Upcoming Events</h2>
+				<p>Don't miss out on these exciting activities and gatherings</p>
+			</div>
+			<div class="events-grid" id="eventsGrid">
+				<!-- Events will be populated by JavaScript -->
+			</div>
+		</div>
+	</section>
+
+	<!-- Calendar Section -->
+	<section class="content-section">
+		<div class="container">
+			<div class="section-header">
+				<h2>Event Calendar</h2>
+				<p>View all events in our interactive calendar</p>
+			</div>
+			<div class="calendar-container">
+				<div class="calendar-header">
+					<button class="calendar-nav" id="prevMonth">
+						<i class="fas fa-chevron-left"></i>
+					</button>
+					<h3 class="calendar-title" id="calendarTitle">December 2024</h3>
+					<button class="calendar-nav" id="nextMonth">
+						<i class="fas fa-chevron-right"></i>
+					</button>
+				</div>
+				<div class="calendar-grid" id="calendarGrid">
+					<!-- Calendar will be populated by JavaScript -->
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Event Categories Section -->
+	<section class="content-section" style="background: var(--light-gray);">
+		<div class="container">
+			<div class="section-header">
+				<h2>Event Categories</h2>
+				<p>Discover the different types of events we organize</p>
+			</div>
+			<div class="features-grid">
+				<div class="feature-card">
+					<div class="feature-icon">🍽️</div>
+					<h3>Dining Events</h3>
+					<p>Enjoy delicious meals and great company at our regular dining events, high teas, and special restaurant outings.</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">🎨</div>
+					<h3>Craft Workshops</h3>
+					<p>Unleash your creativity with our hands-on craft workshops, art classes, and DIY project sessions.</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">✈️</div>
+					<h3>Travel Adventures</h3>
+					<p>Explore new places and create lasting memories with our organized trips and travel experiences.</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">🎉</div>
+					<h3>Social Gatherings</h3>
+					<p>Connect with fellow members at our social events, parties, and community celebrations.</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">🎭</div>
+					<h3>Cultural Events</h3>
+					<p>Experience the arts with visits to theaters, museums, galleries, and cultural performances.</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">🎊</div>
+					<h3>Special Celebrations</h3>
+					<p>Join us for holiday parties, milestone celebrations, and special Red Hat Society events.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="content-section">
+		<div class="container">
+			<div class="section-header">
+				<h2>Ready to Join the Fun?</h2>
+				<p>Become a member to access all our events and start making new friends today!</p>
+			</div>
+			<div class="text-center">
+				<a href="register.html" class="btn btn-primary">Join Now</a>
+				<a href="contact-us.html" class="btn btn-secondary">Contact Us</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<div class="footer-section footer-left">
+					<h3>Connect With Us</h3>
+					<div class="social-links">
+						<a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+						<a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+						<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+						<a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+					</div>
+					<a href="register.html" class="footer-cta-button">Join Our Community</a>
+				</div>
+				<div class="footer-section footer-center">
+					<img src="images/rhs logo purple.jpeg" alt="Red Hatters WA Logo" class="footer-logo-img">
+					<p>Red Hatters WA</p>
+					<p>Fun • Friendship • Frivolity</p>
+				</div>
+				<div class="footer-section footer-right">
+					<h3>Stay Updated</h3>
+					<p>Subscribe to our newsletter for the latest events and news!</p>
+					<form class="newsletter-form">
+						<input type="email" placeholder="Enter your email" required>
+						<button type="submit">Subscribe</button>
+					</form>
+					<div class="quick-links">
+						<a href="about-us.html">About Us</a>
+						<a href="wa-chapters.html">WA Chapters</a>
+						<a href="events.html">Events</a>
+						<a href="contact-us.html">Contact</a>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; <span id="current-year">2025</span> Red Hatters WA. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- JavaScript -->
+	<script>
+		// Update current year in footer
+		document.getElementById('current-year').textContent = new Date().getFullYear();
+
+		// Sample event data
+		const events = [
+			{
+				title: "Christmas High Tea",
+				date: "2024-12-15",
+				time: "2:00 PM",
+				location: "The Ritz Carlton, Perth",
+				description: "Join us for a festive high tea celebration with delicious treats and holiday cheer!",
+				category: "special",
+				attendees: 25,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "Craft Workshop: Holiday Decorations",
+				date: "2024-12-20",
+				time: "10:00 AM",
+				location: "Community Center, Fremantle",
+				description: "Create beautiful holiday decorations and crafts with your Red Hat sisters.",
+				category: "crafts",
+				attendees: 15,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "New Year's Eve Dinner",
+				date: "2024-12-31",
+				time: "7:00 PM",
+				location: "Crown Perth",
+				description: "Ring in the new year with a fabulous dinner and celebration!",
+				category: "dining",
+				attendees: 40,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "Book Club Meeting",
+				date: "2025-01-10",
+				time: "7:00 PM",
+				location: "Mandurah Library",
+				description: "Discuss this month's book selection and enjoy great conversation.",
+				category: "social",
+				attendees: 12,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "Wine Tasting Tour",
+				date: "2025-01-25",
+				time: "11:00 AM",
+				location: "Swan Valley Wineries",
+				description: "Explore the beautiful Swan Valley and taste some of WA's finest wines.",
+				category: "travel",
+				attendees: 20,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "Valentine's Day Craft Party",
+				date: "2025-02-14",
+				time: "2:00 PM",
+				location: "Bunbury Arts Centre",
+				description: "Create beautiful Valentine's Day crafts and celebrate love and friendship.",
+				category: "crafts",
+				attendees: 18,
+				image: "images/IMG_5259.jpg"
+			}
+		];
+
+		// Filter functionality
+		document.querySelectorAll('.filter-btn').forEach(btn => {
+			btn.addEventListener('click', function() {
+				document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+				this.classList.add('active');
+				
+				const filter = this.getAttribute('data-filter');
+				filterEvents(filter);
+			});
+		});
+
+		function filterEvents(filter) {
+			const eventsGrid = document.getElementById('eventsGrid');
+			const filteredEvents = filter === 'all' ? events : events.filter(event => event.category === filter);
+			
+			eventsGrid.innerHTML = filteredEvents.map(event => `
+				<div class="event-card">
+					<div class="event-image-container">
+						<img src="${event.image}" alt="${event.title}" class="event-image">
+						<div class="event-category-badge">${event.category.toUpperCase()}</div>
+					</div>
+					<div class="event-content">
+						<div class="event-date">${formatDate(event.date)}</div>
+						<h3 class="event-title">${event.title}</h3>
+						<div class="event-location">
+							<i class="fas fa-map-marker-alt"></i> ${event.location}
+						</div>
+						<p class="event-description">${event.description}</p>
+						<div class="event-details">
+							<span class="event-time">
+								<i class="fas fa-clock"></i> ${event.time}
+							</span>
+							<span class="event-attendees">
+								<i class="fas fa-users"></i> ${event.attendees} attending
+							</span>
+						</div>
+						<a href="#" class="btn btn-primary">RSVP Now</a>
+					</div>
+				</div>
+			`).join('');
+		}
+
+		function formatDate(dateString) {
+			const date = new Date(dateString);
+			return date.toLocaleDateString('en-AU', { 
+				day: 'numeric', 
+				month: 'short',
+				year: 'numeric'
+			});
+		}
+
+		// Calendar functionality
+		let currentDate = new Date();
+		let currentMonth = currentDate.getMonth();
+		let currentYear = currentDate.getFullYear();
+
+		function renderCalendar() {
+			const calendarTitle = document.getElementById('calendarTitle');
+			const calendarGrid = document.getElementById('calendarGrid');
+			
+			calendarTitle.textContent = new Date(currentYear, currentMonth).toLocaleDateString('en-AU', { 
+				month: 'long', 
+				year: 'numeric' 
+			});
+
+			const firstDay = new Date(currentYear, currentMonth, 1);
+			const lastDay = new Date(currentYear, currentMonth + 1, 0);
+			const daysInMonth = lastDay.getDate();
+			const startingDay = firstDay.getDay();
+
+			// Days of week headers
+			const dayHeaders = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+			let calendarHTML = dayHeaders.map(day => `<div class="calendar-day-header">${day}</div>`).join('');
+
+			// Previous month days
+			const prevMonth = new Date(currentYear, currentMonth, 0);
+			for (let i = startingDay - 1; i >= 0; i--) {
+				calendarHTML += `<div class="calendar-day other-month">${prevMonth.getDate() - i}</div>`;
+			}
+
+			// Current month days
+			for (let day = 1; day <= daysInMonth; day++) {
+				const dateString = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+				const hasEvent = events.some(event => event.date === dateString);
+				const isToday = new Date().toDateString() === new Date(currentYear, currentMonth, day).toDateString();
+				
+				let dayClass = 'calendar-day';
+				if (isToday) dayClass += ' today';
+				if (hasEvent) dayClass += ' has-event';
+				
+				calendarHTML += `<div class="${dayClass}" data-date="${dateString}">${day}</div>`;
+			}
+
+			// Next month days
+			const remainingDays = 42 - (startingDay + daysInMonth);
+			for (let day = 1; day <= remainingDays; day++) {
+				calendarHTML += `<div class="calendar-day other-month">${day}</div>`;
+			}
+
+			calendarGrid.innerHTML = calendarHTML;
+
+			// Add click handlers for days with events
+			document.querySelectorAll('.calendar-day.has-event').forEach(day => {
+				day.addEventListener('click', function() {
+					const date = this.getAttribute('data-date');
+					const dayEvents = events.filter(event => event.date === date);
+					showEventModal(dayEvents);
+				});
+			});
+		}
+
+		function showEventModal(dayEvents) {
+			const modal = document.createElement('div');
+			modal.className = 'event-modal';
+			modal.innerHTML = `
+				<div class="modal-content">
+					<span class="modal-close">&times;</span>
+					<h3>Events for ${formatDate(dayEvents[0].date)}</h3>
+					${dayEvents.map(event => `
+						<div class="modal-event">
+							<h4>${event.title}</h4>
+							<p><i class="fas fa-clock"></i> ${event.time}</p>
+							<p><i class="fas fa-map-marker-alt"></i> ${event.location}</p>
+							<p>${event.description}</p>
+						</div>
+					`).join('')}
+				</div>
+			`;
+			document.body.appendChild(modal);
+
+			// Close modal handlers
+			modal.querySelector('.modal-close').addEventListener('click', () => modal.remove());
+			modal.addEventListener('click', (e) => {
+				if (e.target === modal) modal.remove();
+			});
+		}
+
+		// Calendar navigation
+		document.getElementById('prevMonth').addEventListener('click', function() {
+			currentMonth--;
+			if (currentMonth < 0) {
+				currentMonth = 11;
+				currentYear--;
+			}
+			renderCalendar();
+		});
+
+		document.getElementById('nextMonth').addEventListener('click', function() {
+			currentMonth++;
+			if (currentMonth > 11) {
+				currentMonth = 0;
+				currentYear++;
+			}
+			renderCalendar();
+		});
+
+		// Initialize
+		window.addEventListener('load', function() {
+			filterEvents('all');
+			renderCalendar();
+		});
+	</script>
+</body>
+</html>
