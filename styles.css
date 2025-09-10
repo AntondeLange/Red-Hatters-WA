@@ -1765,21 +1765,21 @@ img {
 .newsletter-signup {
 	max-width: 500px;
 	margin: 0 auto;
-	text-align: center;
+	text-align: left;
 }
 
 .newsletter-signup .newsletter-form {
-	display: flex;
-	gap: 10px;
+	display: block;
 	margin-bottom: 15px;
 }
 
 .newsletter-signup .newsletter-form input {
-	flex: 1;
+	width: 100%;
 	padding: 12px 15px;
 	border: 2px solid var(--light-gray);
 	border-radius: 8px;
 	font-size: 1rem;
+	margin-bottom: 15px;
 }
 
 .newsletter-signup .newsletter-form input:focus {
@@ -1812,9 +1812,6 @@ img {
 		text-align: center;
 	}
 	
-	.newsletter-signup .newsletter-form {
-		flex-direction: column;
-	}
 }
 
 /* Members Corner Page Styles */
@@ -2935,11 +2932,12 @@ img {
 .newsletter-signup {
 	max-width: 800px;
 	margin: 0 auto;
+	text-align: left;
 }
 
 .signup-card {
-	display: grid;
-	grid-template-columns: 2fr 1fr;
+	display: flex;
+	flex-direction: column;
 	gap: 40px;
 	background: var(--white);
 	border-radius: 15px;
@@ -3116,7 +3114,7 @@ img {
 
 @media (max-width: 768px) {
 	.signup-card {
-		grid-template-columns: 1fr;
+		padding: 30px;
 		gap: 30px;
 	}
 	
@@ -4053,6 +4051,185 @@ img {
 	
 	.chapter-links {
 		justify-content: center;
+	}
+}
+
+/* Contact CTA Section Styles */
+.contact-cta {
+	background: var(--primary-purple);
+	color: var(--white);
+	padding: 80px 0;
+	text-align: center;
+}
+
+.contact-cta h2 {
+	font-size: 2.5rem;
+	margin-bottom: 20px;
+	color: var(--white);
+}
+
+.contact-cta p {
+	font-size: 1.2rem;
+	margin-bottom: 30px;
+	opacity: 0.9;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.contact-cta .cta-button {
+	display: inline-block;
+	background: var(--primary-red);
+	color: var(--white);
+	padding: 15px 30px;
+	border-radius: 25px;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 1.1rem;
+	transition: all 0.3s ease;
+	border: 2px solid var(--primary-red);
+}
+
+.contact-cta .cta-button:hover {
+	background: transparent;
+	color: var(--primary-red);
+	border-color: var(--primary-red);
+	transform: translateY(-2px);
+	box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+	.contact-cta h2 {
+		font-size: 2rem;
+	}
+	
+	.contact-cta p {
+		font-size: 1.1rem;
+		padding: 0 20px;
+	}
+}
+
+/* Terms and Privacy Page Styles */
+.terms-content,
+.privacy-content {
+	max-width: 800px;
+	margin: 0 auto;
+	line-height: 1.7;
+}
+
+.terms-section,
+.privacy-section {
+	margin-bottom: 40px;
+	padding: 30px;
+	background: var(--white);
+	border-radius: 15px;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.terms-section h2,
+.privacy-section h2 {
+	color: var(--primary-purple);
+	font-size: 2rem;
+	margin-bottom: 20px;
+	border-bottom: 2px solid var(--light-gray);
+	padding-bottom: 10px;
+}
+
+.terms-section h3,
+.privacy-section h3 {
+	color: var(--primary-purple);
+	font-size: 1.5rem;
+	margin: 25px 0 15px 0;
+}
+
+.terms-section h4,
+.privacy-section h4 {
+	color: var(--text-dark);
+	font-size: 1.2rem;
+	margin: 20px 0 10px 0;
+}
+
+.terms-section p,
+.privacy-section p {
+	margin-bottom: 15px;
+	color: var(--text-dark);
+}
+
+.terms-section ul,
+.privacy-section ul,
+.terms-section ol,
+.privacy-section ol {
+	margin: 15px 0;
+	padding-left: 30px;
+}
+
+.terms-section li,
+.privacy-section li {
+	margin-bottom: 8px;
+	color: var(--text-dark);
+}
+
+.terms-section a,
+.privacy-section a {
+	color: var(--primary-purple);
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.terms-section a:hover,
+.privacy-section a:hover {
+	color: var(--primary-red);
+	text-decoration: underline;
+}
+
+.example-box {
+	background: var(--light-gray);
+	padding: 20px;
+	border-radius: 10px;
+	margin: 20px 0;
+	border-left: 4px solid var(--primary-purple);
+}
+
+.example-box h4 {
+	color: var(--primary-purple);
+	margin-top: 0;
+}
+
+.example-box p {
+	margin-bottom: 10px;
+}
+
+.terms-section strong,
+.privacy-section strong {
+	color: var(--primary-purple);
+	font-weight: 600;
+}
+
+.terms-section em,
+.privacy-section em {
+	color: var(--text-light);
+	font-style: italic;
+}
+
+@media (max-width: 768px) {
+	.terms-section,
+	.privacy-section {
+		padding: 20px;
+		margin-bottom: 30px;
+	}
+	
+	.terms-section h2,
+	.privacy-section h2 {
+		font-size: 1.5rem;
+	}
+	
+	.terms-section h3,
+	.privacy-section h3 {
+		font-size: 1.3rem;
+	}
+	
+	.example-box {
+		padding: 15px;
 	}
 }
 
