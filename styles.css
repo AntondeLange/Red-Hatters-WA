@@ -21,17 +21,17 @@
 	--font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 	--font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
 	
-	/* Font Sizes - Fluid Typography Scale */
-	--text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.8rem);
-	--text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 0.9rem);
-	--text-base: clamp(1rem, 0.95rem + 0.25vw, 1.1rem);
-	--text-lg: clamp(1.125rem, 1rem + 0.625vw, 1.2rem);
-	--text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.3rem);
-	--text-2xl: clamp(1.5rem, 1.3rem + 1vw, 1.8rem);
-	--text-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);
-	--text-4xl: clamp(2.25rem, 1.8rem + 2.25vw, 3rem);
-	--text-5xl: clamp(3rem, 2.5rem + 2.5vw, 3.5rem);
-	--text-6xl: clamp(3.75rem, 3rem + 3.75vw, 4.5rem);
+	/* Font Sizes - Enhanced for 60+ Accessibility */
+	--text-xs: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+	--text-sm: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+	--text-base: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+	--text-lg: clamp(1.25rem, 1.1rem + 0.75vw, 1.375rem);
+	--text-xl: clamp(1.375rem, 1.2rem + 0.875vw, 1.5rem);
+	--text-2xl: clamp(1.625rem, 1.4rem + 1.125vw, 2rem);
+	--text-3xl: clamp(2rem, 1.6rem + 2vw, 2.75rem);
+	--text-4xl: clamp(2.5rem, 2rem + 2.5vw, 3.25rem);
+	--text-5xl: clamp(3.25rem, 2.75rem + 2.5vw, 4rem);
+	--text-6xl: clamp(4rem, 3.25rem + 3.75vw, 5rem);
 	
 	/* Font Weights */
 	--font-light: 300;
@@ -55,12 +55,92 @@
 	box-sizing: border-box;
 }
 
+/* Skip Links for Accessibility */
+.skip-link {
+	position: absolute;
+	top: -40px;
+	left: 6px;
+	background: var(--primary-purple);
+	color: white;
+	padding: 8px;
+	text-decoration: none;
+	z-index: 10000;
+	border-radius: 4px;
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.skip-link:focus {
+	top: 6px;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+	background: var(--light-gray);
+	padding: 1rem 0;
+	margin-top: 70px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.breadcrumb-nav {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 16px;
+	color: var(--text-light);
+}
+
+.breadcrumb-nav a {
+	color: var(--primary-purple);
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.breadcrumb-nav a:hover {
+	text-decoration: underline;
+}
+
+.breadcrumb-nav .separator {
+	color: var(--text-light);
+	font-weight: 400;
+}
+
+.breadcrumb-nav .current {
+	color: var(--text-dark);
+	font-weight: 600;
+}
+
 body {
 	font-family: 'Playfair Display', serif;
 	line-height: 1.6;
 	color: var(--text-dark);
 	background: var(--white);
 	padding-top: 70px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+	:root {
+		--text-dark: #000000;
+		--text-light: #333333;
+		--primary-purple: #4a004a;
+		--primary-red: #cc0000;
+	}
+	
+	.nav-menu a,
+	.dropdown-toggle {
+		font-weight: 700;
+	}
+	
+	.dropdown-menu {
+		border: 2px solid #000000;
+	}
+	
+	.cta-button,
+	.login-button {
+		border: 2px solid #000000;
+		font-weight: 700;
+	}
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -74,6 +154,30 @@ h1, h2, h3, h4, h5, h6 {
 a {
 	text-decoration: none;
 	color: inherit;
+}
+
+/* Enhanced Focus Indicators for Accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+	outline: 3px solid var(--primary-red);
+	outline-offset: 2px;
+}
+
+/* Remove default focus outline and add custom */
+*:focus {
+	outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+	outline: 3px solid var(--primary-red);
+	outline-offset: 2px;
 }
 
 img {
@@ -144,9 +248,10 @@ img {
 	text-decoration: none;
 	color: var(--white);
 	font-weight: 600;
-	font-size: 16px;
+	font-size: 18px;
 	transition: color 0.3s ease;
 	position: relative;
+	padding: 0.5rem 0.75rem;
 }
 
 .nav-menu a:hover {
@@ -175,18 +280,33 @@ img {
 	position: relative;
 }
 
+/* Touch-friendly dropdown for mobile */
+@media (max-width: 768px) {
+	.nav-dropdown:hover .dropdown-menu {
+		opacity: 0;
+		visibility: hidden;
+	}
+	
+	.nav-dropdown:focus-within .dropdown-menu {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+}
+
 .dropdown-toggle {
 	text-decoration: none;
-	color: #dc3545;
+	color: var(--white);
 	font-weight: 600;
-	font-size: 16px;
+	font-size: 18px;
 	transition: color 0.3s ease;
 	position: relative;
 	cursor: pointer;
+	padding: 0.5rem 0.75rem;
 }
 
 .dropdown-toggle:hover {
-	color: #c82333;
+	color: var(--light-purple);
 }
 
 .dropdown-toggle::after {
@@ -231,12 +351,13 @@ img {
 
 .dropdown-menu a {
 	display: block;
-	padding: 0.75rem 1.5rem;
+	padding: 1rem 1.5rem;
 	color: #333333;
 	text-decoration: none;
 	transition: all 0.3s ease;
 	border-bottom: 1px solid #f0f0f0;
-	font-size: 14px;
+	font-size: 16px;
+	font-weight: 500;
 }
 
 .dropdown-menu a:last-child {
@@ -263,15 +384,18 @@ img {
 .cta-button {
 	background: #dc3545;
 	color: #ffffff;
-	padding: 0.75rem 1.5rem;
+	padding: 1rem 2rem;
 	text-decoration: none;
 	font-weight: 600;
-	font-size: 14px;
+	font-size: 16px;
 	text-transform: uppercase;
 	transition: all 0.3s ease;
 	border: none;
 	cursor: pointer;
 	border-radius: 0;
+	min-height: 48px;
+	display: flex;
+	align-items: center;
 }
 
 .cta-button:hover {
@@ -281,16 +405,19 @@ img {
 .login-button {
 	background: #ffffff;
 	color: #dc3545;
-	padding: 0.75rem 1.5rem;
+	padding: 1rem 2rem;
 	text-decoration: none;
 	font-weight: 600;
-	font-size: 14px;
+	font-size: 16px;
 	text-transform: uppercase;
 	transition: all 0.3s ease;
 	border: none;
 	cursor: pointer;
 	border-radius: 0;
 	border-left: 1px solid #dc3545;
+	min-height: 48px;
+	display: flex;
+	align-items: center;
 }
 
 .login-button:hover {
@@ -583,19 +710,19 @@ img {
 
 /* New footer section styles */
 .footer-links {
-	text-align: left;
+	text-align: center;
 }
 
 .footer-links .quick-links {
-	align-items: flex-start;
+	align-items: center;
 }
 
 .footer-newsletter {
-	text-align: left;
+	text-align: center;
 }
 
 .footer-social {
-	text-align: left;
+	text-align: center;
 }
 
 .footer-center {
@@ -609,7 +736,7 @@ img {
 }
 
 .footer-left {
-	text-align: left;
+	text-align: center;
 }
 
 .footer-center {
@@ -617,12 +744,12 @@ img {
 }
 
 .footer-right {
-	text-align: right;
+	text-align: center;
 }
 
 .footer-logo-img {
-	max-width: 120px;
-	height: auto;
+	width: 240px;
+	height: 240px;
 	filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
 	margin-bottom: 1rem;
 }
@@ -718,6 +845,7 @@ img {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	align-items: center;
 }
 
 .quick-links a {
