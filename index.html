@@ -36,17 +36,17 @@
 					<ul class="dropdown-menu" role="menu" aria-label="About submenu">
 						<li role="none"><a href="about-us.html" role="menuitem">About Us</a></li>
 						<li role="none"><a href="benefits.html" role="menuitem">Benefits</a></li>
+						<li role="none"><a href="history.html" role="menuitem">History</a></li>
+						<li role="none"><a href="pinkhatters.html" role="menuitem">Pink Hatters</a></li>
 						<li role="none"><a href="faq.html" role="menuitem">FAQ</a></li>
-						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
-						<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
-						<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
 					</ul>
 				</li>
-				<li class="nav-dropdown" role="none">
+				<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
+				<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+				<li class="nav-dropdown protected-nav" role="none" style="display: none;">
 					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Members</a>
 					<ul class="dropdown-menu" role="menu" aria-label="Members submenu">
 						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
-						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
 						<li role="none"><a href="discussions.html" role="menuitem">Discussions</a></li>
 						<li role="none"><a href="news-notes.html" role="menuitem">News and Notes</a></li>
 						<li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
@@ -54,10 +54,12 @@
 						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
 						<li role="none"><a href="account.html" role="menuitem">My Account</a></li>
 						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
-						<li role="none"><a href="member-search.html" role="menuitem">Find Members</a></li>
+						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
+						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
+						<li role="none"><a href="rules-of-association.html" role="menuitem">Rules of Association</a></li>
 					</ul>
 				</li>
-				<li class="nav-dropdown" role="none">
+				<li class="nav-dropdown protected-nav" role="none" style="display: none;">
 					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Resources</a>
 					<ul class="dropdown-menu" role="menu" aria-label="Resources submenu">
 						<li role="none"><a href="resources.html" role="menuitem">Resources</a></li>
@@ -66,14 +68,21 @@
 						<li role="none"><a href="games.html" role="menuitem">Games</a></li>
 						<li role="none"><a href="crafts.html" role="menuitem">Crafts</a></li>
 						<li role="none"><a href="printables.html" role="menuitem">Printables</a></li>
-						<li role="none"><a href="hatter-links.html" role="menuitem">Hatter Links</a></li>
+						<li role="none"><a href="hoot-ideas.html" role="menuitem">Hoot Ideas</a></li>
+						<li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
+						<li role="none"><a href="hatter-commandments.html" role="menuitem">Hatter Commandments & Creed</a></li>
+						<li role="none"><a href="hatter-customs.html" role="menuitem">Hatter Customs</a></li>
 					</ul>
 				</li>
 			</ul>
 			<div class="nav-buttons">
-				<div class="split-button">
+				<div class="user-display protected-nav" style="display: none;"></div>
+				<div class="split-button public-nav">
 					<a href="register.html" class="cta-button" aria-label="Join Red Hatters WA">Join</a>
 					<a href="login.html" class="login-button" aria-label="Sign in to your account">Sign In</a>
+				</div>
+				<div class="logout-section protected-nav" style="display: none;">
+					<a href="#" class="logout-button" onclick="AuthManager.logout()" aria-label="Sign out">Logout</a>
 				</div>
 			</div>
 		</nav>
@@ -177,20 +186,39 @@
 					</div>
 				</div>
 				<div class="contact-form">
-					<form>
+					<form id="contact-form" novalidate>
 						<div class="form-group">
-							<label for="name">Name</label>
-							<input type="text" id="name" name="name" required>
+							<label for="name">Name *</label>
+							<input type="text" id="name" name="name" required minlength="2" maxlength="100" 
+								   pattern="[a-zA-Z\s\-'\.]+" autocomplete="name">
+							<div class="form-error" id="name-error"></div>
 						</div>
 						<div class="form-group">
-							<label for="email">Email</label>
-							<input type="email" id="email" name="email" required>
+							<label for="email">Email *</label>
+							<input type="email" id="email" name="email" required maxlength="254" 
+								   autocomplete="email">
+							<div class="form-error" id="email-error"></div>
 						</div>
 						<div class="form-group">
-							<label for="message">Message</label>
-							<textarea id="message" name="message" required></textarea>
+							<label for="website">Website (optional)</label>
+							<input type="url" id="website" name="website" placeholder="https://example.com" 
+								   maxlength="2048" autocomplete="url">
+							<div class="form-error" id="website-error"></div>
 						</div>
-						<button type="submit" class="btn btn-primary">Send Message</button>
+						<div class="form-group">
+							<label for="message">Comment or Message *</label>
+							<textarea id="message" name="message" required minlength="10" maxlength="2000" 
+									  placeholder="Tell us how we can help you..."></textarea>
+							<div class="form-error" id="message-error"></div>
+						</div>
+						<div class="form-group">
+							<label class="checkbox-label">
+								<input type="checkbox" name="newsletter" value="yes">
+								<span class="checkmark"></span>
+								Subscribe to our newsletter for updates and events
+							</label>
+						</div>
+						<button type="submit" class="btn btn-primary" id="contact-submit">Submit</button>
 					</form>
 				</div>
 			</div>
@@ -219,9 +247,7 @@
 						<a href="about-us.html">About Us</a>
 						<a href="benefits.html">Benefits</a>
 						<a href="faq.html">FAQ</a>
-						<a href="wa-chapters.html">WA Chapters</a>
-						<a href="events.html">Events</a>
-						<a href="resources.html">Resources</a>
+						<a href="donate.html">Donate</a>
 						<a href="contact-us.html">Contact Us</a>
 					</div>
 				</div>
@@ -240,15 +266,58 @@
 				</div>
 			</div>
 			<div class="footer-bottom">
-				<p>&copy; <span id="current-year">2025</span> Red Hatters WA. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a> | <a href="community-guidelines.html">Community Guidelines</a> | <a href="rules-of-association.html">Rules of Association</a></p>
+				<p>&copy; <span id="current-year">2025</span> Red Hatters WA. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
 			</div>
 		</div>
 	</footer>
+
+	<!-- Public Chatbot -->
+	<div class="chatbot-container" id="public-chatbot">
+		<div class="chatbot-header">
+			<div class="chatbot-avatar">
+				<img src="images/rhswa-logo-small.png" alt="Red Hatters WA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+				<div class="chatbot-avatar-fallback" style="display: none;">
+					<i class="fas fa-robot"></i>
+				</div>
+			</div>
+			<div class="chatbot-info">
+				<h4>Red Hatters WA</h4>
+				<p>How can we help you today?</p>
+			</div>
+			<button class="chatbot-toggle" id="public-chatbot-toggle">
+				<i class="fas fa-times"></i>
+			</button>
+		</div>
+		<div class="chatbot-messages" id="public-chatbot-messages">
+			<div class="chatbot-message bot-message">
+				<div class="message-content">
+					<p>Hello! I'm here to help you learn about Red Hatters WA. What would you like to know? 😊</p>
+				</div>
+			</div>
+		</div>
+		<div class="chatbot-input">
+			<input type="text" id="public-chatbot-input" placeholder="Type your message..." maxlength="500">
+			<button id="public-chatbot-send">
+				<i class="fas fa-paper-plane"></i>
+			</button>
+		</div>
+	</div>
+
+	<!-- Chatbot Toggle Button -->
+	<div class="chatbot-toggle-btn" id="public-chatbot-toggle-btn">
+		<div class="chatbot-toggle-icon">
+			<i class="fas fa-comments"></i>
+		</div>
+		<div class="chatbot-toggle-text">
+			<span>Need Help?</span>
+		</div>
+	</div>
 
 	<!-- Bootstrap 5 JavaScript -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 	
 	<!-- Custom JavaScript -->
+	<script src="config.js"></script>
 	<script src="script.js"></script>
 </body>
 </html>

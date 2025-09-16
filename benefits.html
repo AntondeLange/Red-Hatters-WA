@@ -31,17 +31,17 @@
 					<ul class="dropdown-menu" role="menu" aria-label="About submenu">
 						<li role="none"><a href="about-us.html" role="menuitem">About Us</a></li>
 						<li role="none"><a href="benefits.html" role="menuitem" aria-current="page">Benefits</a></li>
+						<li role="none"><a href="history.html" role="menuitem">History</a></li>
+						<li role="none"><a href="pinkhatters.html" role="menuitem">Pink Hatters</a></li>
 						<li role="none"><a href="faq.html" role="menuitem">FAQ</a></li>
-						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
-						<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
-						<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
 					</ul>
 				</li>
-				<li class="nav-dropdown" role="none">
+				<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
+				<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+				<li class="nav-dropdown protected-nav" role="none" style="display: none;">
 					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Members</a>
 					<ul class="dropdown-menu" role="menu" aria-label="Members submenu">
 						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
-						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
 						<li role="none"><a href="discussions.html" role="menuitem">Discussions</a></li>
 						<li role="none"><a href="news-notes.html" role="menuitem">News and Notes</a></li>
 						<li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
@@ -49,10 +49,12 @@
 						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
 						<li role="none"><a href="account.html" role="menuitem">My Account</a></li>
 						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
-						<li role="none"><a href="member-search.html" role="menuitem">Find Members</a></li>
+						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
+						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
+						<li role="none"><a href="rules-of-association.html" role="menuitem">Rules of Association</a></li>
 					</ul>
 				</li>
-				<li class="nav-dropdown" role="none">
+				<li class="nav-dropdown protected-nav" role="none" style="display: none;">
 					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Resources</a>
 					<ul class="dropdown-menu" role="menu" aria-label="Resources submenu">
 						<li role="none"><a href="resources.html" role="menuitem">Resources</a></li>
@@ -61,14 +63,17 @@
 						<li role="none"><a href="games.html" role="menuitem">Games</a></li>
 						<li role="none"><a href="crafts.html" role="menuitem">Crafts</a></li>
 						<li role="none"><a href="printables.html" role="menuitem">Printables</a></li>
-						<li role="none"><a href="hatter-links.html" role="menuitem">Hatter Links</a></li>
 					</ul>
 				</li>
 			</ul>
 			<div class="nav-buttons">
-				<div class="split-button">
+				<div class="user-display protected-nav" style="display: none;"></div>
+				<div class="split-button public-nav">
 					<a href="register.html" class="cta-button" aria-label="Join Red Hatters WA">Join</a>
 					<a href="login.html" class="login-button" aria-label="Sign in to your account">Sign In</a>
+				</div>
+				<div class="logout-section protected-nav" style="display: none;">
+					<a href="#" class="logout-button" onclick="AuthManager.logout()" aria-label="Sign out">Logout</a>
 				</div>
 			</div>
 		</nav>
@@ -152,6 +157,16 @@
 					<h3>Lifelong Friendships</h3>
 					<p>Build meaningful relationships that will last a lifetime and enrich your life with genuine connections and shared experiences.</p>
 				</div>
+				<div class="feature-card">
+					<div class="feature-icon">🎨</div>
+					<h3>Creative Expression</h3>
+					<p>Explore your artistic side through crafts, creative projects, and themed events that celebrate your unique personality and talents.</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">🌟</div>
+					<h3>Celebration & Recognition</h3>
+					<p>Be celebrated for who you are! Our community honors each member's journey, milestones, and contributions with special recognition and appreciation.</p>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -166,18 +181,18 @@
 			<div class="features-grid">
 				<div class="card">
 					<p>"The Red Hat Society has provided me with sisters I would not have had. I have experienced travels to places like London, England and many cities in the US that I have had so much fun and beautiful experiences. I can't forget the marvelous cruises. The five F's are very much a part of my life."</p>
-					<div style="margin-top: 20px; font-weight: 600; color: var(--primary-purple);">Marilyn Cresci</div>
-					<div style="color: var(--text-light); font-size: 0.9rem;">Red Hat Society Member</div>
+					<div class="testimonial-author">Marilyn Cresci</div>
+					<div class="testimonial-role">Red Hat Society Member</div>
 				</div>
 				<div class="card">
 					<p>"For me, my membership has allowed for camaraderie with so many ladies from all over the world; friends, friendships, and the sisterhood that I would have never ever known, if it had not been for the Red Hat Society. What a blessing!"</p>
-					<div style="margin-top: 20px; font-weight: 600; color: var(--primary-purple);">Margaret Forney</div>
-					<div style="color: var(--text-light); font-size: 0.9rem;">Red Hat Society Member</div>
+					<div class="testimonial-author">Margaret Forney</div>
+					<div class="testimonial-role">Red Hat Society Member</div>
 				</div>
 				<div class="card">
 					<p>"Just when I thought it was time to sit back, relax and take it easy, the Red Hat Society came into my life! Little did I know it really was the time to 'kick up my heels, travel, make new friends across the globe and have a ball!' Thanks, RHS for my second childhood!!!!"</p>
-					<div style="margin-top: 20px; font-weight: 600; color: var(--primary-purple);">Christine Lozinak</div>
-					<div style="color: var(--text-light); font-size: 0.9rem;">Red Hat Society Member</div>
+					<div class="testimonial-author">Christine Lozinak</div>
+					<div class="testimonial-role">Red Hat Society Member</div>
 				</div>
 			</div>
 		</div>
@@ -237,16 +252,14 @@
 			</div>
 			<div class="footer-section footer-links">
 				<h3>Quick Links</h3>
-				<div class="quick-links">
-					<a href="index.html">Home</a>
-					<a href="about-us.html">About Us</a>
-					<a href="benefits.html">Benefits</a>
-					<a href="faq.html">FAQ</a>
-					<a href="wa-chapters.html">WA Chapters</a>
-					<a href="events.html">Events</a>
-					<a href="resources.html">Resources</a>
-					<a href="contact-us.html">Contact Us</a>
-				</div>
+					<div class="quick-links">
+						<a href="index.html">Home</a>
+						<a href="about-us.html">About Us</a>
+						<a href="benefits.html">Benefits</a>
+						<a href="faq.html">FAQ</a>
+						<a href="donate.html">Donate</a>
+						<a href="contact-us.html">Contact Us</a>
+					</div>
 			</div>
 			<div class="footer-section footer-center">
 				<img src="images/ARHSWA 1.png" alt="ARHSWA 1 Logo" class="footer-logo-img">
@@ -263,16 +276,12 @@
 			</div>
 		</div>
 			<div class="footer-bottom">
-				<p>&copy; <span id="current-year">2025</span> Red Hatters WA. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a> | <a href="community-guidelines.html">Community Guidelines</a> | <a href="rules-of-association.html">Rules of Association</a></p>
+				<p>&copy; <span id="current-year">2025</span> Red Hatters WA. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
 			</div>
 		</div>
 	</footer>
 	<!-- Custom JavaScript -->
+	<script src="config.js"></script>
 	<script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-

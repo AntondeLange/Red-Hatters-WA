@@ -37,37 +37,37 @@
 					</div>
 				</li>
 				<li class="nav-dropdown">
-					<a href="#" class="dropdown-toggle">Members</a>
-					<div class="dropdown-menu">
-						<a href="member-role.html">Member Role</a>
-						<a href="member-search.html">Member Search</a>
-						<a href="discussions.html">Discussions</a>
-						<a href="news-notes.html">News and Notes</a>
-						<a href="members-corner.html">Members' Corner</a>
-						<a href="website-guide.html">Website Guide</a>
-						<a href="member-handbook.html" class="active">Member Handbook</a>
-						<a href="account.html">My Account</a>
-						<a href="wa-chapters.html">WA Chapters</a>
-						<a href="member-search.html">Find Members</a>
-					</div>
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Members</a>
+					<ul class="dropdown-menu" role="menu" aria-label="Members submenu">
+						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
+						<li role="none"><a href="discussions.html" role="menuitem">Discussions</a></li>
+						<li role="none"><a href="news-notes.html" role="menuitem">News and Notes</a></li>
+						<li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
+						<li role="none"><a href="website-guide.html" role="menuitem">Website Guide</a></li>
+						<li role="none"><a href="member-handbook.html" role="menuitem" aria-current="page">Member Handbook</a></li>
+						<li role="none"><a href="account.html" role="menuitem">My Account</a></li>
+						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
+						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
+						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
+						<li role="none"><a href="rules-of-association.html" role="menuitem">Rules of Association</a></li>
+					</ul>
 				</li>
-				<li class="nav-dropdown">
-					<a href="#" class="dropdown-toggle">Resources</a>
-					<div class="dropdown-menu">
-						<a href="resources.html">Resources</a>
-						<a href="events.html">Events</a>
-						<a href="newsletter.html">Newsletter</a>
-						<a href="games.html">Games</a>
-						<a href="crafts.html">Crafts</a>
-						<a href="printables.html">Printables</a>
-						<a href="hatter-links.html">Hatter Links</a>
-					</div>
+				<li class="nav-dropdown" role="none">
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Resources</a>
+					<ul class="dropdown-menu" role="menu" aria-label="Resources submenu">
+						<li role="none"><a href="resources.html" role="menuitem">Resources</a></li>
+						<li role="none"><a href="events.html" role="menuitem">Events</a></li>
+						<li role="none"><a href="newsletter.html" role="menuitem">Newsletter</a></li>
+						<li role="none"><a href="games.html" role="menuitem">Games</a></li>
+						<li role="none"><a href="crafts.html" role="menuitem">Crafts</a></li>
+						<li role="none"><a href="printables.html" role="menuitem">Printables</a></li>
+					</ul>
 				</li>
 			</ul>
 			<div class="nav-buttons">
-				<div class="split-button">
-					<a href="register.html" class="cta-button">Join</a>
-					<a href="login.html" class="login-button">Sign In</a>
+				<div class="user-display"></div>
+				<div class="logout-section">
+					<a href="#" class="logout-button" onclick="AuthManager.logout()" aria-label="Sign out">Logout</a>
 				</div>
 			</div>
 		</nav>

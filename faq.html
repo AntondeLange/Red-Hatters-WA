@@ -138,17 +138,17 @@
 					<ul class="dropdown-menu" role="menu" aria-label="About submenu">
 						<li role="none"><a href="about-us.html" role="menuitem">About Us</a></li>
 						<li role="none"><a href="benefits.html" role="menuitem">Benefits</a></li>
+						<li role="none"><a href="history.html" role="menuitem">History</a></li>
+						<li role="none"><a href="pinkhatters.html" role="menuitem">Pink Hatters</a></li>
 						<li role="none"><a href="faq.html" role="menuitem" aria-current="page">FAQ</a></li>
-						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
-						<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
-						<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
 					</ul>
 				</li>
-				<li class="nav-dropdown" role="none">
+						<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
+						<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+				<li class="nav-dropdown protected-nav" role="none" style="display: none;">
 					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Members</a>
 					<ul class="dropdown-menu" role="menu" aria-label="Members submenu">
 						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
-						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
 						<li role="none"><a href="discussions.html" role="menuitem">Discussions</a></li>
 						<li role="none"><a href="news-notes.html" role="menuitem">News and Notes</a></li>
 						<li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
@@ -156,10 +156,12 @@
 						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
 						<li role="none"><a href="account.html" role="menuitem">My Account</a></li>
 						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
-						<li role="none"><a href="member-search.html" role="menuitem">Find Members</a></li>
+						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
+						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
+						<li role="none"><a href="rules-of-association.html" role="menuitem">Rules of Association</a></li>
 					</ul>
 				</li>
-				<li class="nav-dropdown" role="none">
+				<li class="nav-dropdown protected-nav" role="none" style="display: none;">
 					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Resources</a>
 					<ul class="dropdown-menu" role="menu" aria-label="Resources submenu">
 						<li role="none"><a href="resources.html" role="menuitem">Resources</a></li>
@@ -168,14 +170,17 @@
 						<li role="none"><a href="games.html" role="menuitem">Games</a></li>
 						<li role="none"><a href="crafts.html" role="menuitem">Crafts</a></li>
 						<li role="none"><a href="printables.html" role="menuitem">Printables</a></li>
-						<li role="none"><a href="hatter-links.html" role="menuitem">Hatter Links</a></li>
 					</ul>
 				</li>
 			</ul>
 			<div class="nav-buttons">
-				<div class="split-button">
+				<div class="user-display protected-nav" style="display: none;"></div>
+				<div class="split-button public-nav">
 					<a href="register.html" class="cta-button" aria-label="Join Red Hatters WA">Join</a>
 					<a href="login.html" class="login-button" aria-label="Sign in to your account">Sign In</a>
+				</div>
+				<div class="logout-section protected-nav" style="display: none;">
+					<a href="#" class="logout-button" onclick="AuthManager.logout()" aria-label="Sign out">Logout</a>
 				</div>
 			</div>
 		</nav>
@@ -195,63 +200,94 @@
 			<div class="faq-container">
 				<details class="faq-item">
 					<summary class="faq-question">
-						<h3>What is the Red Hat Society?</h3>
+						<h3>What is the Red Hat Society and what does it do?</h3>
 					</summary>
 					<div class="faq-answer">
-						<p>The Red Hat Society is a global organization for women 50 and over, founded on the principles of fun, friendship, freedom, fulfillment, and fitness. We encourage women to embrace aging with joy and celebrate life through social activities, events, and sisterhood.</p>
+						<p>The Red Hat Society (abbreviated to "RHS") is a worldwide social club for women. Easily identifiable by the gorgeous Red and Purple colours. The primary focus is about fun and friendship, especially for those over the age of 50. Hatters get together in "Chapters" to socialise and have fun. It is non-religious and open to all women. Women over the age of 50 wear the Red Hats and Purple clothing ("Red Hatters"), women under the age of 50 wear Pink Hats and Lavender clothing ("Pink Hatters"). As it is a Society for women, husbands and other males, as well as children are not generally invited to attend. To become a member of the Red Hat Society you register on the official website.</p>
 					</div>
 				</details>
-
-				<div class="faq-item">
-					<div class="faq-question">
-						<h3>How do I join the Red Hat Society?</h3>
-						<span class="faq-icon">+</span>
-					</div>
-					<div class="faq-answer">
-						<p>Joining is easy! You can become a member by:</p>
-						<ul>
-							<li>Visiting our website and clicking "Join"</li>
-							<li>Filling out the membership form</li>
-							<li>Paying the annual membership fee</li>
-							<li>Finding a local chapter or starting your own</li>
-						</ul>
-					</div>
-				</div>
 
 				<details class="faq-item">
 					<summary class="faq-question">
-						<h3>What are the age requirements?</h3>
+						<h3>What is a "Chapter", and what is a "Queen"?</h3>
 					</summary>
 					<div class="faq-answer">
-						<p>Members must be 50 years of age or older. However, we also welcome "Pink Hatters" - women under 50 who can join as associate members and participate in most activities while waiting to become full Red Hat Society members.</p>
+						<p>A Chapter is the name given to the smaller groups of Hatters. Each Chapter runs independently, so they are all different in terms of how many members they have, how often they meet and what activities they do. These are usually based in a town to gather local women together and there can be more than one chapter in a town if there are enough women to support multiple chapters. Chapter sizes can range from as small as only 1 member to as large as the group wants to be. Often chapters like to cap membership at around 20 members, to keep the group manageable and personal. You can be a member of more than 1 chapter.</p>
+						<p>The person who founded the chapter is called the "Queen" (or "Queen Mother" if she has retired and a new Queen has taken her place). So the Queen is the figurehead or leader of the chapter. However she is not expected to take on all the responsibility of running the chapter, so there are often Vice Queens and other delegated members to help keep things running smoothly. Queens may also join other chapters as well, however they would usually be considered regular chapter members in the chapter that is not their own.</p>
 					</div>
 				</details>
 
-				<div class="faq-item">
-					<div class="faq-question">
-						<h3>What does it cost to join?</h3>
-						<span class="faq-icon">+</span>
-					</div>
+				<details class="faq-item">
+					<summary class="faq-question">
+						<h3>How do I join a Chapter?</h3>
+					</summary>
 					<div class="faq-answer">
-						<p>Annual membership fees vary by region, but typically range from $25-$35 per year. This includes access to our members-only website, digital magazine, and exclusive member benefits. Some local chapters may have additional small fees for activities and events.</p>
+						<p>Find a chapter in your town, or within easy travel distance to you, and make contact with them. You can use the RHS website "Chapter Search" feature to find Australian registered chapters. Or look to see if there is a chapter listed for your area on the WA Hatters websites (email for the contact information) or the Red Hats Victoria website (search the groups page for chapters by town).</p>
+						<p>Different Chapters may have different membership rules. Some will charge a small yearly fee for being a member (which helps cover expenses and insurance), some may ask for donations through the year or do fundraising to raise money for expenses. When you contact the Chapter they should tell you any of the information you would need to know to join them. Often chapters have a trial period, where they may ask you to come along to a cafe or other public place to meet with the Queen first, then may let you come along to outings as a trial to make sure everyone gets along well.</p>
+						<p>Please note that joining a Chapter does not necessarily make you an official "Supporting" member of the Red Hat Society. You need to register with the Red Hat Society itself to become a full supporting member.</p>
 					</div>
-				</div>
+				</details>
 
-				<div class="faq-item">
-					<div class="faq-question">
-						<h3>Do I have to wear a red hat and purple outfit?</h3>
-						<span class="faq-icon">+</span>
-					</div>
+				<details class="faq-item">
+					<summary class="faq-question">
+						<h3>What is a "Supporting Member"?</h3>
+					</summary>
 					<div class="faq-answer">
-						<p>While the red hat and purple outfit are our signature look and encouraged at official events, they're not mandatory for every gathering. Many chapters have casual events where members can dress as they please. The important thing is to have fun and be yourself!</p>
+						<p>A supporting member is one who has registered with the Red Hat Society and paid their yearly membership fee to become an official member of the Red Hat Society. Some Chapters will ask for your membership number when you ask to join them – this membership number will be on the membership card you receive from the RHS once you are a supporting member.</p>
 					</div>
-				</div>
+				</details>
 
-				<div class="faq-item">
-					<div class="faq-question">
+				<details class="faq-item">
+					<summary class="faq-question">
+						<h3>Do I have to wear red and purple?</h3>
+					</summary>
+					<div class="faq-answer">
+						<p>Yes (if you are over 50). The distinctive attire of a Hatter is what shows that they are a Hatter. Otherwise it's any other social club. This dress code comes from the "Warning" poem by Jenny Joseph, which talks of wearing <em>"purple with a red hat, which doesn't go and doesn't suit me"</em>. This has been used as the motto of sorts for the Red Hat Society. To wear clothing that is bright and colourful (especially if it doesn't suit you), to be the complete opposite of subtle and demure, to have fun and not to "act your age". Dressing in the attire of a Hatter is known as wearing your "Colours" and can be considered the equivalent of a uniform. It is the most distinctive aspect of Hatting and something that we feel is very important to our identity as Hatters.</p>
+						<p>If you are over the age of 50, you are to wear "<strong>Red on the Head, Purple below</strong>" – Which basically means a red hat/fascinator with purple clothing. Ladies under the age of 50 wear Pink on the head and lavender below. The exception to this is on your birth month, your chapter birth month and the birth month of the Red Hat Society (April) – where you may "Reverse Colours" – instead wearing Purple on the Head, Red Below.</p>
+						<p>How much purple/lavender you wear is up to you (or your chapter's requirements), as there are no strict rules. However while you could wear just a purple top with black trousers, most Hatters like to wear as much of their colours as possible. Patterns, stripes and a myriad of shades of purple/red/lavender/pink are also allowed.</p>
+					</div>
+				</details>
+
+				<details class="faq-item">
+					<summary class="faq-question">
+						<h3>But those colours, or hats don't suit me!</h3>
+					</summary>
+					<div class="faq-answer">
+						<p>That is rather the point! (although I'm yet to find anyone who doesn't look fabulous in their colours!) It is about not caring what the world thinks of what you do or wear, and having fun doing it anyway. As the colours are the main distinguishing factor of being a Hatter, if you are not prepared to embrace the colours, then you may find you are better suited to a different women's social club that doesn't have a particular dress code.</p>
+					</div>
+				</details>
+
+				<details class="faq-item">
+					<summary class="faq-question">
+						<h3>Does it need to be solid purple (or lavender) clothing?</h3>
+					</summary>
+					<div class="faq-answer">
+						<p>No. While the dress code for the Society defines the colours you should wear, you can decide how much of the clothing you wear is coloured, and what style or prints you like. You can wear a purple top with a red skirt or pants if you want. Although some chapters do have their own policies on doing things like this and prefer Red Hatters only wear red clothing on their birth months.</p>
+						<p>The important thing is to embrace the idea behind wearing the colours, and to make an effort to dress accordingly. You could wear a purple floral top with blue jeans, or a white shirt with purple stripes and a black skirt – it is up to you. However most Hatters like to wear as much of their colours as possible, as it does create a much more colourful and vibrant look. Remembering that the colours are a large part of the identity of being a Hatter.</p>
+						<p>If you look at photos of Hatters in large groups, you will see there is a huge variety in what people wear. You can also see how wonderful it looks when you have a sea of reds and purples – so the more of the colours you can wear, the more vibrant the whole group looks!</p>
+						<p>The official word (from the 2015 Red Hat Society Queen's Handbook) states:</p>
+						<blockquote>
+							<p><em>"Some have asked exactly what constitutes a hat: will a bow suffice? Or, what shade of purple is the proper shade? Can I wear red shoes with my purple outfit? Can I wear a purple print dress? Can I wear a magenta hat?</em></p>
+							<p><em>Remember, this is regalia, not a uniform. Each Member chooses how she will express herself visually. It is more important to enjoy each other's company than to worry about small details regarding what each one is wearing. It's all part of the same informal spirit that we use to avoid "meetings"—there is no place for "Robert's Rules of Order" at our gatherings! Let's keep the fun in the Society. Just stick to the basics: red (or pink!) on the head, and something purple (or lavender) below. Simple! That is what makes being a Red Hatter so appealing…less rules and more fun."</em></p>
+						</blockquote>
+					</div>
+				</details>
+
+				<details class="faq-item">
+					<summary class="faq-question">
+						<h3>Are Pink Hatters part of the same society?</h3>
+					</summary>
+					<div class="faq-answer">
+						<p>Yes!!!!!!!! Although most people think of the Red Hat Society as being only for ladies over 50 who wear the Purple and Red, Pink Hatters are part of the same group and can do all the same things Red Hatters do (except wearing red and purple!). The only difference is their age (under 50 years old) and they wear the lighter shades of pink and lavender (light purple/lilac etc.) to distinguish them. You can even find Pink Hatter Queens, chapters that are a mixture of Red and Pink Hatters as well as chapters with just "Pinkies" in them.</p>
+						<p>There are fewer Pink Hatters than there are Red Hatters, perhaps partly because women know about the Red Hatters being over 50, but not as many women are aware that you can be a Pink Hatter.</p>
+						<p>When the Red Hat Society was formed in 1998, it was only for women over 50. However in 2000 Pink Hatters were introduced into the Society. So Pink Hatters have been part of the RHS for almost as long as as it has been going.</p>
+					</div>
+				</details>
+
+				<details class="faq-item">
+					<summary class="faq-question">
 						<h3>What activities do chapters typically do?</h3>
-						<span class="faq-icon">+</span>
-					</div>
+					</summary>
 					<div class="faq-answer">
 						<p>Chapter activities vary widely and are limited only by imagination! Common activities include:</p>
 						<ul>
@@ -261,35 +297,27 @@
 							<li>Arts and crafts workshops</li>
 							<li>Charity and volunteer work</li>
 							<li>Games and social gatherings</li>
+							<li>High tea and afternoon tea events</li>
+							<li>Fashion shows and hat parades</li>
+							<li>Book clubs and discussion groups</li>
+							<li>Gardening and outdoor activities</li>
 						</ul>
 					</div>
-				</div>
+				</details>
 
-				<div class="faq-item">
-					<div class="faq-question">
+				<details class="faq-item">
+					<summary class="faq-question">
 						<h3>Can I start my own chapter?</h3>
-						<span class="faq-icon">+</span>
-					</div>
+					</summary>
 					<div class="faq-answer">
-						<p>Absolutely! If there isn't a chapter in your area, you can start your own. As a Queen (chapter leader), you'll receive special resources and support from Hatquarters. You'll need at least 5 members to officially charter a new chapter.</p>
+						<p>Absolutely! If there isn't a chapter in your area, you can start your own. As a Queen (chapter leader), you'll receive special resources and support from Hatquarters. You'll need at least 5 members to officially charter a new chapter. Starting a chapter is a wonderful way to bring together women in your community who share the same values of fun, friendship, and frivolity.</p>
 					</div>
-				</div>
+				</details>
 
-				<div class="faq-item">
-					<div class="faq-question">
-						<h3>What if there's no chapter near me?</h3>
-						<span class="faq-icon">+</span>
-					</div>
-					<div class="faq-answer">
-						<p>If there's no local chapter, you can join as an "At-Large" member and participate in online activities, virtual events, and connect with members worldwide. You can also start your own chapter or join our global online community.</p>
-					</div>
-				</div>
-
-				<div class="faq-item">
-					<div class="faq-question">
+				<details class="faq-item">
+					<summary class="faq-question">
 						<h3>What are the benefits of membership?</h3>
-						<span class="faq-icon">+</span>
-					</div>
+					</summary>
 					<div class="faq-answer">
 						<p>Membership benefits include:</p>
 						<ul>
@@ -300,19 +328,57 @@
 							<li>Chapter activities and events</li>
 							<li>Leadership opportunities</li>
 							<li>Volunteer and charity work</li>
+							<li>Access to member resources and printables</li>
+							<li>Participation in regional and national events</li>
+							<li>Lifelong friendships and support network</li>
 						</ul>
 					</div>
-				</div>
+				</details>
 
-				<div class="faq-item">
-					<div class="faq-question">
+				<details class="faq-item">
+					<summary class="faq-question">
 						<h3>How often do chapters meet?</h3>
-						<span class="faq-icon">+</span>
-					</div>
+					</summary>
 					<div class="faq-answer">
-						<p>Meeting frequency varies by chapter, but most chapters meet monthly or bi-monthly. Some chapters have more frequent gatherings, while others meet quarterly. The schedule is determined by the chapter members and their Queen based on everyone's availability and interests.</p>
+						<p>Meeting frequency varies by chapter, but most chapters meet monthly or bi-monthly. Some chapters have more frequent gatherings, while others meet quarterly. The schedule is determined by the chapter members and their Queen based on everyone's availability and interests. Some chapters also have special events throughout the year, such as birthday celebrations, holiday parties, and themed gatherings.</p>
 					</div>
-				</div>
+				</details>
+
+				<details class="faq-item">
+					<summary class="faq-question">
+						<h3>What if there's no chapter near me?</h3>
+					</summary>
+					<div class="faq-answer">
+						<p>If there's no local chapter, you can join as an "At-Large" member and participate in online activities, virtual events, and connect with members worldwide. You can also start your own chapter or join our global online community. Many women find that starting their own chapter is a rewarding way to bring the Red Hat Society to their area.</p>
+					</div>
+				</details>
+
+				<details class="faq-item">
+					<summary class="faq-question">
+						<h3>How quickly will I receive a response when I contact you?</h3>
+					</summary>
+					<div class="faq-answer">
+						<p>We typically respond to all inquiries within 24-48 hours during business days. For urgent matters, please call us directly at (08) 1234 5678. We're here to help you get started on your Red Hat Society journey!</p>
+					</div>
+				</details>
+
+				<details class="faq-item">
+					<summary class="faq-question">
+						<h3>Do you have a newsletter I can subscribe to?</h3>
+					</summary>
+					<div class="faq-answer">
+						<p>Absolutely! You can subscribe to our newsletter through our website to receive updates about events, news, member spotlights, and resources. Our newsletter is a great way to stay connected with the Red Hatters WA community even if you're not yet a member.</p>
+					</div>
+				</details>
+
+				<details class="faq-item">
+					<summary class="faq-question">
+						<h3>How can I become a volunteer?</h3>
+					</summary>
+					<div class="faq-answer">
+						<p>We love volunteers! Contact us to learn about current volunteer opportunities and how you can help support our community. Whether you want to help with events, contribute to our website, or assist with chapter activities, there are many ways to get involved and make a difference in the lives of our members.</p>
+					</div>
+				</details>
 			</div>
 		</div>
 	</section>
@@ -347,9 +413,7 @@
 						<a href="about-us.html">About Us</a>
 						<a href="benefits.html">Benefits</a>
 						<a href="faq.html">FAQ</a>
-						<a href="wa-chapters.html">WA Chapters</a>
-						<a href="events.html">Events</a>
-						<a href="resources.html">Resources</a>
+						<a href="donate.html">Donate</a>
 						<a href="contact-us.html">Contact Us</a>
 					</div>
 				</div>
@@ -368,7 +432,7 @@
 				</div>
 			</div>
 			<div class="footer-bottom">
-				<p>&copy; <span id="current-year">2025</span> Red Hatters WA. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a> | <a href="community-guidelines.html">Community Guidelines</a> | <a href="rules-of-association.html">Rules of Association</a></p>
+				<p>&copy; <span id="current-year">2025</span> Red Hatters WA. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
 			</div>
 		</div>
 	</footer>

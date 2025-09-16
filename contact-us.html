@@ -33,13 +33,15 @@
 					<ul class="dropdown-menu" role="menu" aria-label="About submenu">
 						<li role="none"><a href="about-us.html" role="menuitem">About Us</a></li>
 						<li role="none"><a href="benefits.html" role="menuitem">Benefits</a></li>
+						<li role="none"><a href="history.html" role="menuitem">History</a></li>
+						<li role="none"><a href="pinkhatters.html" role="menuitem">Pink Hatters</a></li>
 						<li role="none"><a href="faq.html" role="menuitem">FAQ</a></li>
 						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
-						<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
-						<li role="none"><a href="contact-us.html" role="menuitem" aria-current="page">Contact Us</a></li>
 					</ul>
 				</li>
-				<li class="nav-dropdown" role="none">
+				<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
+				<li role="none"><a href="contact-us.html" role="menuitem" aria-current="page">Contact Us</a></li>
+				<li class="nav-dropdown protected-nav" role="none" style="display: none;">
 					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Members</a>
 					<ul class="dropdown-menu" role="menu" aria-label="Members submenu">
 						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
@@ -54,7 +56,7 @@
 						<li role="none"><a href="member-search.html" role="menuitem">Find Members</a></li>
 					</ul>
 				</li>
-				<li class="nav-dropdown" role="none">
+				<li class="nav-dropdown protected-nav" role="none" style="display: none;">
 					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Resources</a>
 					<ul class="dropdown-menu" role="menu" aria-label="Resources submenu">
 						<li role="none"><a href="resources.html" role="menuitem">Resources</a></li>
@@ -63,14 +65,20 @@
 						<li role="none"><a href="games.html" role="menuitem">Games</a></li>
 						<li role="none"><a href="crafts.html" role="menuitem">Crafts</a></li>
 						<li role="none"><a href="printables.html" role="menuitem">Printables</a></li>
-						<li role="none"><a href="hatter-links.html" role="menuitem">Hatter Links</a></li>
+						<li role="none"><a href="hoot-ideas.html" role="menuitem">Hoot Ideas</a></li>
+						<li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
+						<li role="none"><a href="hatter-commandments.html" role="menuitem">Hatter Commandments & Creed</a></li>
 					</ul>
 				</li>
 			</ul>
 			<div class="nav-buttons">
-				<div class="split-button">
+				<div class="user-display protected-nav" style="display: none;"></div>
+				<div class="split-button public-nav">
 					<a href="register.html" class="cta-button" aria-label="Join Red Hatters WA">Join</a>
 					<a href="login.html" class="login-button" aria-label="Sign in to your account">Sign In</a>
+				</div>
+				<div class="logout-section protected-nav" style="display: none;">
+					<a href="#" class="logout-button" onclick="AuthManager.logout()" aria-label="Sign out">Logout</a>
 				</div>
 			</div>
 		</nav>
@@ -99,7 +107,7 @@
 					<div style="margin: 20px 0;">
 						<strong>info@redhatterswa.com.au</strong>
 					</div>
-					<p style="font-size: 0.9rem; color: var(--text-light);">We respond within 24-48 hours</p>
+					<p class="contact-note">We respond within 24-48 hours</p>
 				</div>
 				<div class="feature-card">
 					<div class="feature-icon">📞</div>
@@ -108,16 +116,7 @@
 					<div style="margin: 20px 0;">
 						<strong>(08) 1234 5678</strong>
 					</div>
-					<p style="font-size: 0.9rem; color: var(--text-light);">Mon-Fri: 9:00 AM - 5:00 PM WST</p>
-				</div>
-				<div class="feature-card">
-					<div class="feature-icon">📍</div>
-					<h3>Visit Us</h3>
-					<p>Come see us in person at our Perth office. We welcome visitors by appointment.</p>
-					<div style="margin: 20px 0;">
-						<strong>123 Red Hat Street<br>Perth, WA 6000<br>Australia</strong>
-					</div>
-					<p style="font-size: 0.9rem; color: var(--text-light);">Please call ahead to schedule</p>
+					<p class="contact-note">Mon-Fri: 9:00 AM - 5:00 PM WST</p>
 				</div>
 				<div class="feature-card">
 					<div class="feature-icon">📱</div>
@@ -127,7 +126,7 @@
 						<a href="https://facebook.com/redhatterswa" target="_blank" style="color: var(--primary-purple); text-decoration: none; margin-right: 15px;">Facebook</a>
 						<a href="https://instagram.com/redhatterswa" target="_blank" style="color: var(--primary-purple); text-decoration: none;">Instagram</a>
 					</div>
-					<p style="font-size: 0.9rem; color: var(--text-light);">Follow us for latest updates</p>
+					<p class="contact-note">Follow us for latest updates</p>
 				</div>
 			</div>
 		</div>
@@ -200,15 +199,15 @@
 					<div style="margin: 20px 0;">
 						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
 							<span>Monday - Friday</span>
-							<span style="font-weight: 600;">9:00 AM - 5:00 PM</span>
+							<span class="office-hours-time">9:00 AM - 5:00 PM</span>
 						</div>
 						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
 							<span>Saturday</span>
-							<span style="font-weight: 600;">10:00 AM - 2:00 PM</span>
+							<span class="office-hours-time">10:00 AM - 2:00 PM</span>
 						</div>
 						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
 							<span>Sunday</span>
-							<span style="font-weight: 600; color: var(--text-light);">Closed</span>
+							<span class="office-hours-closed">Closed</span>
 						</div>
 					</div>
 				</div>
@@ -217,15 +216,15 @@
 					<div style="margin: 20px 0;">
 						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
 							<span>Monday - Friday</span>
-							<span style="font-weight: 600;">9:00 AM - 6:00 PM</span>
+							<span class="office-hours-time">9:00 AM - 6:00 PM</span>
 						</div>
 						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
 							<span>Weekend Events</span>
-							<span style="font-weight: 600;">On-call support</span>
+							<span class="office-hours-time">On-call support</span>
 						</div>
 						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
 							<span>Emergency</span>
-							<span style="font-weight: 600; color: var(--primary-red);">24/7 hotline</span>
+							<span class="office-hours-emergency">24/7 hotline</span>
 						</div>
 					</div>
 				</div>
@@ -234,15 +233,15 @@
 					<div style="margin: 20px 0;">
 						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
 							<span>Monday - Friday</span>
-							<span style="font-weight: 600;">8:00 AM - 6:00 PM</span>
+							<span class="office-hours-time">8:00 AM - 6:00 PM</span>
 						</div>
 						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
 							<span>Saturday</span>
-							<span style="font-weight: 600;">9:00 AM - 3:00 PM</span>
+							<span class="office-hours-time">9:00 AM - 3:00 PM</span>
 						</div>
 						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
 							<span>Sunday</span>
-							<span style="font-weight: 600; color: var(--text-light);">Closed</span>
+							<span class="office-hours-closed">Closed</span>
 						</div>
 					</div>
 				</div>
@@ -250,30 +249,16 @@
 		</div>
 	</section>
 
-	<!-- FAQ Section -->
+	<!-- FAQ CTA Section -->
 	<section class="content-section" style="background: var(--light-gray);">
 		<div class="container">
 			<div class="section-header">
-				<h2>Frequently Asked Questions</h2>
-				<p>Quick answers to common questions about contacting us</p>
+				<h2>Have More Questions?</h2>
+				<p>Find comprehensive answers to all your questions about the Red Hat Society, membership, and activities</p>
 			</div>
-			<div class="features-grid">
-				<div class="card">
-					<h3>How quickly will I receive a response?</h3>
-					<p>We typically respond to all inquiries within 24-48 hours during business days. For urgent matters, please call us directly at (08) 1234 5678.</p>
-				</div>
-				<div class="card">
-					<h3>Can I visit your office in person?</h3>
-					<p>Yes! We welcome visitors by appointment. Please call ahead to schedule a visit so we can ensure someone is available to assist you.</p>
-				</div>
-				<div class="card">
-					<h3>Do you have a newsletter I can subscribe to?</h3>
-					<p>Absolutely! You can subscribe to our newsletter through our website to receive updates about events, news, and member spotlights.</p>
-				</div>
-				<div class="card">
-					<h3>How can I become a volunteer?</h3>
-					<p>We love volunteers! Contact us to learn about current volunteer opportunities and how you can help support our community.</p>
-				</div>
+			<div class="text-center">
+				<a href="faq.html" class="btn btn-primary">View All FAQs</a>
+				<p class="mt-20 text-light-color text-small">Can't find what you're looking for? Contact us directly using the form above or call us at (08) 1234 5678</p>
 			</div>
 		</div>
 	</section>
@@ -308,16 +293,15 @@
 			</div>
 			<div class="footer-section footer-links">
 				<h3>Quick Links</h3>
-				<div class="quick-links">
-					<a href="index.html">Home</a>
-					<a href="about-us.html">About Us</a>
-					<a href="benefits.html">Benefits</a>
-					<a href="faq.html">FAQ</a>
-					<a href="wa-chapters.html">WA Chapters</a>
-					<a href="events.html">Events</a>
-					<a href="resources.html">Resources</a>
-					<a href="contact-us.html">Contact Us</a>
-				</div>
+					<div class="quick-links">
+						<a href="index.html">Home</a>
+						<a href="about-us.html">About Us</a>
+						<a href="benefits.html">Benefits</a>
+						<a href="faq.html">FAQ</a>
+						<a href="offers.html">Offers</a>
+						<a href="donate.html">Donate</a>
+						<a href="contact-us.html">Contact Us</a>
+					</div>
 			</div>
 			<div class="footer-section footer-center">
 				<img src="images/ARHSWA 1.png" alt="ARHSWA 1 Logo" class="footer-logo-img">
@@ -334,7 +318,7 @@
 			</div>
 		</div>
 			<div class="footer-bottom">
-				<p>&copy; <span id="current-year">2025</span> Red Hatters WA. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a> | <a href="community-guidelines.html">Community Guidelines</a> | <a href="rules-of-association.html">Rules of Association</a></p>
+				<p>&copy; <span id="current-year">2025</span> Red Hatters WA. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
 			</div>
 		</div>
 	</footer>
@@ -354,6 +338,315 @@
 	<script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+						</div>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+
+
+	<!-- Office Hours Section -->
+
+	<section class="content-section">
+
+		<div class="container">
+
+			<div class="section-header">
+
+				<h2>Office Hours & Availability</h2>
+
+				<p>When you can reach us for different types of support</p>
+
+			</div>
+
+			<div class="features-grid">
+
+				<div class="card">
+
+					<h3>General Inquiries</h3>
+
+					<div style="margin: 20px 0;">
+
+						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+
+							<span>Monday - Friday</span>
+
+							<span class="office-hours-time">9:00 AM - 5:00 PM</span>
+						</div>
+
+						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+
+							<span>Saturday</span>
+
+							<span class="office-hours-time">10:00 AM - 2:00 PM</span>
+						</div>
+
+						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+
+							<span>Sunday</span>
+
+							<span class="office-hours-closed">Closed</span>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="card">
+
+					<h3>Event Support</h3>
+
+					<div style="margin: 20px 0;">
+
+						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+
+							<span>Monday - Friday</span>
+
+							<span class="office-hours-time">9:00 AM - 6:00 PM</span>
+						</div>
+
+						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+
+							<span>Weekend Events</span>
+
+							<span class="office-hours-time">On-call support</span>
+						</div>
+
+						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+
+							<span>Emergency</span>
+
+							<span class="office-hours-emergency">24/7 hotline</span>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="card">
+
+					<h3>Membership Services</h3>
+
+					<div style="margin: 20px 0;">
+
+						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+
+							<span>Monday - Friday</span>
+
+							<span class="office-hours-time">8:00 AM - 6:00 PM</span>
+						</div>
+
+						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+
+							<span>Saturday</span>
+
+							<span class="office-hours-time">9:00 AM - 3:00 PM</span>
+						</div>
+
+						<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+
+							<span>Sunday</span>
+
+							<span class="office-hours-closed">Closed</span>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+
+
+	<!-- FAQ CTA Section -->
+	<section class="content-section" style="background: var(--light-gray);">
+
+		<div class="container">
+
+			<div class="section-header">
+
+				<h2>Have More Questions?</h2>
+				<p>Find comprehensive answers to all your questions about the Red Hat Society, membership, and activities</p>
+			</div>
+
+			<div class="text-center">
+				<a href="faq.html" class="btn btn-primary">View All FAQs</a>
+				<p class="mt-20 text-light-color text-small">Can't find what you're looking for? Contact us directly using the form above or call us at (08) 1234 5678</p>
+			</div>
+
+		</div>
+
+	</section>
+
+
+
+	<!-- CTA Section -->
+
+	<section class="content-section">
+
+		<div class="container">
+
+			<div class="section-header">
+
+				<h2>Ready to Join Our Community?</h2>
+
+				<p>Don't wait - become part of the Red Hat Society family today!</p>
+
+			</div>
+
+			<div class="text-center">
+
+				<a href="register.html" class="btn btn-primary">Join Now</a>
+
+				<a href="about-us.html" class="btn btn-secondary">Learn More</a>
+
+			</div>
+
+		</div>
+
+	</section>
+
+
+
+	<!-- Footer -->
+
+	<footer class="footer">
+
+		<div class="container">
+
+		<div class="footer-content">
+
+			<div class="footer-section footer-social">
+
+				<h3>Connect With Us</h3>
+
+				<div class="social-links">
+
+					<a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+
+					<a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+
+					<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+
+					<a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+
+				</div>
+
+				<a href="register.html" class="footer-cta-button">Join Our Community</a>
+
+			</div>
+
+			<div class="footer-section footer-links">
+
+				<h3>Quick Links</h3>
+
+				<div class="quick-links">
+
+					<a href="index.html">Home</a>
+
+					<a href="about-us.html">About Us</a>
+
+					<a href="benefits.html">Benefits</a>
+
+					<a href="faq.html">FAQ</a>
+
+						<a href="offers.html">Offers</a>
+						<a href="donate.html">Donate</a>
+					<a href="contact-us.html">Contact Us</a>
+
+				</div>
+
+			</div>
+
+			<div class="footer-section footer-center">
+
+				<img src="images/ARHSWA 1.png" alt="ARHSWA 1 Logo" class="footer-logo-img">
+
+				<p>Red Hatters WA</p>
+
+				<p>Fun • Friendship • Frivolity</p>
+
+			</div>
+
+			<div class="footer-section footer-newsletter">
+
+				<h3>Stay Updated</h3>
+
+				<p>Subscribe to our newsletter for the latest events and news!</p>
+
+				<form class="newsletter-form">
+
+					<input type="email" placeholder="Enter your email" required>
+
+					<button type="submit">Subscribe</button>
+
+				</form>
+
+			</div>
+
+		</div>
+
+			<div class="footer-bottom">
+
+				<p>&copy; <span id="current-year">2025</span> Red Hatters WA. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a> | <a href="community-guidelines.html">Community Guidelines</a> | <a href="rules-of-association.html">Rules of Association</a></p>
+
+			</div>
+
+		</div>
+
+	</footer>
+
+
+
+	<!-- JavaScript -->
+
+	<script>
+
+		// Update current year in footer
+
+		document.getElementById('current-year').textContent = new Date().getFullYear();
+
+
+
+		// Form submission
+
+		document.getElementById('contact-form').addEventListener('submit', function(e) {
+
+			e.preventDefault();
+
+			alert('Thank you for your message! We\'ll get back to you within 24-48 hours. This is a demo form - in a real implementation, this would send your message to our team.');
+
+		});
+
+	</script>
+
+	<!-- Custom JavaScript -->
+
+	<script src="script.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
 
 
 

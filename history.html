@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>History - Red Hatters WA</title>
+	<meta name="description" content="Learn about the history of the Red Hat Society, from its founding by Sue Ellen Cooper to its introduction to Australia by Florence Slattery." />
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+	
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	
+	<!-- Bootstrap 5 CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="styles.css">
+	
+	<!-- History-specific styles -->
+	<style>
+		.history-section {
+			padding: 80px 0;
+		}
+
+		.history-container {
+			max-width: 1000px;
+			margin: 0 auto;
+		}
+
+		.history-timeline {
+			position: relative;
+			padding: 2rem 0;
+		}
+
+		.history-timeline::before {
+			content: '';
+			position: absolute;
+			left: 50%;
+			top: 0;
+			bottom: 0;
+			width: 4px;
+			background: linear-gradient(180deg, var(--primary-purple), var(--primary-red));
+			transform: translateX(-50%);
+		}
+
+		.timeline-item {
+			position: relative;
+			margin-bottom: 3rem;
+			display: flex;
+			align-items: center;
+		}
+
+		.timeline-item:nth-child(odd) {
+			flex-direction: row;
+		}
+
+		.timeline-item:nth-child(even) {
+			flex-direction: row-reverse;
+		}
+
+		.timeline-content {
+			background: var(--white);
+			padding: 2rem;
+			border-radius: 15px;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+			width: 45%;
+			position: relative;
+		}
+
+		.timeline-item:nth-child(odd) .timeline-content {
+			margin-right: auto;
+			margin-left: 0;
+		}
+
+		.timeline-item:nth-child(even) .timeline-content {
+			margin-left: auto;
+			margin-right: 0;
+		}
+
+		.timeline-content::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			width: 0;
+			height: 0;
+			border: 15px solid transparent;
+		}
+
+		.timeline-item:nth-child(odd) .timeline-content::before {
+			right: -30px;
+			border-left-color: var(--white);
+		}
+
+		.timeline-item:nth-child(even) .timeline-content::before {
+			left: -30px;
+			border-right-color: var(--white);
+		}
+
+		.timeline-year {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			background: var(--primary-purple);
+			color: var(--white);
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: 700;
+			font-size: 1.1rem;
+			box-shadow: 0 5px 15px rgba(125, 0, 145, 0.3);
+			z-index: 2;
+		}
+
+		.timeline-year.red {
+			background: var(--primary-red);
+			box-shadow: 0 5px 15px rgba(247, 12, 0, 0.3);
+		}
+
+		.timeline-image {
+			position: absolute;
+			right: 50%;
+			top: 50%;
+			transform: translate(50%, -50%);
+			width: 60px;
+			height: 60px;
+			background: var(--white);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+			z-index: 3;
+			margin-left: 20px;
+		}
+
+		.timeline-image i {
+			font-size: 1.5rem;
+			color: var(--primary-purple);
+		}
+
+		.timeline-image.red i {
+			color: var(--primary-red);
+		}
+
+		.history-hero {
+			background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-red) 100%);
+			color: var(--white);
+			padding: 4rem 0;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.history-hero::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: url('images/DALL·E 2025-09-14 14.08.14.webp') center/cover;
+			opacity: 0.3;
+			z-index: 1;
+		}
+
+		.history-hero .container {
+			position: relative;
+			z-index: 2;
+		}
+
+		.history-hero h1 {
+			font-size: 3rem;
+			margin-bottom: 1rem;
+			font-weight: 700;
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+		}
+
+		.history-hero p {
+			font-size: 1.2rem;
+			opacity: 0.95;
+			max-width: 600px;
+			margin: 0 auto;
+			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+		}
+
+		.australia-section {
+			background: var(--light-gray);
+			padding: 4rem 0;
+			margin: 4rem 0;
+		}
+
+		.australia-content {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 3rem;
+			align-items: center;
+		}
+
+		.australia-text h2 {
+			color: var(--primary-purple);
+			margin-bottom: 1.5rem;
+		}
+
+		.australia-text p {
+			margin-bottom: 1.5rem;
+			line-height: 1.8;
+		}
+
+		.australia-image {
+			text-align: center;
+			padding: 1rem;
+		}
+
+		.australia-image img {
+			width: 100%;
+			max-width: 400px;
+			height: 500px;
+			object-fit: cover;
+			border-radius: 15px;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+		}
+
+		.quote-section {
+			background: var(--primary-purple);
+			color: var(--white);
+			padding: 3rem 0;
+			text-align: center;
+		}
+
+		.quote-section blockquote {
+			font-size: 1.5rem;
+			font-style: italic;
+			margin: 0;
+			max-width: 800px;
+			margin: 0 auto;
+		}
+
+		.quote-section cite {
+			display: block;
+			margin-top: 1rem;
+			font-size: 1rem;
+			opacity: 0.8;
+		}
+
+		/* Video Section Styling */
+		.video-section {
+			background: var(--light-gray);
+			padding: 4rem 0;
+		}
+
+		.video-container {
+			text-align: center;
+			max-width: 1000px;
+			margin: 0 auto;
+		}
+
+		.video-container h2 {
+			color: var(--primary-purple);
+			margin-bottom: 1rem;
+			font-size: 2.5rem;
+			font-weight: 700;
+		}
+
+		.video-container p {
+			color: var(--text-dark);
+			font-size: 1.1rem;
+			margin-bottom: 2rem;
+			opacity: 0.8;
+		}
+
+		.video-container iframe {
+			border-radius: 15px;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+			width: 100%;
+			max-width: 900px;
+			height: 500px;
+		}
+
+		/* Responsive Design */
+		@media (max-width: 768px) {
+			.history-timeline::before {
+				left: 30px;
+			}
+
+			.timeline-item {
+				flex-direction: column !important;
+				align-items: flex-start;
+				padding-left: 60px;
+			}
+
+			.timeline-content {
+				width: 100%;
+				margin: 0 !important;
+			}
+
+			.timeline-content::before {
+				display: none;
+			}
+
+			.timeline-year {
+				left: 30px;
+				transform: translateX(-50%);
+			}
+
+			.timeline-image {
+				right: auto;
+				left: 30px;
+				transform: translateX(-50%);
+				margin-top: 100px;
+			}
+
+			.australia-content {
+				grid-template-columns: 1fr;
+				gap: 2rem;
+			}
+
+			.australia-image img {
+				height: 350px;
+				max-width: 100%;
+			}
+
+			.history-hero h1 {
+				font-size: 2rem;
+			}
+
+			.history-hero p {
+				font-size: 1rem;
+			}
+
+			.video-container h2 {
+				font-size: 2rem;
+			}
+
+			.video-container p {
+				font-size: 1rem;
+			}
+
+			.video-container iframe {
+				width: 100%;
+				height: 250px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Header -->
+	<header class="header" id="header">
+		<nav class="nav container" role="navigation" aria-label="Main navigation">
+			<a href="index.html" class="logo" aria-label="Red Hatters WA Home">
+				<img src="images/RHSWA-horizontal.png" alt="Red Hatters WA" />
+			</a>
+			<ul class="nav-menu" role="menubar">
+				<li role="none"><a href="index.html" role="menuitem">Home</a></li>
+				<li class="nav-dropdown" role="none">
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">About</a>
+					<ul class="dropdown-menu" role="menu" aria-label="About submenu">
+						<li role="none"><a href="about-us.html" role="menuitem">About Us</a></li>
+						<li role="none"><a href="benefits.html" role="menuitem">Benefits</a></li>
+						<li role="none"><a href="history.html" role="menuitem" aria-current="page">History</a></li>
+						<li role="none"><a href="pinkhatters.html" role="menuitem">Pink Hatters</a></li>
+						<li role="none"><a href="faq.html" role="menuitem">FAQ</a></li>
+					</ul>
+				</li>
+				<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
+				<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+				<li class="nav-dropdown protected-nav" role="none" style="display: none;">
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Members</a>
+					<ul class="dropdown-menu" role="menu" aria-label="Members submenu">
+						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
+						<li role="none"><a href="discussions.html" role="menuitem">Discussions</a></li>
+						<li role="none"><a href="news-notes.html" role="menuitem">News and Notes</a></li>
+						<li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
+						<li role="none"><a href="website-guide.html" role="menuitem">Website Guide</a></li>
+						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
+						<li role="none"><a href="account.html" role="menuitem">My Account</a></li>
+						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
+						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
+						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
+						<li role="none"><a href="rules-of-association.html" role="menuitem">Rules of Association</a></li>
+					</ul>
+				</li>
+				<li class="nav-dropdown protected-nav" role="none" style="display: none;">
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Resources</a>
+					<ul class="dropdown-menu" role="menu" aria-label="Resources submenu">
+						<li role="none"><a href="resources.html" role="menuitem">Resources</a></li>
+						<li role="none"><a href="events.html" role="menuitem">Events</a></li>
+						<li role="none"><a href="newsletter.html" role="menuitem">Newsletter</a></li>
+						<li role="none"><a href="games.html" role="menuitem">Games</a></li>
+						<li role="none"><a href="crafts.html" role="menuitem">Crafts</a></li>
+						<li role="none"><a href="printables.html" role="menuitem">Printables</a></li>
+						<li role="none"><a href="hoot-ideas.html" role="menuitem">Hoot Ideas</a></li>
+					</ul>
+				</li>
+			</ul>
+			<div class="nav-buttons">
+				<div class="user-display protected-nav" style="display: none;"></div>
+				<div class="split-button public-nav">
+					<a href="register.html" class="cta-button" aria-label="Join Red Hatters WA">Join</a>
+					<a href="login.html" class="login-button" aria-label="Sign in to your account">Sign In</a>
+				</div>
+				<div class="logout-section protected-nav" style="display: none;">
+					<a href="#" class="logout-button" onclick="AuthManager.logout()" aria-label="Sign out">Logout</a>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Hero Section -->
+	<section class="history-hero">
+		<div class="container">
+			<h1>History of the Red Hat Society</h1>
+			<p>From a simple birthday gift to a worldwide movement of fun, friendship, and frivolity</p>
+		</div>
+	</section>
+
+	<!-- History Timeline Section -->
+	<section class="history-section">
+		<div class="container">
+			<div class="history-container">
+				<div class="history-timeline">
+					<div class="timeline-item">
+						<div class="timeline-content">
+							<h3>The Beginning</h3>
+							<p>In November 1997, Sue Ellen Cooper purchased a red fedora hat from a thrift shop and gave it along with a copy of "The Warning" poem to her 55-year-old friend as a birthday gift. This simple gesture would change the lives of millions of women worldwide.</p>
+						</div>
+						<div class="timeline-year">1997</div>
+						<div class="timeline-image">
+							<i class="fas fa-gift"></i>
+						</div>
+					</div>
+
+					<div class="timeline-item">
+						<div class="timeline-content">
+							<h3>Birth of the Red Hat Society</h3>
+							<p>On April 25th, 1998, Sue Ellen and a group of 5 friends got together for an afternoon tea while wearing red hats with purple clothing. This gathering marked the official birth of the "Red Hat Society" and established April 25th as "Red Hat Society Day."</p>
+						</div>
+						<div class="timeline-year red">1998</div>
+						<div class="timeline-image red">
+							<i class="fas fa-hat-cowboy"></i>
+						</div>
+					</div>
+
+					<div class="timeline-item">
+						<div class="timeline-content">
+							<h3>Pink Hatters Introduced</h3>
+							<p>In 2000, the custom of ladies under 50 wearing pink hats with lavender clothing was introduced, creating the "Pink Hatters" and making the society accessible to women of all ages.</p>
+						</div>
+						<div class="timeline-year">2000</div>
+						<div class="timeline-image">
+							<i class="fas fa-heart"></i>
+						</div>
+					</div>
+
+					<div class="timeline-item">
+						<div class="timeline-content">
+							<h3>Global Expansion</h3>
+							<p>By 2004, there were 40,000 chapters worldwide! The movement had grown from a small group of friends to a global phenomenon, bringing joy and friendship to women across the world.</p>
+						</div>
+						<div class="timeline-year red">2004</div>
+						<div class="timeline-image red">
+							<i class="fas fa-globe"></i>
+						</div>
+					</div>
+
+					<div class="timeline-item">
+						<div class="timeline-content">
+							<h3>Cultural Impact</h3>
+							<p>In 2005, Red Hat ladies were featured on the popular TV show "The Simpsons," bringing the society into mainstream culture and introducing it to millions of viewers worldwide.</p>
+						</div>
+						<div class="timeline-year">2005</div>
+						<div class="timeline-image">
+							<i class="fas fa-tv"></i>
+						</div>
+					</div>
+
+					<div class="timeline-item">
+						<div class="timeline-content">
+							<h3>Historical Recognition</h3>
+							<p>In 2011, the first red hat was put on display in the Smithsonian Museum of American History, cementing the Red Hat Society's place in American cultural history.</p>
+						</div>
+						<div class="timeline-year red">2011</div>
+						<div class="timeline-image red">
+							<i class="fas fa-museum"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Australia Section -->
+	<section class="australia-section">
+		<div class="container">
+			<div class="australia-content">
+				<div class="australia-text">
+					<h2>Hatting in Australia</h2>
+					<p><strong>Florence Slattery</strong>, The Supreme Matriarch of Rose City Red Hatters Warwick Queensland, was the first to bring the red hat concept of love, laughter and friendship to Australia. It is said she saw Red Hatters while on a trip to the US and decided to start a chapter here.</p>
+					<p>Florence received her membership certificate on the 25th July 2001, and celebrated her 100th birthday on the 22nd June 2016. Sadly, Florence passed away on the 5th March 2017, but her legacy lives on in the thousands of Australian women who continue to embrace the Red Hat Society's values.</p>
+					<p>Due to the official RHS day being April 25th (which in Australia is ANZAC Day), many Australian Hatters feel it is inappropriate to celebrate Hatting on this day. So many instead choose to celebrate <strong>"Aussie Red Hat Day"</strong> on July 25th, to both honour the legacy of Florence starting Hatting in Australia as well as celebrating the Red Hat Society itself.</p>
+				</div>
+				<div class="australia-image">
+					<img src="images/florenceslattery.webp" alt="Florence Slattery - The Supreme Matriarch of Australian Red Hatters" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+					<div style="display: none; background: var(--light-gray); padding: 2rem; border-radius: 15px; text-align: center;">
+						<i class="fas fa-user-circle" style="font-size: 4rem; color: var(--primary-purple); margin-bottom: 1rem;"></i>
+						<p><strong>Florence Slattery</strong><br>The Supreme Matriarch</p>
+						<p>Rose City Red Hatters<br>Warwick, Queensland</p>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Florence Slattery Video Section -->
+	<section class="video-section">
+		<div class="container">
+			<div class="video-container">
+				<h2>Channel 7 News Report on Florence's 100th Birthday</h2>
+				<p>Watch this special news report celebrating Florence Slattery's 100th birthday and her incredible contribution to bringing the Red Hat Society to Australia.</p>
+				<iframe src="https://www.facebook.com/plugins/video.php?height=500&href=https%3A%2F%2Fwww.facebook.com%2F7NEWSToowoomba%2Fvideos%2F1797059210522661%2F&show_text=false&width=900&t=0" width="900" height="500" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+			</div>
+		</div>
+	</section>
+
+	<!-- Quote Section -->
+	<section class="quote-section">
+		<div class="container">
+			<blockquote>
+				"Warning: When I am an old woman I shall wear purple with a red hat which doesn't go and doesn't suit me."
+			</blockquote>
+			<cite>— Jenny Joseph, "Warning" (1961)</cite>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<div class="footer-section footer-social">
+					<h3>Connect With Us</h3>
+					<div class="social-links">
+						<a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+						<a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+						<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+						<a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+					</div>
+					<a href="register.html" class="footer-cta-button">Join Our Community</a>
+				</div>
+				<div class="footer-section footer-links">
+					<h3>Quick Links</h3>
+					<div class="quick-links">
+						<a href="index.html">Home</a>
+						<a href="about-us.html">About Us</a>
+						<a href="benefits.html">Benefits</a>
+						<a href="history.html">History</a>
+						<a href="faq.html">FAQ</a>
+						<a href="donate.html">Donate</a>
+						<a href="contact-us.html">Contact Us</a>
+					</div>
+				</div>
+				<div class="footer-section footer-center">
+					<img src="images/ARHSWA 1.png" alt="ARHSWA 1 Logo" class="footer-logo-img">
+					<p>Red Hatters WA</p>
+					<p>Fun • Friendship • Frivolity</p>
+				</div>
+				<div class="footer-section footer-newsletter">
+					<h3>Stay Updated</h3>
+					<p>Subscribe to our newsletter for the latest events and news!</p>
+					<form class="newsletter-form">
+						<input type="email" placeholder="Enter your email" required>
+						<button type="submit">Subscribe</button>
+					</form>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; <span id="current-year">2025</span> Red Hatters WA. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Bootstrap 5 JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	
+	<!-- Custom JavaScript -->
+	<script src="script.js"></script>
+</body>
+</html>

@@ -23,51 +23,55 @@
 			<a href="index.html" class="logo">
 				<img src="images/RHSWA-horizontal.png" alt="Red Hatters WA" />
 			</a>
-			<ul class="nav-menu">
-				<li><a href="index.html">Home</a></li>
-				<li class="nav-dropdown">
-					<a href="#" class="dropdown-toggle">About</a>
-					<div class="dropdown-menu">
-						<a href="about-us.html">About Us</a>
-						<a href="benefits.html">Benefits</a>
-						<a href="faq.html">FAQ</a>
-						<a href="offers.html">Offers</a>
-						<a href="donate.html">Donate</a>
-						<a href="contact-us.html">Contact Us</a>
-					</div>
+			<ul class="nav-menu" role="menubar">
+				<li role="none"><a href="index.html" role="menuitem">Home</a></li>
+				<li class="nav-dropdown" role="none">
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">About</a>
+					<ul class="dropdown-menu" role="menu" aria-label="About submenu">
+						<li role="none"><a href="about-us.html" role="menuitem">About Us</a></li>
+						<li role="none"><a href="benefits.html" role="menuitem">Benefits</a></li>
+						<li role="none"><a href="history.html" role="menuitem">History</a></li>
+						<li role="none"><a href="pinkhatters.html" role="menuitem">Pink Hatters</a></li>
+						<li role="none"><a href="faq.html" role="menuitem">FAQ</a></li>
+						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
+					</ul>
 				</li>
-				<li class="nav-dropdown">
-					<a href="#" class="dropdown-toggle">Members</a>
-					<div class="dropdown-menu">
-						<a href="member-role.html">Member Role</a>
-						<a href="member-search.html">Member Search</a>
-						<a href="discussions.html">Discussions</a>
-						<a href="news-notes.html">News and Notes</a>
-						<a href="members-corner.html" class="active">Members' Corner</a>
-						<a href="website-guide.html">Website Guide</a>
-						<a href="member-handbook.html">Member Handbook</a>
-						<a href="account.html">My Account</a>
-						<a href="wa-chapters.html">WA Chapters</a>
-						<a href="member-search.html">Find Members</a>
-					</div>
+				<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
+				<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+				<li class="nav-dropdown" role="none">
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Members</a>
+					<ul class="dropdown-menu" role="menu" aria-label="Members submenu">
+						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
+						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
+						<li role="none"><a href="discussions.html" role="menuitem">Discussions</a></li>
+						<li role="none"><a href="news-notes.html" role="menuitem">News and Notes</a></li>
+						<li role="none"><a href="members-corner.html" role="menuitem" aria-current="page">Members' Corner</a></li>
+						<li role="none"><a href="website-guide.html" role="menuitem">Website Guide</a></li>
+						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
+						<li role="none"><a href="account.html" role="menuitem">My Account</a></li>
+						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
+						<li role="none"><a href="member-search.html" role="menuitem">Find Members</a></li>
+					</ul>
 				</li>
-				<li class="nav-dropdown">
-					<a href="#" class="dropdown-toggle">Resources</a>
-					<div class="dropdown-menu">
-						<a href="resources.html">Resources</a>
-						<a href="events.html">Events</a>
-						<a href="newsletter.html">Newsletter</a>
-						<a href="games.html">Games</a>
-						<a href="crafts.html">Crafts</a>
-						<a href="printables.html">Printables</a>
-						<a href="hatter-links.html">Hatter Links</a>
-					</div>
+				<li class="nav-dropdown" role="none">
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Resources</a>
+					<ul class="dropdown-menu" role="menu" aria-label="Resources submenu">
+						<li role="none"><a href="resources.html" role="menuitem">Resources</a></li>
+						<li role="none"><a href="events.html" role="menuitem">Events</a></li>
+						<li role="none"><a href="newsletter.html" role="menuitem">Newsletter</a></li>
+						<li role="none"><a href="games.html" role="menuitem">Games</a></li>
+						<li role="none"><a href="crafts.html" role="menuitem">Crafts</a></li>
+						<li role="none"><a href="printables.html" role="menuitem">Printables</a></li>
+						<li role="none"><a href="hoot-ideas.html" role="menuitem">Hoot Ideas</a></li>
+						<li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
+						<li role="none"><a href="hatter-commandments.html" role="menuitem">Hatter Commandments & Creed</a></li>
+					</ul>
 				</li>
 			</ul>
 			<div class="nav-buttons">
-				<div class="split-button">
-					<a href="register.html" class="cta-button">Join</a>
-					<a href="login.html" class="login-button">Sign In</a>
+				<div class="user-display"></div>
+				<div class="logout-section">
+					<a href="#" class="logout-button" onclick="AuthManager.logout()" aria-label="Sign out">Logout</a>
 				</div>
 			</div>
 		</nav>
@@ -358,5 +362,366 @@
 	</script>
 </body>
 </html>
+
+
+
+
+				<div class="card category-card">
+
+					<div class="category-icon">📱</div>
+
+					<h3>Digital Resources</h3>
+
+					<p>Printable materials, digital templates, and online tools for members.</p>
+
+					<div class="category-count">28 Resources</div>
+
+					<a href="#" class="btn btn-secondary">Browse Digital</a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+
+
+	<!-- Member Contributions Section -->
+
+	<section class="content-section">
+
+		<div class="container">
+
+			<div class="section-header">
+
+				<h2>Member Contributions</h2>
+
+				<p>Resources shared by our amazing community members</p>
+
+			</div>
+
+			<div class="member-contributions">
+
+				<div class="contribution-item">
+
+					<div class="contributor-info">
+
+						<img src="images/IMG_5259.jpg" alt="Contributor" class="avatar-img">
+
+						<div class="contributor-details">
+
+							<h4>Sarah Johnson</h4>
+
+							<p>Perth Royal Chapter</p>
+
+						</div>
+
+					</div>
+
+					<div class="contribution-content">
+
+						<h3>Red Hat Etiquette Guide</h3>
+
+						<p>A comprehensive guide to Red Hat Society etiquette and traditions, perfect for new members.</p>
+
+						<div class="contribution-stats">
+
+							<span><i class="fas fa-download"></i> 156 downloads</span>
+
+							<span><i class="fas fa-star"></i> 4.8 rating</span>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="contribution-item">
+
+					<div class="contributor-info">
+
+						<img src="images/IMG_5259.jpg" alt="Contributor" class="avatar-img">
+
+						<div class="contributor-details">
+
+							<h4>Margaret Smith</h4>
+
+							<p>Fremantle Fun Chapter</p>
+
+						</div>
+
+					</div>
+
+					<div class="contribution-content">
+
+						<h3>Chapter Meeting Icebreakers</h3>
+
+						<p>Fun and engaging icebreaker activities to help new members feel welcome at chapter meetings.</p>
+
+						<div class="contribution-stats">
+
+							<span><i class="fas fa-download"></i> 89 downloads</span>
+
+							<span><i class="fas fa-star"></i> 4.9 rating</span>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="contribution-item">
+
+					<div class="contributor-info">
+
+						<img src="images/IMG_5259.jpg" alt="Contributor" class="avatar-img">
+
+						<div class="contributor-details">
+
+							<h4>Linda Brown</h4>
+
+							<p>Mandurah Magic Chapter</p>
+
+						</div>
+
+					</div>
+
+					<div class="contribution-content">
+
+						<h3>Travel Packing Checklist</h3>
+
+						<p>Essential packing list for Red Hat travel adventures, including outfit coordination tips.</p>
+
+						<div class="contribution-stats">
+
+							<span><i class="fas fa-download"></i> 203 downloads</span>
+
+							<span><i class="fas fa-star"></i> 4.7 rating</span>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+
+
+	<!-- Submit Resource Section -->
+
+	<section class="content-section" style="background: var(--light-gray);">
+
+		<div class="container">
+
+			<div class="section-header">
+
+				<h2>Share Your Resources</h2>
+
+				<p>Have a great resource to share with the community? We'd love to feature it!</p>
+
+			</div>
+
+			<div class="submit-resource">
+
+				<div class="card">
+
+					<h3>Submit a Resource</h3>
+
+					<p>Share your recipes, craft ideas, articles, or other helpful resources with fellow Red Hatters.</p>
+
+					<form class="resource-form">
+
+						<div class="form-group">
+
+							<label for="resource-title">Resource Title</label>
+
+							<input type="text" id="resource-title" name="title" required>
+
+						</div>
+
+						<div class="form-group">
+
+							<label for="resource-category">Category</label>
+
+							<select id="resource-category" name="category" required>
+
+								<option value="">Select a category</option>
+
+								<option value="crafts">Crafts & DIY</option>
+
+								<option value="recipes">Recipes & Cooking</option>
+
+								<option value="planning">Planning & Organization</option>
+
+								<option value="articles">Articles & Tips</option>
+
+								<option value="party">Party Ideas</option>
+
+								<option value="digital">Digital Resources</option>
+
+							</select>
+
+						</div>
+
+						<div class="form-group">
+
+							<label for="resource-description">Description</label>
+
+							<textarea id="resource-description" name="description" rows="4" required></textarea>
+
+						</div>
+
+						<div class="form-group">
+
+							<label for="resource-file">Upload File</label>
+
+							<input type="file" id="resource-file" name="file" accept=".pdf,.doc,.docx,.jpg,.png">
+
+						</div>
+
+						<button type="submit" class="btn btn-primary">Submit Resource</button>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+
+
+	<!-- Footer -->
+
+	<footer class="footer">
+
+		<div class="container">
+
+		<div class="footer-content">
+
+			<div class="footer-section footer-social">
+
+				<h3>Connect With Us</h3>
+
+				<div class="social-links">
+
+					<a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+
+					<a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+
+					<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+
+					<a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+
+				</div>
+
+				<a href="register.html" class="footer-cta-button">Join Our Community</a>
+
+			</div>
+
+			<div class="footer-section footer-links">
+
+				<h3>Quick Links</h3>
+
+				<div class="quick-links">
+
+					<a href="index.html">Home</a>
+
+					<a href="about-us.html">About Us</a>
+
+					<a href="benefits.html">Benefits</a>
+
+					<a href="faq.html">FAQ</a>
+
+					<a href="wa-chapters.html">WA Chapters</a>
+
+					<a href="events.html">Events</a>
+
+					<a href="resources.html">Resources</a>
+
+					<a href="contact-us.html">Contact Us</a>
+
+				</div>
+
+			</div>
+
+			<div class="footer-section footer-center">
+
+				<img src="images/ARHSWA 1.png" alt="ARHSWA 1 Logo" class="footer-logo-img">
+
+				<p>Red Hatters WA</p>
+
+				<p>Fun • Friendship • Frivolity</p>
+
+			</div>
+
+			<div class="footer-section footer-newsletter">
+
+				<h3>Stay Updated</h3>
+
+				<p>Subscribe to our newsletter for the latest events and news!</p>
+
+				<form class="newsletter-form">
+
+					<input type="email" placeholder="Enter your email" required>
+
+					<button type="submit">Subscribe</button>
+
+				</form>
+
+			</div>
+
+		</div>
+
+			<div class="footer-bottom">
+
+				<p>&copy; <span id="current-year">2025</span> Red Hatters WA. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a> | <a href="community-guidelines.html">Community Guidelines</a> | <a href="rules-of-association.html">Rules of Association</a></p>
+
+			</div>
+
+		</div>
+
+	</footer>
+
+
+
+	<!-- JavaScript -->
+
+	<script>
+
+		// Update current year in footer
+
+		document.getElementById('current-year').textContent = new Date().getFullYear();
+
+
+
+		// Resource form submission
+
+		document.querySelector('.resource-form').addEventListener('submit', function(e) {
+
+			e.preventDefault();
+
+			alert('Thank you for your submission! We\'ll review your resource and add it to our collection if approved.');
+
+		});
+
+	</script>
+
+</body>
+
+</html>
+
+
+
+
 
 

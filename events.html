@@ -33,17 +33,18 @@
 					<ul class="dropdown-menu" role="menu" aria-label="About submenu">
 						<li role="none"><a href="about-us.html" role="menuitem">About Us</a></li>
 						<li role="none"><a href="benefits.html" role="menuitem">Benefits</a></li>
+						<li role="none"><a href="history.html" role="menuitem">History</a></li>
+						<li role="none"><a href="pinkhatters.html" role="menuitem">Pink Hatters</a></li>
 						<li role="none"><a href="faq.html" role="menuitem">FAQ</a></li>
 						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
-						<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
-						<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
 					</ul>
 				</li>
+				<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
+				<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
 				<li class="nav-dropdown" role="none">
 					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Members</a>
 					<ul class="dropdown-menu" role="menu" aria-label="Members submenu">
 						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
-						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
 						<li role="none"><a href="discussions.html" role="menuitem">Discussions</a></li>
 						<li role="none"><a href="news-notes.html" role="menuitem">News and Notes</a></li>
 						<li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
@@ -51,7 +52,9 @@
 						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
 						<li role="none"><a href="account.html" role="menuitem">My Account</a></li>
 						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
-						<li role="none"><a href="member-search.html" role="menuitem">Find Members</a></li>
+						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
+						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
+						<li role="none"><a href="rules-of-association.html" role="menuitem">Rules of Association</a></li>
 					</ul>
 				</li>
 				<li class="nav-dropdown" role="none">
@@ -63,14 +66,16 @@
 						<li role="none"><a href="games.html" role="menuitem">Games</a></li>
 						<li role="none"><a href="crafts.html" role="menuitem">Crafts</a></li>
 						<li role="none"><a href="printables.html" role="menuitem">Printables</a></li>
-						<li role="none"><a href="hatter-links.html" role="menuitem">Hatter Links</a></li>
+						<li role="none"><a href="hoot-ideas.html" role="menuitem">Hoot Ideas</a></li>
+						<li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
+						<li role="none"><a href="hatter-commandments.html" role="menuitem">Hatter Commandments & Creed</a></li>
 					</ul>
 				</li>
 			</ul>
 			<div class="nav-buttons">
-				<div class="split-button">
-					<a href="register.html" class="cta-button" aria-label="Join Red Hatters WA">Join</a>
-					<a href="login.html" class="login-button" aria-label="Sign in to your account">Sign In</a>
+				<div class="user-display"></div>
+				<div class="logout-section">
+					<a href="#" class="logout-button" onclick="AuthManager.logout()" aria-label="Sign out">Logout</a>
 				</div>
 			</div>
 		</nav>
@@ -81,37 +86,6 @@
 		<div class="container">
 			<h1>Upcoming Events</h1>
 			<p>Join us for fun, friendship, and fabulous activities across Western Australia. From social gatherings to special celebrations, there's always something exciting happening!</p>
-		</div>
-	</section>
-
-	<!-- Event Filter Section -->
-	<section class="content-section">
-		<div class="container">
-			<div class="section-header">
-				<h2>Find Your Perfect Event</h2>
-				<p>Filter events by category to find activities that interest you most</p>
-			</div>
-			<div class="filter-buttons">
-				<button class="filter-btn active" data-filter="all">All Events</button>
-				<button class="filter-btn" data-filter="social">Social</button>
-				<button class="filter-btn" data-filter="travel">Travel</button>
-				<button class="filter-btn" data-filter="crafts">Crafts</button>
-				<button class="filter-btn" data-filter="dining">Dining</button>
-				<button class="filter-btn" data-filter="special">Special</button>
-			</div>
-		</div>
-	</section>
-
-	<!-- Events Grid Section -->
-	<section class="content-section" style="background: var(--light-gray);">
-		<div class="container">
-			<div class="section-header">
-				<h2>Upcoming Events</h2>
-				<p>Don't miss out on these exciting activities and gatherings</p>
-			</div>
-			<div class="events-grid" id="eventsGrid">
-				<!-- Events will be populated by JavaScript -->
-			</div>
 		</div>
 	</section>
 
@@ -127,7 +101,29 @@
 					<button class="calendar-nav" id="prevMonth">
 						<i class="fas fa-chevron-left"></i>
 					</button>
-					<h3 class="calendar-title" id="calendarTitle">December 2024</h3>
+					<div class="calendar-title-container">
+						<select id="monthSelect" class="calendar-select">
+							<option value="0">January</option>
+							<option value="1">February</option>
+							<option value="2">March</option>
+							<option value="3">April</option>
+							<option value="4">May</option>
+							<option value="5">June</option>
+							<option value="6">July</option>
+							<option value="7">August</option>
+							<option value="8">September</option>
+							<option value="9">October</option>
+							<option value="10">November</option>
+							<option value="11">December</option>
+						</select>
+						<select id="yearSelect" class="calendar-select">
+							<option value="2023">2023</option>
+							<option value="2024">2024</option>
+							<option value="2025">2025</option>
+							<option value="2026">2026</option>
+							<option value="2027">2027</option>
+						</select>
+					</div>
 					<button class="calendar-nav" id="nextMonth">
 						<i class="fas fa-chevron-right"></i>
 					</button>
@@ -181,16 +177,148 @@
 		</div>
 	</section>
 
-	<!-- CTA Section -->
+	<!-- Event Filter Section -->
 	<section class="content-section">
 		<div class="container">
 			<div class="section-header">
-				<h2>Ready to Join the Fun?</h2>
-				<p>Become a member to access all our events and start making new friends today!</p>
+				<h2>Find Your Perfect Event</h2>
+				<p>Filter events by category to find activities that interest you most</p>
 			</div>
-			<div class="text-center">
-				<a href="register.html" class="btn btn-primary">Join Now</a>
-				<a href="contact-us.html" class="btn btn-secondary">Contact Us</a>
+			<div class="filter-buttons">
+				<button class="filter-btn active" data-filter="all">All Events</button>
+				<button class="filter-btn" data-filter="social">Social</button>
+				<button class="filter-btn" data-filter="travel">Travel</button>
+				<button class="filter-btn" data-filter="crafts">Crafts</button>
+				<button class="filter-btn" data-filter="dining">Dining</button>
+				<button class="filter-btn" data-filter="special">Special</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- Events Grid Section -->
+	<section class="content-section" style="background: var(--light-gray);">
+		<div class="container">
+			<div class="section-header">
+				<h2>Upcoming Events</h2>
+				<p>Don't miss out on these exciting activities and gatherings</p>
+			</div>
+			<div class="events-grid" id="eventsGrid">
+				<!-- Events will be populated by JavaScript -->
+			</div>
+		</div>
+	</section>
+
+	<!-- Create Event Form Section -->
+	<section class="content-section">
+		<div class="container">
+			<div class="section-header">
+				<h2>Create New Event</h2>
+				<p>Submit a new event to share with your fellow Red Hatters</p>
+			</div>
+			<div class="form-container">
+				<form id="createEventForm" class="event-form" novalidate>
+					<div class="form-row">
+						<div class="form-group">
+							<label for="eventTitle">Event Title *</label>
+							<input type="text" id="eventTitle" name="eventTitle" required minlength="3" maxlength="100" placeholder="Enter event title">
+							<div class="form-error"></div>
+						</div>
+						<div class="form-group">
+							<label for="eventDate">Event Date *</label>
+							<input type="date" id="eventDate" name="eventDate" required>
+							<div class="form-error"></div>
+						</div>
+					</div>
+					
+					<div class="form-row">
+						<div class="form-group">
+							<label for="eventTime">Event Time *</label>
+							<input type="time" id="eventTime" name="eventTime" required>
+							<div class="form-error"></div>
+						</div>
+						<div class="form-group">
+							<label for="eventLocation">Location *</label>
+							<input type="text" id="eventLocation" name="eventLocation" required minlength="3" maxlength="200" placeholder="Enter event location">
+							<div class="form-error"></div>
+						</div>
+					</div>
+					
+					<div class="form-row">
+						<div class="form-group">
+							<label for="eventCategory">Category *</label>
+							<select id="eventCategory" name="eventCategory" required>
+								<option value="">Select a category</option>
+								<option value="social">Social</option>
+								<option value="travel">Travel</option>
+								<option value="crafts">Crafts</option>
+								<option value="dining">Dining</option>
+								<option value="special">Special</option>
+								<option value="red-hat-event">Red Hat Event</option>
+								<option value="birthday">Birthday</option>
+								<option value="public-holiday">Public Holiday</option>
+							</select>
+							<div class="form-error"></div>
+						</div>
+						<div class="form-group">
+							<label for="eventAttendees">Expected Attendees</label>
+							<input type="number" id="eventAttendees" name="eventAttendees" min="1" max="1000" placeholder="Number of expected attendees">
+							<div class="form-error"></div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="eventDescription">Event Description *</label>
+						<textarea id="eventDescription" name="eventDescription" required minlength="10" maxlength="1000" rows="4" placeholder="Describe your event, what to expect, and any special requirements..."></textarea>
+						<div class="form-error"></div>
+					</div>
+					
+					<div class="form-row">
+						<div class="form-group">
+							<label for="organizerName">Organizer Name *</label>
+							<input type="text" id="organizerName" name="organizerName" required minlength="2" maxlength="100" placeholder="Your name">
+							<div class="form-error"></div>
+						</div>
+						<div class="form-group">
+							<label for="organizerEmail">Contact Email *</label>
+							<input type="email" id="organizerEmail" name="organizerEmail" required placeholder="your.email@example.com">
+							<div class="form-error"></div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="contactPhone">Contact Phone</label>
+						<input type="tel" id="contactPhone" name="contactPhone" placeholder="Optional phone number">
+						<div class="form-error"></div>
+					</div>
+					
+					<div class="form-group">
+						<label class="checkbox-label">
+							<input type="checkbox" id="eventPublic" name="eventPublic">
+							<span class="checkmark"></span>
+							Make this a public event (visible to non-members)
+						</label>
+					</div>
+					
+					<div class="form-group">
+						<label class="checkbox-label">
+							<input type="checkbox" id="termsAgreed" name="termsAgreed" required>
+							<span class="checkmark"></span>
+							I agree to the <a href="terms.html" target="_blank">Terms of Service</a> and understand that all events must comply with Red Hatters WA guidelines *
+						</label>
+						<div class="form-error"></div>
+					</div>
+					
+					<div class="form-actions">
+						<button type="submit" class="btn btn-primary">
+							<i class="fas fa-calendar-plus"></i>
+							Submit Event
+						</button>
+						<button type="reset" class="btn btn-secondary">
+							<i class="fas fa-undo"></i>
+							Reset Form
+						</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</section>
@@ -247,15 +375,16 @@
 		// Update current year in footer
 		document.getElementById('current-year').textContent = new Date().getFullYear();
 
-		// Sample event data
+		// Comprehensive event data including Red Hat events, birthdays, and public holidays
 		const events = [
+			// Red Hat Events - December 2024
 			{
 				title: "Christmas High Tea",
 				date: "2024-12-15",
 				time: "2:00 PM",
 				location: "The Ritz Carlton, Perth",
 				description: "Join us for a festive high tea celebration with delicious treats and holiday cheer!",
-				category: "special",
+				category: "red-hat-event",
 				attendees: 25,
 				image: "images/IMG_5259.jpg"
 			},
@@ -267,6 +396,206 @@
 				description: "Create beautiful holiday decorations and crafts with your Red Hat sisters.",
 				category: "crafts",
 				attendees: 15,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "New Year's Eve Gala",
+				date: "2024-12-31",
+				time: "7:00 PM",
+				location: "Crown Towers, Perth",
+				description: "Ring in the New Year with style and elegance at our annual gala celebration!",
+				category: "red-hat-event",
+				attendees: 50,
+				image: "images/IMG_5259.jpg"
+			},
+			
+			// Red Hat Events - January 2025
+			{
+				title: "New Year Brunch",
+				date: "2025-01-05",
+				time: "11:00 AM",
+				location: "The Swan Hotel, Perth",
+				description: "Start the year with a delicious brunch and great company!",
+				category: "red-hat-event",
+				attendees: 20,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "Summer Garden Party",
+				date: "2025-01-18",
+				time: "3:00 PM",
+				location: "Kings Park, Perth",
+				description: "Enjoy a beautiful summer afternoon in the park with your Red Hat sisters.",
+				category: "red-hat-event",
+				attendees: 30,
+				image: "images/IMG_5259.jpg"
+			},
+			
+			// Red Hat Events - February 2025
+			{
+				title: "Valentine's Day Lunch",
+				date: "2025-02-14",
+				time: "12:00 PM",
+				location: "The George, Perth",
+				description: "Celebrate love and friendship with a special Valentine's Day lunch.",
+				category: "red-hat-event",
+				attendees: 18,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "Fremantle Markets Adventure",
+				date: "2025-02-22",
+				time: "9:00 AM",
+				location: "Fremantle Markets",
+				description: "Explore the vibrant markets and enjoy local food and crafts.",
+				category: "red-hat-event",
+				attendees: 12,
+				image: "images/IMG_5259.jpg"
+			},
+			
+			// Member Birthdays
+			{
+				title: "Margaret's Birthday",
+				date: "2024-12-08",
+				time: "All Day",
+				location: "Celebration",
+				description: "Happy Birthday to our wonderful member Margaret!",
+				category: "birthday",
+				attendees: 0,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "Susan's Birthday",
+				date: "2024-12-12",
+				time: "All Day",
+				location: "Celebration",
+				description: "Wishing Susan a fabulous birthday!",
+				category: "birthday",
+				attendees: 0,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "Janet's Birthday",
+				date: "2025-01-15",
+				time: "All Day",
+				location: "Celebration",
+				description: "Happy Birthday to our lovely member Janet!",
+				category: "birthday",
+				attendees: 0,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "Linda's Birthday",
+				date: "2025-01-28",
+				time: "All Day",
+				location: "Celebration",
+				description: "Celebrating Linda's special day!",
+				category: "birthday",
+				attendees: 0,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "Patricia's Birthday",
+				date: "2025-02-03",
+				time: "All Day",
+				location: "Celebration",
+				description: "Happy Birthday Patricia!",
+				category: "birthday",
+				attendees: 0,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "Helen's Birthday",
+				date: "2025-02-17",
+				time: "All Day",
+				location: "Celebration",
+				description: "Wishing Helen a wonderful birthday!",
+				category: "birthday",
+				attendees: 0,
+				image: "images/IMG_5259.jpg"
+			},
+			
+			// Australian Public Holidays
+			{
+				title: "Boxing Day",
+				date: "2024-12-26",
+				time: "All Day",
+				location: "Australia",
+				description: "Boxing Day - Australian Public Holiday",
+				category: "public-holiday",
+				attendees: 0,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "New Year's Day",
+				date: "2025-01-01",
+				time: "All Day",
+				location: "Australia",
+				description: "New Year's Day - Australian Public Holiday",
+				category: "public-holiday",
+				attendees: 0,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "Australia Day",
+				date: "2025-01-27",
+				time: "All Day",
+				location: "Australia",
+				description: "Australia Day - Australian Public Holiday",
+				category: "public-holiday",
+				attendees: 0,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "Labour Day (WA)",
+				date: "2025-03-03",
+				time: "All Day",
+				location: "Western Australia",
+				description: "Labour Day - Western Australia Public Holiday",
+				category: "public-holiday",
+				attendees: 0,
+				image: "images/IMG_5259.jpg"
+			},
+			
+			// Additional Red Hat Events
+			{
+				title: "Book Club Meeting",
+				date: "2025-01-10",
+				time: "2:00 PM",
+				location: "Perth City Library",
+				description: "Monthly book club discussion - this month's book: 'The Seven Sisters'",
+				category: "red-hat-event",
+				attendees: 8,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "Movie Night",
+				date: "2025-01-25",
+				time: "6:30 PM",
+				location: "Hoyts Cinema, Carousel",
+				description: "Watch the latest romantic comedy with your Red Hat sisters!",
+				category: "red-hat-event",
+				attendees: 15,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "Art Gallery Tour",
+				date: "2025-02-08",
+				time: "10:00 AM",
+				location: "Art Gallery of Western Australia",
+				description: "Explore the latest exhibition with a guided tour.",
+				category: "red-hat-event",
+				attendees: 12,
+				image: "images/IMG_5259.jpg"
+			},
+			{
+				title: "High Tea at The Windsor",
+				date: "2025-02-20",
+				time: "2:30 PM",
+				location: "The Windsor Hotel, Perth",
+				description: "Elegant high tea with traditional scones and finger sandwiches.",
+				category: "red-hat-event",
+				attendees: 20,
 				image: "images/IMG_5259.jpg"
 			},
 			{
@@ -368,27 +697,33 @@
 		let currentYear = currentDate.getFullYear();
 
 		function renderCalendar() {
-			const calendarTitle = document.getElementById('calendarTitle');
 			const calendarGrid = document.getElementById('calendarGrid');
 			
-			calendarTitle.textContent = new Date(currentYear, currentMonth).toLocaleDateString('en-AU', { 
-				month: 'long', 
-				year: 'numeric' 
-			});
+			// Update the select dropdowns to match current month and year
+			document.getElementById('monthSelect').value = currentMonth;
+			document.getElementById('yearSelect').value = currentYear;
 
 			const firstDay = new Date(currentYear, currentMonth, 1);
 			const lastDay = new Date(currentYear, currentMonth + 1, 0);
 			const daysInMonth = lastDay.getDate();
 			const startingDay = firstDay.getDay();
 
-			// Days of week headers
+			// Days of week headers with weekend styling
 			const dayHeaders = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-			let calendarHTML = dayHeaders.map(day => `<div class="calendar-day-header">${day}</div>`).join('');
+			let calendarHTML = dayHeaders.map((day, index) => {
+				const isWeekend = index === 0 || index === 6; // Sunday or Saturday
+				const headerClass = isWeekend ? 'calendar-day-header weekend' : 'calendar-day-header';
+				return `<div class="${headerClass}">${day}</div>`;
+			}).join('');
 
 			// Previous month days
 			const prevMonth = new Date(currentYear, currentMonth, 0);
 			for (let i = startingDay - 1; i >= 0; i--) {
-				calendarHTML += `<div class="calendar-day other-month">${prevMonth.getDate() - i}</div>`;
+				const dayNumber = prevMonth.getDate() - i;
+				const dayOfWeek = (i + 1) % 7;
+				const isWeekend = dayOfWeek === 0 || dayOfWeek === 6; // Sunday or Saturday
+				const dayClass = isWeekend ? 'calendar-day other-month weekend' : 'calendar-day other-month';
+				calendarHTML += `<div class="${dayClass}">${dayNumber}</div>`;
 			}
 
 			// Current month days
@@ -396,10 +731,13 @@
 				const dateString = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 				const hasEvent = events.some(event => event.date === dateString);
 				const isToday = new Date().toDateString() === new Date(currentYear, currentMonth, day).toDateString();
+				const dayOfWeek = new Date(currentYear, currentMonth, day).getDay();
+				const isWeekend = dayOfWeek === 0 || dayOfWeek === 6; // Sunday or Saturday
 				
 				let dayClass = 'calendar-day';
 				if (isToday) dayClass += ' today';
 				if (hasEvent) dayClass += ' has-event';
+				if (isWeekend) dayClass += ' weekend';
 				
 				calendarHTML += `<div class="${dayClass}" data-date="${dateString}">${day}</div>`;
 			}
@@ -407,17 +745,31 @@
 			// Next month days
 			const remainingDays = 42 - (startingDay + daysInMonth);
 			for (let day = 1; day <= remainingDays; day++) {
-				calendarHTML += `<div class="calendar-day other-month">${day}</div>`;
+				const dayOfWeek = (startingDay + daysInMonth + day - 1) % 7;
+				const isWeekend = dayOfWeek === 0 || dayOfWeek === 6; // Sunday or Saturday
+				const dayClass = isWeekend ? 'calendar-day other-month weekend' : 'calendar-day other-month';
+				calendarHTML += `<div class="${dayClass}">${day}</div>`;
 			}
 
 			calendarGrid.innerHTML = calendarHTML;
 
-			// Add click handlers for days with events
+			// Add click and hover handlers for days with events
 			document.querySelectorAll('.calendar-day.has-event').forEach(day => {
+				const date = day.getAttribute('data-date');
+				const dayEvents = events.filter(event => event.date === date);
+				
+				// Click handler for modal
 				day.addEventListener('click', function() {
-					const date = this.getAttribute('data-date');
-					const dayEvents = events.filter(event => event.date === date);
 					showEventModal(dayEvents);
+				});
+				
+				// Hover handler for tooltip
+				day.addEventListener('mouseenter', function() {
+					showEventTooltip(this, dayEvents);
+				});
+				
+				day.addEventListener('mouseleave', function() {
+					hideEventTooltip();
 				});
 			});
 		}
@@ -448,6 +800,74 @@
 			});
 		}
 
+		function showEventTooltip(dayElement, dayEvents) {
+			// Remove any existing tooltip
+			hideEventTooltip();
+			
+			const tooltip = document.createElement('div');
+			tooltip.className = 'event-tooltip';
+			tooltip.innerHTML = `
+				<div class="tooltip-content">
+					<div class="tooltip-header">
+						<h4>${formatDate(dayEvents[0].date)}</h4>
+						<span class="event-count">${dayEvents.length} event${dayEvents.length > 1 ? 's' : ''}</span>
+					</div>
+					<div class="tooltip-events">
+						${dayEvents.slice(0, 3).map(event => `
+							<div class="tooltip-event">
+								<strong>${event.title}</strong>
+								<div class="tooltip-event-details">
+									<span><i class="fas fa-clock"></i> ${event.time}</span>
+									<span><i class="fas fa-map-marker-alt"></i> ${event.location}</span>
+								</div>
+							</div>
+						`).join('')}
+						${dayEvents.length > 3 ? `<div class="tooltip-more">+${dayEvents.length - 3} more events</div>` : ''}
+					</div>
+					<div class="tooltip-footer">Click for full details</div>
+				</div>
+			`;
+			
+			document.body.appendChild(tooltip);
+			
+			// Position tooltip relative to the day element
+			const rect = dayElement.getBoundingClientRect();
+			const tooltipRect = tooltip.getBoundingClientRect();
+			
+			// Position above the element by default
+			let top = rect.top - tooltipRect.height - 10;
+			let left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
+			
+			// Adjust if tooltip goes off screen
+			if (top < 10) {
+				top = rect.bottom + 10; // Show below instead
+			}
+			if (left < 10) {
+				left = 10;
+			}
+			if (left + tooltipRect.width > window.innerWidth - 10) {
+				left = window.innerWidth - tooltipRect.width - 10;
+			}
+			
+			tooltip.style.top = top + window.scrollY + 'px';
+			tooltip.style.left = left + 'px';
+			
+			// Add fade-in animation
+			setTimeout(() => {
+				tooltip.classList.add('show');
+			}, 10);
+		}
+
+		function hideEventTooltip() {
+			const existingTooltip = document.querySelector('.event-tooltip');
+			if (existingTooltip) {
+				existingTooltip.classList.remove('show');
+				setTimeout(() => {
+					existingTooltip.remove();
+				}, 200);
+			}
+		}
+
 		// Calendar navigation
 		document.getElementById('prevMonth').addEventListener('click', function() {
 			currentMonth--;
@@ -466,6 +886,139 @@
 			}
 			renderCalendar();
 		});
+
+		// Month and year select handlers
+		document.getElementById('monthSelect').addEventListener('change', function() {
+			currentMonth = parseInt(this.value);
+			renderCalendar();
+		});
+
+		document.getElementById('yearSelect').addEventListener('change', function() {
+			currentYear = parseInt(this.value);
+			renderCalendar();
+		});
+
+		// Event Creation Form Handler
+		document.addEventListener('DOMContentLoaded', function() {
+			const createEventForm = document.getElementById('createEventForm');
+			if (createEventForm) {
+				createEventForm.addEventListener('submit', function(e) {
+					e.preventDefault();
+					
+					if (validateEventForm()) {
+						submitEventForm();
+					}
+				});
+			}
+		});
+
+		function validateEventForm() {
+			const form = document.getElementById('createEventForm');
+			const formData = new FormData(form);
+			let isValid = true;
+			
+			// Clear previous errors
+			document.querySelectorAll('.form-error').forEach(error => {
+				error.textContent = '';
+				error.classList.remove('show');
+			});
+			
+			// Required fields validation
+			const requiredFields = ['eventTitle', 'eventDate', 'eventTime', 'eventLocation', 'eventCategory', 'eventDescription', 'organizerName', 'organizerEmail', 'termsAgreed'];
+			
+			requiredFields.forEach(fieldName => {
+				const field = document.getElementById(fieldName);
+				const value = field.type === 'checkbox' ? field.checked : field.value.trim();
+				
+				if (!value) {
+					showFieldError(fieldName, 'This field is required');
+					isValid = false;
+				}
+			});
+			
+			// Date validation
+			const eventDate = document.getElementById('eventDate').value;
+			const selectedDate = new Date(eventDate);
+			const today = new Date();
+			today.setHours(0, 0, 0, 0);
+			
+			if (selectedDate < today) {
+				showFieldError('eventDate', 'Event date cannot be in the past');
+				isValid = false;
+			}
+			
+			// Email validation
+			const email = document.getElementById('organizerEmail').value;
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (email && !emailRegex.test(email)) {
+				showFieldError('organizerEmail', 'Please enter a valid email address');
+				isValid = false;
+			}
+			
+			return isValid;
+		}
+
+		function showFieldError(fieldName, message) {
+			const field = document.getElementById(fieldName);
+			const errorElement = field.parentNode.querySelector('.form-error');
+			if (errorElement) {
+				errorElement.textContent = message;
+				errorElement.classList.add('show');
+			}
+		}
+
+		function submitEventForm() {
+			const form = document.getElementById('createEventForm');
+			const submitButton = form.querySelector('button[type="submit"]');
+			const formData = new FormData(form);
+			
+			// Set loading state
+			submitButton.disabled = true;
+			submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+			
+			// Create event object
+			const eventData = {
+				title: formData.get('eventTitle'),
+				date: formData.get('eventDate'),
+				time: formData.get('eventTime'),
+				location: formData.get('eventLocation'),
+				category: formData.get('eventCategory'),
+				description: formData.get('eventDescription'),
+				attendees: parseInt(formData.get('eventAttendees')) || 0,
+				organizerName: formData.get('organizerName'),
+				organizerEmail: formData.get('organizerEmail'),
+				contactPhone: formData.get('contactPhone') || '',
+				isPublic: formData.get('eventPublic') === 'on',
+				termsAgreed: formData.get('termsAgreed') === 'on',
+				image: 'images/IMG_5259.jpg', // Default image
+				submittedBy: AuthManager.getUsername() || 'Anonymous',
+				submissionDate: new Date().toISOString()
+			};
+			
+			// Simulate API call (replace with actual backend integration)
+			setTimeout(() => {
+				// Add to events array for immediate display
+				events.push(eventData);
+				
+				// Reset form
+				form.reset();
+				
+				// Reset button
+				submitButton.disabled = false;
+				submitButton.innerHTML = '<i class="fas fa-calendar-plus"></i> Submit Event';
+				
+				// Show success message
+				if (typeof Utils !== 'undefined' && Utils.showToast) {
+					Utils.showToast('Event submitted successfully! It will be reviewed before being added to the calendar.', 'success');
+				} else {
+					alert('Event submitted successfully! It will be reviewed before being added to the calendar.');
+				}
+				
+				// Refresh calendar to show new event
+				renderCalendar();
+				
+			}, 1500);
+		}
 
 		// Initialize
 		window.addEventListener('load', function() {

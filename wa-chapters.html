@@ -23,17 +23,18 @@
                     <ul class="dropdown-menu" role="menu" aria-label="About submenu">
                         <li role="none"><a href="about-us.html" role="menuitem">About Us</a></li>
                         <li role="none"><a href="benefits.html" role="menuitem">Benefits</a></li>
+                        <li role="none"><a href="history.html" role="menuitem">History</a></li>
+                        <li role="none"><a href="pinkhatters.html" role="menuitem">Pink Hatters</a></li>
                         <li role="none"><a href="faq.html" role="menuitem">FAQ</a></li>
                         <li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
-                        <li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
-                        <li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
                     </ul>
                 </li>
+                        <li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
+                        <li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
                 <li class="nav-dropdown" role="none">
                     <a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Members</a>
                     <ul class="dropdown-menu" role="menu" aria-label="Members submenu">
                         <li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
-                        <li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
                         <li role="none"><a href="discussions.html" role="menuitem">Discussions</a></li>
                         <li role="none"><a href="news-notes.html" role="menuitem">News and Notes</a></li>
                         <li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
@@ -41,7 +42,9 @@
                         <li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
                         <li role="none"><a href="account.html" role="menuitem">My Account</a></li>
                         <li role="none"><a href="wa-chapters.html" role="menuitem" aria-current="page">WA Chapters</a></li>
-                        <li role="none"><a href="member-search.html" role="menuitem">Find Members</a></li>
+                        <li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
+                        <li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
+                        <li role="none"><a href="rules-of-association.html" role="menuitem">Rules of Association</a></li>
                     </ul>
                 </li>
                 <li class="nav-dropdown" role="none">
@@ -53,14 +56,16 @@
                         <li role="none"><a href="games.html" role="menuitem">Games</a></li>
                         <li role="none"><a href="crafts.html" role="menuitem">Crafts</a></li>
                         <li role="none"><a href="printables.html" role="menuitem">Printables</a></li>
-                        <li role="none"><a href="hatter-links.html" role="menuitem">Hatter Links</a></li>
+                        <li role="none"><a href="hoot-ideas.html" role="menuitem">Hoot Ideas</a></li>
+                        <li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
+                        <li role="none"><a href="hatter-commandments.html" role="menuitem">Hatter Commandments & Creed</a></li>
                     </ul>
                 </li>
             </ul>
             <div class="nav-buttons">
-                <div class="split-button">
-                    <a href="register.html" class="cta-button" aria-label="Join Red Hatters WA">Join</a>
-                    <a href="login.html" class="login-button" aria-label="Sign in to your account">Sign In</a>
+                <div class="user-display"></div>
+                <div class="logout-section">
+                    <a href="#" class="logout-button" onclick="AuthManager.logout()" aria-label="Sign out">Logout</a>
                 </div>
             </div>
         </nav>
@@ -71,6 +76,89 @@
         <div class="hero-content">
             <h1>WA Chapters</h1>
             <p>Explore Red Hat Society chapters across Western Australia. Find a chapter near you or learn about starting a new one.</p>
+        </div>
+    </section>
+
+    <!-- WA Groups Map Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>WA Groups</h2>
+                <p>There are approximately 90 groups throughout Western Australia. All groups are very different, but all get together and abide by our motto of fun, friendship and frivolity.</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="map-container">
+                        <div class="map-wrapper">
+                            <iframe src="https://www.google.com/maps/d/embed?mid=1Uy6WsCxGFtpnAkqmxQWPxGtSB0N48kFh" width="100%" height="600" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div class="map-overlay">
+                                <div class="map-info">
+                                    <h4>Interactive Map</h4>
+                                    <p>Zoom in and click on a location to get details of the Red/Pink Hatters group.</p>
+                                    <a href="https://red-hatters-wa.net/wa-groups/" target="_blank" class="btn btn-primary">
+                                        <i class="fas fa-external-link-alt"></i> Open Full Map
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="groups-info">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>90+ Groups</h3>
+                            <p>Spread across Western Australia from the Kimberley to the Great Southern region</p>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>Fun, Friendship & Frivolity</h3>
+                            <p>Our motto that brings all Red Hatters together regardless of location</p>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Diverse Communities</h3>
+                            <p>Each group has its own personality and activities while sharing our common values</p>
+                        </div>
+                        
+                        <div class="contact-info">
+                            <h4>Get in Touch</h4>
+                            <p>Send us an email and we'll get back to you with contact information for the group or groups you're interested in.</p>
+                            <a href="mailto:info@redhatterswa.org.au" class="btn btn-secondary">
+                                <i class="fas fa-envelope"></i> Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="map-legend">
+                        <h4>Map Legend</h4>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <span class="legend-marker red-marker"></span>
+                                <span>Red Hatters Groups</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-marker pink-marker"></span>
+                                <span>Pink Hatters Groups</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -323,61 +411,46 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <h5>Red Hatters WA</h5>
-                    <p>Join our vibrant community of women who believe in living life to the fullest, wearing red hats with pride, and creating lasting friendships.</p>
+            <div class="footer-content">
+                <div class="footer-section footer-social">
+                    <h3>Connect With Us</h3>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
+                    <a href="register.html" class="footer-cta-button">Join Our Community</a>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h6>Quick Links</h6>
-                    <ul class="footer-links">
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="events.html">Events</a></li>
-                        <li><a href="benefits.html">Benefits</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                    </ul>
+                <div class="footer-section footer-links">
+                    <h3>Quick Links</h3>
+                    <div class="quick-links">
+                        <a href="index.html">Home</a>
+                        <a href="about-us.html">About Us</a>
+                        <a href="benefits.html">Benefits</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="wa-chapters.html">WA Chapters</a>
+                        <a href="events.html">Events</a>
+                        <a href="resources.html">Resources</a>
+                        <a href="contact-us.html">Contact Us</a>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h6>Members</h6>
-                    <ul class="footer-links">
-                        <li><a href="member-role.html">Member Role</a></li>
-                        <li><a href="discussions.html">Discussions</a></li>
-                        <li><a href="news-notes.html">News & Notes</a></li>
-                        <li><a href="account.html">My Account</a></li>
-                    </ul>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h6>Resources</h6>
-                    <ul class="footer-links">
-                        <li><a href="newsletter.html">Newsletter</a></li>
-                        <li><a href="games.html">Games</a></li>
-                        <li><a href="crafts.html">Crafts</a></li>
-                        <li><a href="printables.html">Printables</a></li>
-                    </ul>
+                <div class="footer-section footer-center">
+                    <img src="images/ARHSWA 1.png" alt="ARHSWA 1 Logo" class="footer-logo-img">
+                    <p>Red Hatters WA</p>
+                    <p>Fun • Friendship • Frivolity</p>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h6>Support</h6>
-                    <ul class="footer-links">
-                        <li><a href="contact-us.html">Contact Us</a></li>
-                        <li><a href="donate.html">Donate</a></li>
-                        <li><a href="offers.html">Offers</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                    </ul>
+                <div class="footer-section footer-newsletter">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest events and news!</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
                 </div>
             </div>
-            <hr class="my-4">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; <span id="current-year"></span> Red Hatters WA. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p class="mb-0">Made with <i class="fas fa-heart text-danger"></i> for Red Hatters everywhere</p>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> Red Hatters WA. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
             </div>
         </div>
     </footer>
@@ -394,3 +467,4 @@
     </script>
 </body>
 </html>
+

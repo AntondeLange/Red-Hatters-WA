@@ -19,55 +19,60 @@
 <body>
 	<!-- Header -->
 	<header class="header" id="header">
-		<nav class="nav container">
-			<a href="index.html" class="logo">
+		<nav class="nav container" role="navigation" aria-label="Main navigation">
+			<a href="index.html" class="logo" aria-label="Red Hatters WA Home">
 				<img src="images/RHSWA-horizontal.png" alt="Red Hatters WA" />
 			</a>
-			<ul class="nav-menu">
-				<li><a href="index.html">Home</a></li>
-				<li class="nav-dropdown">
-					<a href="#" class="dropdown-toggle">About</a>
-					<div class="dropdown-menu">
-						<a href="about-us.html">About Us</a>
-						<a href="benefits.html">Benefits</a>
-						<a href="faq.html">FAQ</a>
-						<a href="offers.html">Offers</a>
-						<a href="donate.html">Donate</a>
-						<a href="contact-us.html">Contact Us</a>
-					</div>
+			<ul class="nav-menu" role="menubar">
+				<li role="none"><a href="index.html" role="menuitem">Home</a></li>
+				<li class="nav-dropdown" role="none">
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">About</a>
+					<ul class="dropdown-menu" role="menu" aria-label="About submenu">
+						<li role="none"><a href="about-us.html" role="menuitem">About Us</a></li>
+						<li role="none"><a href="benefits.html" role="menuitem">Benefits</a></li>
+						<li role="none"><a href="history.html" role="menuitem">History</a></li>
+						<li role="none"><a href="pinkhatters.html" role="menuitem">Pink Hatters</a></li>
+						<li role="none"><a href="faq.html" role="menuitem">FAQ</a></li>
+						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
+					</ul>
 				</li>
-				<li class="nav-dropdown">
-					<a href="#" class="dropdown-toggle">Members</a>
-					<div class="dropdown-menu">
-						<a href="member-role.html">Member Role</a>
-						<a href="member-search.html">Member Search</a>
-						<a href="discussions.html">Discussions</a>
-						<a href="news-notes.html">News and Notes</a>
-						<a href="members-corner.html">Members' Corner</a>
-						<a href="website-guide.html">Website Guide</a>
-						<a href="member-handbook.html">Member Handbook</a>
-						<a href="account.html">My Account</a>
-						<a href="wa-chapters.html">WA Chapters</a>
-						<a href="member-search.html">Find Members</a>
-					</div>
+				<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
+				<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+				<li class="nav-dropdown" role="none">
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Members</a>
+					<ul class="dropdown-menu" role="menu" aria-label="Members submenu">
+						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
+						<li role="none"><a href="discussions.html" role="menuitem">Discussions</a></li>
+						<li role="none"><a href="news-notes.html" role="menuitem">News and Notes</a></li>
+						<li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
+						<li role="none"><a href="website-guide.html" role="menuitem">Website Guide</a></li>
+						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
+						<li role="none"><a href="account.html" role="menuitem">My Account</a></li>
+						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
+						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
+						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
+						<li role="none"><a href="rules-of-association.html" role="menuitem">Rules of Association</a></li>
+					</ul>
 				</li>
-				<li class="nav-dropdown">
-					<a href="#" class="dropdown-toggle">Resources</a>
-					<div class="dropdown-menu">
-						<a href="resources.html">Resources</a>
-						<a href="events.html">Events</a>
-						<a href="newsletter.html" class="active">Newsletter</a>
-						<a href="games.html">Games</a>
-						<a href="crafts.html">Crafts</a>
-						<a href="printables.html">Printables</a>
-						<a href="hatter-links.html">Hatter Links</a>
-					</div>
+				<li class="nav-dropdown" role="none">
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Resources</a>
+					<ul class="dropdown-menu" role="menu" aria-label="Resources submenu">
+						<li role="none"><a href="resources.html" role="menuitem">Resources</a></li>
+						<li role="none"><a href="events.html" role="menuitem">Events</a></li>
+						<li role="none"><a href="newsletter.html" role="menuitem" aria-current="page">Newsletter</a></li>
+						<li role="none"><a href="games.html" role="menuitem">Games</a></li>
+						<li role="none"><a href="crafts.html" role="menuitem">Crafts</a></li>
+						<li role="none"><a href="printables.html" role="menuitem">Printables</a></li>
+						<li role="none"><a href="hoot-ideas.html" role="menuitem">Hoot Ideas</a></li>
+						<li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
+						<li role="none"><a href="hatter-commandments.html" role="menuitem">Hatter Commandments & Creed</a></li>
+					</ul>
 				</li>
 			</ul>
 			<div class="nav-buttons">
-				<div class="split-button">
-					<a href="register.html" class="cta-button">Join</a>
-					<a href="login.html" class="login-button">Sign In</a>
+				<div class="user-display"></div>
+				<div class="logout-section">
+					<a href="#" class="logout-button" onclick="AuthManager.logout()" aria-label="Sign out">Logout</a>
 				</div>
 			</div>
 		</nav>
@@ -78,6 +83,121 @@
 		<div class="container">
 			<h1>Newsletter</h1>
 			<p>Subscribe to the Red Hatters WA newsletter for monthly updates, event calendar, and member news.</p>
+		</div>
+	</section>
+
+	<!-- Current Newsletter Section -->
+	<section class="content-section">
+		<div class="container">
+			<div class="section-header">
+				<h2>Latest Newsletter</h2>
+				<p>Read our most recent issue featuring the latest news, events, and member stories</p>
+			</div>
+			<div class="current-newsletter">
+				<div class="newsletter-showcase">
+					<div class="newsletter-main">
+						<!-- Newsletter Header: Image Left, Paragraph Right -->
+						<div class="newsletter-header">
+							<div class="newsletter-cover">
+								<img src="images/IMG_5259.jpg" alt="January 2025 Newsletter Cover" class="newsletter-cover-image">
+								<div class="newsletter-badge">
+									<span class="badge-text">Latest Issue</span>
+								</div>
+							</div>
+							<div class="newsletter-info">
+								<div class="newsletter-meta">
+									<span class="newsletter-date">
+										<i class="fas fa-calendar-alt"></i>
+										January 2025
+									</span>
+									<span class="newsletter-issue">
+										<i class="fas fa-file-alt"></i>
+										Issue #1
+									</span>
+								</div>
+								<h3 class="newsletter-title">New Year, New Adventures</h3>
+								<p class="newsletter-description">
+									Start 2025 with exciting new events, member spotlights, craft tutorials, and travel opportunities. This issue features our New Year celebration highlights, upcoming workshops, and inspiring stories from our Red Hat sisters.
+								</p>
+							</div>
+						</div>
+
+						<!-- Buttons Spread Across Section -->
+						<div class="newsletter-actions">
+							<button class="btn btn-primary" onclick="openNewsletterPDF('latest')">
+								<i class="fas fa-book-open"></i>
+								Read Full Newsletter
+							</button>
+							<button class="btn btn-secondary" onclick="downloadNewsletterPDF('latest')">
+								<i class="fas fa-download"></i>
+								Download PDF
+							</button>
+							<button class="btn btn-secondary" onclick="shareNewsletterEmail('latest')">
+								<i class="fas fa-share"></i>
+								Share Newsletter
+							</button>
+							<div class="like-system">
+								<button class="like-btn" data-newsletter="latest" onclick="toggleLike('latest')">
+									<i class="fas fa-thumbs-up"></i>
+									<span class="like-count" id="like-count-latest">127</span>
+								</button>
+							</div>
+						</div>
+
+						<!-- In This Issue Spread Across Section -->
+						<div class="newsletter-highlights">
+							<h4>In This Issue:</h4>
+							<div class="highlights-grid">
+								<div class="highlight-item">
+									<i class="fas fa-star"></i>
+									<span>New Year Celebration Photo Gallery</span>
+								</div>
+								<div class="highlight-item">
+									<i class="fas fa-calendar"></i>
+									<span>February Event Calendar</span>
+								</div>
+								<div class="highlight-item">
+									<i class="fas fa-user"></i>
+									<span>Member Spotlight: Margaret's Craft Journey</span>
+								</div>
+								<div class="highlight-item">
+									<i class="fas fa-palette"></i>
+									<span>Valentine's Day Craft Tutorial</span>
+								</div>
+								<div class="highlight-item">
+									<i class="fas fa-plane"></i>
+									<span>Summer Travel Planning Guide</span>
+								</div>
+								<div class="highlight-item">
+									<i class="fas fa-utensils"></i>
+									<span>Recipe Corner: Red Hat Red Velvet Cake</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Stats Stacked on Right -->
+					<div class="newsletter-sidebar">
+						<div class="newsletter-stats">
+							<div class="stat-item">
+								<i class="fas fa-users"></i>
+								<span class="stat-number">1,247</span>
+								<span class="stat-label">Subscribers</span>
+							</div>
+							<div class="stat-item">
+								<i class="fas fa-envelope"></i>
+								<span class="stat-number">98%</span>
+								<span class="stat-label">Open Rate</span>
+							</div>
+							<div class="stat-item">
+								<i class="fas fa-heart"></i>
+								<span class="stat-number">4.9/5</span>
+								<span class="stat-label">Rating</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 
@@ -93,18 +213,20 @@
 					<div class="signup-content">
 						<h3>Subscribe to Our Newsletter</h3>
 						<p>Get the latest Red Hat Society news, upcoming events, member spotlights, and exclusive content delivered to your inbox monthly.</p>
-						<form class="newsletter-form">
+						<form id="newsletterSubscribeForm" class="newsletter-form" novalidate>
 						<div class="form-group">
-								<label for="email">Email Address</label>
-								<input type="email" id="email" name="email" placeholder="Enter your email address" required>
+								<label for="newsletterEmail">Email Address *</label>
+								<input type="email" id="newsletterEmail" name="email" placeholder="Enter your email address" required>
+								<div class="form-error"></div>
 						</div>
 						<div class="form-group">
-								<label for="firstName">First Name (Optional)</label>
-								<input type="text" id="firstName" name="firstName" placeholder="Your first name">
+								<label for="newsletterFirstName">First Name</label>
+								<input type="text" id="newsletterFirstName" name="firstName" placeholder="Your first name" maxlength="50">
+								<div class="form-error"></div>
 						</div>
 						<div class="form-group">
-								<label for="interests">Interests (Optional)</label>
-								<select id="interests" name="interests">
+								<label for="newsletterInterests">Interests</label>
+								<select id="newsletterInterests" name="interests">
 									<option value="">Select your interests</option>
 									<option value="events">Events & Activities</option>
 									<option value="crafts">Crafts & DIY</option>
@@ -112,14 +234,22 @@
 									<option value="dining">Dining & Social</option>
 									<option value="all">All Content</option>
 								</select>
+								<div class="form-error"></div>
 						</div>
 						<div class="form-group">
 								<label class="checkbox-label">
-									<input type="checkbox" required>
-									I agree to receive newsletters and promotional emails from Red Hatters WA
+									<input type="checkbox" id="newsletterConsent" name="consent" required>
+									I agree to receive newsletters and promotional emails from Red Hatters WA *
 								</label>
+								<div class="form-error"></div>
 						</div>
-							<button type="submit" class="btn btn-primary">Subscribe Now</button>
+							<button type="submit" class="btn btn-primary">
+								<span class="btn-text">Subscribe Now</span>
+								<span class="btn-loading" style="display: none;">
+									<i class="fas fa-spinner fa-spin"></i>
+									Subscribing...
+								</span>
+							</button>
 					</form>
 				</div>
 					<div class="signup-benefits">
@@ -157,7 +287,26 @@
 							<span><i class="fas fa-calendar"></i> December 1, 2024</span>
 							<span><i class="fas fa-download"></i> PDF Download</span>
 						</div>
-						<a href="#" class="btn btn-secondary">Read Newsletter</a>
+						<div class="newsletter-actions">
+							<button class="btn btn-primary" onclick="openNewsletterPDF('dec2024')">
+								<i class="fas fa-book-open"></i>
+								Read Full Newsletter
+							</button>
+							<button class="btn btn-secondary" onclick="downloadNewsletterPDF('dec2024')">
+								<i class="fas fa-download"></i>
+								Download PDF
+							</button>
+							<button class="btn btn-secondary" onclick="shareNewsletterEmail('dec2024')">
+								<i class="fas fa-share"></i>
+								Share Newsletter
+							</button>
+							<div class="like-system">
+								<button class="like-btn" data-newsletter="dec2024" onclick="toggleLike('dec2024')">
+									<i class="fas fa-thumbs-up"></i>
+									<span class="like-count" id="like-count-dec2024">89</span>
+								</button>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="newsletter-item">
@@ -171,7 +320,26 @@
 							<span><i class="fas fa-calendar"></i> November 1, 2024</span>
 							<span><i class="fas fa-download"></i> PDF Download</span>
 						</div>
-						<a href="#" class="btn btn-secondary">Read Newsletter</a>
+						<div class="newsletter-actions">
+							<button class="btn btn-primary" onclick="openNewsletterPDF('nov2024')">
+								<i class="fas fa-book-open"></i>
+								Read Full Newsletter
+							</button>
+							<button class="btn btn-secondary" onclick="downloadNewsletterPDF('nov2024')">
+								<i class="fas fa-download"></i>
+								Download PDF
+							</button>
+							<button class="btn btn-secondary" onclick="shareNewsletterEmail('nov2024')">
+								<i class="fas fa-share"></i>
+								Share Newsletter
+							</button>
+							<div class="like-system">
+								<button class="like-btn" data-newsletter="nov2024" onclick="toggleLike('nov2024')">
+									<i class="fas fa-thumbs-up"></i>
+									<span class="like-count" id="like-count-nov2024">76</span>
+								</button>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="newsletter-item">
@@ -185,7 +353,26 @@
 							<span><i class="fas fa-calendar"></i> October 1, 2024</span>
 							<span><i class="fas fa-download"></i> PDF Download</span>
 						</div>
-						<a href="#" class="btn btn-secondary">Read Newsletter</a>
+						<div class="newsletter-actions">
+							<button class="btn btn-primary" onclick="openNewsletterPDF('oct2024')">
+								<i class="fas fa-book-open"></i>
+								Read Full Newsletter
+							</button>
+							<button class="btn btn-secondary" onclick="downloadNewsletterPDF('oct2024')">
+								<i class="fas fa-download"></i>
+								Download PDF
+							</button>
+							<button class="btn btn-secondary" onclick="shareNewsletterEmail('oct2024')">
+								<i class="fas fa-share"></i>
+								Share Newsletter
+							</button>
+							<div class="like-system">
+								<button class="like-btn" data-newsletter="oct2024" onclick="toggleLike('oct2024')">
+									<i class="fas fa-thumbs-up"></i>
+									<span class="like-count" id="like-count-oct2024">94</span>
+								</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -240,22 +427,307 @@
 			<div class="section-header">
 				<h2>Manage Your Subscription</h2>
 				<p>Update your preferences or unsubscribe at any time</p>
-					</div>
+			</div>
 			<div class="subscription-management">
-				<div class="card">
+				<!-- Update Preferences Form -->
+				<div class="card subscription-card">
 					<h3>Update Preferences</h3>
 					<p>Change your email address, update your interests, or modify your subscription preferences.</p>
-					<a href="#" class="btn btn-primary">Update Preferences</a>
+					<form id="updatePreferencesForm" class="subscription-form" novalidate>
+						<div class="form-group">
+							<label for="currentEmail">Current Email Address *</label>
+							<input type="email" id="currentEmail" name="currentEmail" required placeholder="Enter your current email address">
+							<div class="form-error"></div>
+						</div>
+						<div class="form-group">
+							<label for="newEmail">New Email Address (Optional)</label>
+							<input type="email" id="newEmail" name="newEmail" placeholder="Enter new email if changing">
+							<div class="form-error"></div>
+						</div>
+						<div class="form-group">
+							<label for="firstName">First Name</label>
+							<input type="text" id="firstName" name="firstName" maxlength="50" placeholder="Your first name">
+							<div class="form-error"></div>
+						</div>
+						<div class="form-group">
+							<label for="interests">Interests</label>
+							<select id="interests" name="interests">
+								<option value="">Select your interests</option>
+								<option value="events">Events & Activities</option>
+								<option value="crafts">Crafts & DIY</option>
+								<option value="travel">Travel & Adventures</option>
+								<option value="dining">Dining & Social</option>
+								<option value="all">All Content</option>
+							</select>
+							<div class="form-error"></div>
+						</div>
+						<div class="form-group">
+							<label for="frequency">Email Frequency</label>
+							<select id="frequency" name="frequency">
+								<option value="monthly">Monthly</option>
+								<option value="weekly">Weekly</option>
+								<option value="special-only">Special Events Only</option>
+							</select>
+							<div class="form-error"></div>
+						</div>
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary">
+								<span class="btn-text">Update Preferences</span>
+								<span class="btn-loading" style="display: none;">
+									<i class="fas fa-spinner fa-spin"></i>
+									Updating...
+								</span>
+							</button>
+							<button type="reset" class="btn btn-secondary">Reset Form</button>
+						</div>
+					</form>
 				</div>
-				<div class="card">
+
+				<!-- Unsubscribe Form -->
+				<div class="card subscription-card">
 					<h3>Unsubscribe</h3>
 					<p>If you no longer wish to receive our newsletter, you can unsubscribe at any time.</p>
-					<a href="#" class="btn btn-secondary">Unsubscribe</a>
-					</div>
-				<div class="card">
+					<form id="unsubscribeForm" class="subscription-form" novalidate>
+						<div class="form-group">
+							<label for="unsubscribeEmail">Email Address *</label>
+							<input type="email" id="unsubscribeEmail" name="email" required placeholder="Enter your email address">
+							<div class="form-error"></div>
+						</div>
+						<div class="form-group">
+							<label for="unsubscribeReason">Reason for Unsubscribing (Optional)</label>
+							<select id="unsubscribeReason" name="reason">
+								<option value="">Select a reason</option>
+								<option value="too-frequent">Too frequent</option>
+								<option value="not-relevant">Content not relevant</option>
+								<option value="technical-issues">Technical issues</option>
+								<option value="privacy-concerns">Privacy concerns</option>
+								<option value="no-longer-interested">No longer interested</option>
+								<option value="other">Other</option>
+							</select>
+							<div class="form-error"></div>
+						</div>
+						<div class="form-group" id="otherReasonGroup" style="display: none;">
+							<label for="otherReason">Please specify</label>
+							<textarea id="otherReason" name="otherReason" rows="3" placeholder="Please tell us more..."></textarea>
+							<div class="form-error"></div>
+						</div>
+						<div class="form-group">
+							<label class="checkbox-label">
+								<input type="checkbox" id="unsubscribeConfirm" name="confirm" required>
+								I understand that I will no longer receive newsletters from Red Hatters WA *
+							</label>
+							<div class="form-error"></div>
+						</div>
+						<div class="form-actions">
+							<button type="submit" class="btn btn-secondary">
+								<span class="btn-text">Unsubscribe</span>
+								<span class="btn-loading" style="display: none;">
+									<i class="fas fa-spinner fa-spin"></i>
+									Processing...
+								</span>
+							</button>
+						</div>
+					</form>
+				</div>
+
+				<!-- Contact Support -->
+				<div class="card subscription-card">
 					<h3>Contact Us</h3>
 					<p>Have questions about our newsletter? We're here to help with any subscription-related inquiries.</p>
 					<a href="contact-us.html" class="btn btn-primary">Contact Support</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Article Submission Section -->
+	<section class="content-section">
+		<div class="container">
+			<div class="section-header">
+				<h2>Submit Article for Newsletter</h2>
+				<p>Share your stories, experiences, and photos with fellow Red Hatters for inclusion in future newsletters</p>
+			</div>
+			<div class="submission-container">
+				<div class="form-container">
+					<form id="articleSubmissionForm" class="article-form" novalidate>
+						<div class="form-row">
+							<div class="form-group">
+								<label for="articleTitle">Article Title *</label>
+								<input type="text" id="articleTitle" name="articleTitle" required minlength="5" maxlength="100" placeholder="Enter your article title">
+								<div class="form-error"></div>
+							</div>
+							<div class="form-group">
+								<label for="articleCategory">Article Category *</label>
+								<select id="articleCategory" name="articleCategory" required>
+									<option value="">Select a category</option>
+									<option value="member-spotlight">Member Spotlight</option>
+									<option value="event-story">Event Story</option>
+									<option value="craft-tutorial">Craft Tutorial</option>
+									<option value="travel-tale">Travel Tale</option>
+									<option value="recipe-share">Recipe Share</option>
+									<option value="chapter-news">Chapter News</option>
+									<option value="achievement">Member Achievement</option>
+									<option value="other">Other</option>
+								</select>
+								<div class="form-error"></div>
+							</div>
+						</div>
+						
+						<div class="form-row">
+							<div class="form-group">
+								<label for="authorName">Your Name *</label>
+								<input type="text" id="authorName" name="authorName" required minlength="2" maxlength="100" placeholder="Your full name">
+								<div class="form-error"></div>
+							</div>
+							<div class="form-group">
+								<label for="authorEmail">Contact Email *</label>
+								<input type="email" id="authorEmail" name="authorEmail" required placeholder="your.email@example.com">
+								<div class="form-error"></div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="articleContent">Article Content *</label>
+							<textarea id="articleContent" name="articleContent" required minlength="50" maxlength="2000" rows="8" placeholder="Write your article here. Include details about your story, experience, or tutorial..."></textarea>
+							<div class="form-error"></div>
+							<small class="form-help">Minimum 50 characters, maximum 2000 characters</small>
+						</div>
+						
+						<div class="form-group">
+							<label for="articleSummary">Brief Summary (Optional)</label>
+							<textarea id="articleSummary" name="articleSummary" maxlength="300" rows="3" placeholder="A brief summary of your article for the newsletter index..."></textarea>
+							<small class="form-help">Optional: Brief summary for newsletter index (max 300 characters)</small>
+						</div>
+						
+						<div class="form-row">
+							<div class="form-group">
+								<label for="relatedEvent">Related Event (Optional)</label>
+								<input type="text" id="relatedEvent" name="relatedEvent" maxlength="100" placeholder="If this article relates to a specific event, mention it here">
+							</div>
+							<div class="form-group">
+								<label for="targetIssue">Target Issue (Optional)</label>
+								<select id="targetIssue" name="targetIssue">
+									<option value="">No preference</option>
+									<option value="next">Next Issue</option>
+									<option value="february-2025">February 2025</option>
+									<option value="march-2025">March 2025</option>
+									<option value="april-2025">April 2025</option>
+									<option value="future">Future Issue</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="articlePhotos">Photos/Images *</label>
+							<input type="file" id="articlePhotos" name="articlePhotos" multiple accept="image/*" required>
+							<div class="form-error"></div>
+							<small class="form-help">Upload high-quality photos related to your article (JPG, PNG, GIF - max 5MB each)</small>
+							<div id="photoPreview" class="photo-preview"></div>
+						</div>
+						
+						<div class="form-group">
+							<label for="additionalFiles">Additional Files (Optional)</label>
+							<input type="file" id="additionalFiles" name="additionalFiles" multiple accept=".pdf,.doc,.docx,.txt">
+							<small class="form-help">Upload additional documents, recipes, patterns, or other files (PDF, DOC, DOCX, TXT - max 10MB each)</small>
+						</div>
+						
+						<div class="form-group">
+							<label class="checkbox-label">
+								<input type="checkbox" id="photoPermission" name="photoPermission" required>
+								<span class="checkmark"></span>
+								I give permission for my photos to be used in the newsletter and on the website *
+							</label>
+							<div class="form-error"></div>
+						</div>
+						
+						<div class="form-group">
+							<label class="checkbox-label">
+								<input type="checkbox" id="contactPermission" name="contactPermission">
+								<span class="checkmark"></span>
+								Editors may contact me for clarification or additional information
+							</label>
+						</div>
+						
+						<div class="form-group">
+							<label class="checkbox-label">
+								<input type="checkbox" id="termsAgreed" name="termsAgreed" required>
+								<span class="checkmark"></span>
+								I agree to the <a href="terms.html" target="_blank">Terms of Service</a> and understand that articles are subject to editorial review *
+							</label>
+							<div class="form-error"></div>
+						</div>
+						
+						<div class="form-actions">
+							<button type="submit" class="btn btn-primary">
+								<i class="fas fa-paper-plane"></i>
+								Submit Article
+							</button>
+							<button type="reset" class="btn btn-secondary">
+								<i class="fas fa-undo"></i>
+								Reset Form
+							</button>
+						</div>
+					</form>
+				</div>
+				
+				<div class="submission-guidelines">
+					<div class="guidelines-header">
+						<h3>Submission Guidelines</h3>
+						<p>Follow these guidelines to ensure your article is considered for publication</p>
+					</div>
+					<div class="guideline-cards">
+						<div class="feature-card guideline-card">
+							<div class="feature-icon">
+								<i class="fas fa-edit"></i>
+							</div>
+							<h4>Writing Tips</h4>
+							<p>Create engaging content that resonates with your fellow Red Hatters</p>
+							<div class="guideline-toggle">
+								<span class="toggle-text">Hover to view details</span>
+								<i class="fas fa-chevron-down toggle-icon"></i>
+							</div>
+							<ul class="guideline-list collapsed">
+								<li>Keep articles engaging and positive</li>
+								<li>Include personal experiences and insights</li>
+								<li>Use clear, readable language</li>
+								<li>Proofread before submitting</li>
+							</ul>
+						</div>
+						<div class="feature-card guideline-card">
+							<div class="feature-icon">
+								<i class="fas fa-camera"></i>
+							</div>
+							<h4>Photo Requirements</h4>
+							<p>High-quality images make your article stand out and engage readers</p>
+							<div class="guideline-toggle">
+								<span class="toggle-text">Hover to view details</span>
+								<i class="fas fa-chevron-down toggle-icon"></i>
+							</div>
+							<ul class="guideline-list collapsed">
+								<li>High resolution (at least 1200px wide)</li>
+								<li>Clear, well-lit images</li>
+								<li>Include captions if relevant</li>
+								<li>Ensure all people in photos consent</li>
+							</ul>
+						</div>
+						<div class="feature-card guideline-card">
+							<div class="feature-icon">
+								<i class="fas fa-clock"></i>
+							</div>
+							<h4>Submission Timeline</h4>
+							<p>Plan ahead to ensure your content reaches our readers in time</p>
+							<div class="guideline-toggle">
+								<span class="toggle-text">Hover to view details</span>
+								<i class="fas fa-chevron-down toggle-icon"></i>
+							</div>
+							<ul class="guideline-list collapsed">
+								<li>Submit by the 15th for next month's issue</li>
+								<li>Allow 2-3 weeks for editorial review</li>
+								<li>You'll be notified of acceptance</li>
+								<li>Articles may be edited for clarity</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -313,11 +785,802 @@
 		// Update current year in footer
 		document.getElementById('current-year').textContent = new Date().getFullYear();
 
-		// Newsletter form submission
-		document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-			e.preventDefault();
-			alert('Thank you for subscribing to our newsletter! You will receive a confirmation email shortly.');
+		// Newsletter subscription form handling
+		document.addEventListener('DOMContentLoaded', function() {
+			const newsletterForm = document.getElementById('newsletterSubscribeForm');
+			
+			if (newsletterForm) {
+				newsletterForm.addEventListener('submit', function(e) {
+					e.preventDefault();
+					if (validateNewsletterForm()) {
+						submitNewsletterForm();
+					}
+				});
+			}
 		});
+
+		function validateNewsletterForm() {
+			let isValid = true;
+			const form = document.getElementById('newsletterSubscribeForm');
+			
+			// Clear previous errors
+			form.querySelectorAll('.form-error').forEach(error => error.textContent = '');
+			
+			// Validate email
+			const email = form.querySelector('#newsletterEmail');
+			if (!email.value.trim()) {
+				showFieldError('newsletterEmail', 'Email address is required');
+				isValid = false;
+			} else if (!isValidEmail(email.value)) {
+				showFieldError('newsletterEmail', 'Please enter a valid email address');
+				isValid = false;
+			}
+			
+			// Validate first name (if provided)
+			const firstName = form.querySelector('#newsletterFirstName');
+			if (firstName.value.trim() && firstName.value.trim().length < 2) {
+				showFieldError('newsletterFirstName', 'First name must be at least 2 characters');
+				isValid = false;
+			}
+			
+			// Validate consent
+			const consent = form.querySelector('#newsletterConsent');
+			if (!consent.checked) {
+				showFieldError('newsletterConsent', 'You must agree to receive newsletters');
+				isValid = false;
+			}
+			
+			return isValid;
+		}
+
+		function showFieldError(fieldId, message) {
+			const field = document.getElementById(fieldId);
+			const errorDiv = field.closest('.form-group').querySelector('.form-error');
+			if (errorDiv) {
+				errorDiv.textContent = message;
+				field.classList.add('error');
+			}
+		}
+
+		function isValidEmail(email) {
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			return emailRegex.test(email);
+		}
+
+		function submitNewsletterForm() {
+			const form = document.getElementById('newsletterSubscribeForm');
+			const submitBtn = form.querySelector('button[type="submit"]');
+			const btnText = submitBtn.querySelector('.btn-text');
+			const btnLoading = submitBtn.querySelector('.btn-loading');
+			
+			// Show loading state
+			submitBtn.disabled = true;
+			submitBtn.classList.add('loading');
+			btnText.style.display = 'none';
+			btnLoading.style.display = 'inline-flex';
+			
+			// Collect form data
+			const formData = {
+				email: form.querySelector('#newsletterEmail').value.trim(),
+				firstName: form.querySelector('#newsletterFirstName').value.trim(),
+				interests: form.querySelector('#newsletterInterests').value,
+				consent: form.querySelector('#newsletterConsent').checked,
+				timestamp: new Date().toISOString(),
+				source: 'newsletter-page'
+			};
+			
+			// Submit to backend
+			fetch('/api/newsletter/subscribe', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData)
+			})
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+					// Success - show success message
+					showToast('Success! You have been subscribed to our newsletter.', 'success');
+					form.reset();
+					
+					// Track subscription (if analytics available)
+					if (typeof gtag !== 'undefined') {
+						gtag('event', 'newsletter_subscribe', {
+							event_category: 'engagement',
+							event_label: 'newsletter-page'
+						});
+					}
+				} else {
+					throw new Error(data.message || 'Subscription failed');
+				}
+			})
+			.catch(error => {
+				console.error('Newsletter subscription error:', error);
+				
+				// Fallback to Formspree if backend is not available
+				const formspreeData = new FormData(form);
+				formspreeData.append('_subject', 'Newsletter Subscription - Red Hatters WA');
+				formspreeData.append('_replyto', formData.email);
+				
+				return fetch('https://formspree.io/f/YOUR_FORM_ID', {
+					method: 'POST',
+					body: formspreeData
+				});
+			})
+			.then(response => {
+				if (response && response.ok) {
+					showToast('Thank you for subscribing! You will receive a confirmation email shortly.', 'success');
+					form.reset();
+				} else {
+					throw new Error('Subscription failed');
+				}
+			})
+			.catch(error => {
+				console.error('Newsletter subscription error:', error);
+				showToast('Sorry, there was an error subscribing you to our newsletter. Please try again.', 'error');
+			})
+			.finally(() => {
+				// Reset button state
+				submitBtn.disabled = false;
+				submitBtn.classList.remove('loading');
+				btnText.style.display = 'inline';
+				btnLoading.style.display = 'none';
+			});
+		}
+
+		function showToast(message, type) {
+			// Create toast notification
+			const toast = document.createElement('div');
+			toast.className = `toast toast-${type}`;
+			toast.innerHTML = `
+				<div class="toast-content">
+					<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+					<span>${message}</span>
+				</div>
+			`;
+			
+			// Style the toast
+			Object.assign(toast.style, {
+				position: 'fixed',
+				top: '20px',
+				right: '20px',
+				background: type === 'success' ? 'var(--success-green)' : 'var(--error-red)',
+				color: 'white',
+				padding: '15px 20px',
+				borderRadius: '8px',
+				boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+				zIndex: '10000',
+				maxWidth: '400px',
+				transform: 'translateX(100%)',
+				transition: 'transform 0.3s ease'
+			});
+			
+			document.body.appendChild(toast);
+			
+			// Animate in
+			setTimeout(() => {
+				toast.style.transform = 'translateX(0)';
+			}, 100);
+			
+			// Remove after 5 seconds
+			setTimeout(() => {
+				toast.style.transform = 'translateX(100%)';
+				setTimeout(() => {
+					if (toast.parentNode) {
+						toast.parentNode.removeChild(toast);
+					}
+				}, 300);
+			}, 5000);
+		}
+
+		// Newsletter button functionality
+		function openNewsletterPDF(newsletterId) {
+			const newsletterInfo = getNewsletterInfo(newsletterId);
+			
+			// Try to open PDF in new tab
+			const pdfUrl = `/newsletters/${newsletterInfo.filename}`;
+			const newWindow = window.open(pdfUrl, '_blank');
+			
+			if (!newWindow) {
+				// If popup blocked, show fallback message
+				showToast('Please allow popups to view the newsletter, or use the download button.', 'error');
+				
+				// Fallback: redirect to PDF
+				setTimeout(() => {
+					window.location.href = pdfUrl;
+				}, 2000);
+			} else {
+				showToast(`Opening ${newsletterInfo.title}...`, 'success');
+			}
+			
+			// Track PDF view
+			if (typeof gtag !== 'undefined') {
+				gtag('event', 'newsletter_view', {
+					event_category: 'engagement',
+					event_label: newsletterId,
+					value: 1
+				});
+			}
+		}
+
+		function downloadNewsletterPDF(newsletterId) {
+			const newsletterInfo = getNewsletterInfo(newsletterId);
+			
+			// Create a temporary link element for download
+			const link = document.createElement('a');
+			link.href = `/newsletters/${newsletterInfo.filename}`;
+			link.download = newsletterInfo.filename;
+			link.style.display = 'none';
+			
+			// Add to DOM, click, and remove
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);
+			
+			showToast(`Downloading ${newsletterInfo.title}...`, 'success');
+			
+			// Track download
+			if (typeof gtag !== 'undefined') {
+				gtag('event', 'newsletter_download', {
+					event_category: 'engagement',
+					event_label: newsletterId,
+					value: 1
+				});
+			}
+		}
+
+		function shareNewsletterEmail(newsletterId) {
+			const newsletterInfo = getNewsletterInfo(newsletterId);
+			
+			// Create email subject and body
+			const subject = encodeURIComponent(`Check out this Red Hatters WA Newsletter: ${newsletterInfo.title}`);
+			const body = encodeURIComponent(
+				`Hi there!\n\nI thought you might be interested in this newsletter from Red Hatters WA:\n\n` +
+				`${newsletterInfo.title}\n` +
+				`${newsletterInfo.description}\n\n` +
+				`You can read it here: ${window.location.origin}/newsletters/${newsletterInfo.filename}\n\n` +
+				`Best regards!`
+			);
+			
+			// Create mailto link
+			const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
+			
+			// Try to open email client
+			const newWindow = window.open(mailtoLink, '_blank');
+			
+			if (!newWindow) {
+				// If popup blocked, show share modal
+				showShareModal(newsletterInfo);
+			} else {
+				showToast('Opening email client...', 'success');
+			}
+			
+			// Track share
+			if (typeof gtag !== 'undefined') {
+				gtag('event', 'newsletter_share', {
+					event_category: 'engagement',
+					event_label: newsletterId,
+					value: 1
+				});
+			}
+		}
+
+		function showShareModal(newsletterInfo) {
+			// Create share modal
+			const modal = document.createElement('div');
+			modal.className = 'share-modal';
+			modal.innerHTML = `
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3>Share Newsletter</h3>
+						<button class="modal-close" onclick="closeShareModal()">&times;</button>
+					</div>
+					<div class="modal-body">
+						<p>Share "${newsletterInfo.title}" via:</p>
+						<div class="share-options">
+							<button class="share-btn email-btn" onclick="shareViaEmail('${newsletterInfo.id}')">
+								<i class="fas fa-envelope"></i>
+								Email
+							</button>
+							<button class="share-btn copy-btn" onclick="copyNewsletterLink('${newsletterInfo.id}')">
+								<i class="fas fa-link"></i>
+								Copy Link
+							</button>
+						</div>
+					</div>
+				</div>
+			`;
+			
+			// Style the modal
+			Object.assign(modal.style, {
+				position: 'fixed',
+				top: '0',
+				left: '0',
+				width: '100%',
+				height: '100%',
+				background: 'rgba(0, 0, 0, 0.5)',
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				zIndex: '10000'
+			});
+			
+			const modalContent = modal.querySelector('.modal-content');
+			Object.assign(modalContent.style, {
+				background: 'white',
+				borderRadius: '10px',
+				padding: '2rem',
+				maxWidth: '400px',
+				width: '90%',
+				boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)'
+			});
+			
+			document.body.appendChild(modal);
+			
+			// Close on background click
+			modal.addEventListener('click', function(e) {
+				if (e.target === modal) {
+					closeShareModal();
+				}
+			});
+		}
+
+		function closeShareModal() {
+			const modal = document.querySelector('.share-modal');
+			if (modal) {
+				modal.remove();
+			}
+		}
+
+		function shareViaEmail(newsletterId) {
+			const newsletterInfo = getNewsletterInfo(newsletterId);
+			const subject = `Check out this Red Hatters WA Newsletter: ${newsletterInfo.title}`;
+			const body = `Hi there!\n\nI thought you might be interested in this newsletter from Red Hatters WA:\n\n${newsletterInfo.title}\n${newsletterInfo.description}\n\nYou can read it here: ${window.location.origin}/newsletters/${newsletterInfo.filename}\n\nBest regards!`;
+			
+			window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+			closeShareModal();
+		}
+
+		function copyNewsletterLink(newsletterId) {
+			const newsletterInfo = getNewsletterInfo(newsletterId);
+			const link = `${window.location.origin}/newsletters/${newsletterInfo.filename}`;
+			
+			navigator.clipboard.writeText(link).then(() => {
+				showToast('Newsletter link copied to clipboard!', 'success');
+				closeShareModal();
+			}).catch(() => {
+				showToast('Unable to copy link. Please copy manually.', 'error');
+			});
+		}
+
+		function getNewsletterInfo(newsletterId) {
+			const newsletterData = {
+				'latest': {
+					id: 'latest',
+					title: 'New Year, New Adventures',
+					description: 'Start 2025 with exciting new events, member spotlights, craft tutorials, and travel opportunities.',
+					filename: 'red-hatters-wa-newsletter-january-2025.pdf',
+					baseLikes: 127
+				},
+				'dec2024': {
+					id: 'dec2024',
+					title: 'December 2024 - Holiday Special',
+					description: 'Celebrate the holiday season with our special edition featuring Christmas craft ideas and member celebrations.',
+					filename: 'red-hatters-wa-newsletter-december-2024.pdf',
+					baseLikes: 89
+				},
+				'nov2024': {
+					id: 'nov2024',
+					title: 'November 2024 - Craft Focus',
+					description: 'This month we focus on creative crafts and DIY projects, featuring tutorials from our talented members.',
+					filename: 'red-hatters-wa-newsletter-november-2024.pdf',
+					baseLikes: 76
+				},
+				'oct2024': {
+					id: 'oct2024',
+					title: 'October 2024 - Travel Edition',
+					description: 'Explore travel opportunities and adventures with fellow Red Hatters.',
+					filename: 'red-hatters-wa-newsletter-october-2024.pdf',
+					baseLikes: 94
+				}
+			};
+			
+			return newsletterData[newsletterId] || newsletterData['latest'];
+		}
+
+		// Enhanced Like System with Backend Integration
+		function toggleLike(newsletterId) {
+			const likeBtn = document.querySelector(`[data-newsletter="${newsletterId}"]`);
+			const likeCount = document.getElementById(`like-count-${newsletterId}`);
+			
+			if (!likeBtn || !likeCount) return;
+			
+			// Get current state
+			const isLiked = likeBtn.classList.contains('liked');
+			const currentCount = parseInt(likeCount.textContent) || 0;
+			
+			// Show loading state
+			likeBtn.disabled = true;
+			likeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+			
+			// Prepare data for backend
+			const likeData = {
+				newsletterId: newsletterId,
+				action: isLiked ? 'unlike' : 'like',
+				userId: getCurrentUserId(),
+				timestamp: new Date().toISOString()
+			};
+			
+			// Send to backend
+			fetch('/api/newsletter/like', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(likeData)
+			})
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+					// Update UI with server response
+					updateLikeUI(likeBtn, likeCount, data.newCount, data.userLiked);
+					
+					// Show feedback
+					showLikeFeedback(data.userLiked);
+					
+					// Track analytics
+					if (typeof gtag !== 'undefined') {
+						gtag('event', 'newsletter_like', {
+							event_category: 'engagement',
+							event_label: newsletterId,
+							value: data.userLiked ? 1 : -1
+						});
+					}
+				} else {
+					throw new Error(data.message || 'Like action failed');
+				}
+			})
+			.catch(error => {
+				console.error('Like error:', error);
+				
+				// Fallback: Update locally and sync later
+				const newCount = isLiked ? currentCount - 1 : currentCount + 1;
+				const newLikedState = !isLiked;
+				
+				updateLikeUI(likeBtn, likeCount, newCount, newLikedState);
+				
+				// Store for later sync
+				storePendingLike(newsletterId, newLikedState);
+				
+				showToast('Like updated locally. Will sync when connection is restored.', 'success');
+			})
+			.finally(() => {
+				// Reset button state
+				likeBtn.disabled = false;
+			});
+		}
+
+		function updateLikeUI(likeBtn, likeCount, newCount, isLiked) {
+			// Update count
+			likeCount.textContent = newCount;
+			
+			// Update button state
+			if (isLiked) {
+				likeBtn.classList.add('liked');
+				likeBtn.innerHTML = '<i class="fas fa-thumbs-up"></i>';
+			} else {
+				likeBtn.classList.remove('liked');
+				likeBtn.innerHTML = '<i class="fas fa-thumbs-up"></i>';
+			}
+			
+			// Add count back
+			likeBtn.innerHTML += ` <span class="like-count">${newCount}</span>`;
+			
+			// Store in localStorage for persistence
+			const likedNewsletters = JSON.parse(localStorage.getItem('likedNewsletters') || '{}');
+			likedNewsletters[likeBtn.dataset.newsletter] = isLiked;
+			localStorage.setItem('likedNewsletters', JSON.stringify(likedNewsletters));
+		}
+
+		function getCurrentUserId() {
+			// Get user ID from authentication system or generate temporary one
+			let userId = localStorage.getItem('userId');
+			if (!userId) {
+				userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+				localStorage.setItem('userId', userId);
+			}
+			return userId;
+		}
+
+		function storePendingLike(newsletterId, isLiked) {
+			const pendingLikes = JSON.parse(localStorage.getItem('pendingLikes') || '{}');
+			pendingLikes[newsletterId] = {
+				action: isLiked ? 'like' : 'unlike',
+				timestamp: new Date().toISOString()
+			};
+			localStorage.setItem('pendingLikes', JSON.stringify(pendingLikes));
+		}
+
+		function syncPendingLikes() {
+			const pendingLikes = JSON.parse(localStorage.getItem('pendingLikes') || '{}');
+			
+			Object.keys(pendingLikes).forEach(newsletterId => {
+				const pendingLike = pendingLikes[newsletterId];
+				
+				fetch('/api/newsletter/like', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						newsletterId: newsletterId,
+						action: pendingLike.action,
+						userId: getCurrentUserId(),
+						timestamp: pendingLike.timestamp
+					})
+				})
+				.then(response => response.json())
+				.then(data => {
+					if (data.success) {
+						// Remove from pending
+						delete pendingLikes[newsletterId];
+						localStorage.setItem('pendingLikes', JSON.stringify(pendingLikes));
+					}
+				})
+				.catch(error => {
+					console.error('Failed to sync like:', error);
+				});
+			});
+		}
+
+		function initializeLikeStates() {
+			// Load saved like states from localStorage
+			const likedNewsletters = JSON.parse(localStorage.getItem('likedNewsletters') || '{}');
+			
+			// Also fetch current counts from server
+			fetch('/api/newsletter/likes')
+				.then(response => response.json())
+				.then(data => {
+					if (data.success) {
+						// Update all like counts with server data
+						Object.keys(data.likes).forEach(newsletterId => {
+							const likeCount = document.getElementById(`like-count-${newsletterId}`);
+							const likeBtn = document.querySelector(`[data-newsletter="${newsletterId}"]`);
+							
+							if (likeCount && likeBtn) {
+								likeCount.textContent = data.likes[newsletterId].count;
+								
+								// Apply user's like state
+								if (data.likes[newsletterId].userLiked) {
+									likeBtn.classList.add('liked');
+								} else {
+									likeBtn.classList.remove('liked');
+								}
+							}
+						});
+					}
+				})
+				.catch(error => {
+					console.error('Failed to load like counts:', error);
+					
+					// Fallback: Use localStorage and base counts
+					Object.keys(likedNewsletters).forEach(newsletterId => {
+						const likeBtn = document.querySelector(`[data-newsletter="${newsletterId}"]`);
+						if (likeBtn && likedNewsletters[newsletterId]) {
+							likeBtn.classList.add('liked');
+						}
+					});
+				});
+			
+			// Sync any pending likes
+			syncPendingLikes();
+		}
+
+		function showLikeFeedback(liked) {
+			const message = liked ? 'Liked!' : 'Unliked';
+			const icon = liked ? 'fa-heart' : 'fa-heart-broken';
+			
+			// Create temporary feedback message
+			const feedback = document.createElement('div');
+			feedback.className = `like-feedback ${liked ? 'liked' : 'unliked'}`;
+			feedback.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
+			
+			// Style the feedback
+			Object.assign(feedback.style, {
+				position: 'fixed',
+				top: '20px',
+				right: '20px',
+				background: liked ? 'var(--primary-red)' : 'var(--text-light)',
+				color: 'white',
+				padding: '10px 15px',
+				borderRadius: '25px',
+				fontSize: '14px',
+				fontWeight: '500',
+				zIndex: '9999',
+				boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
+				transform: 'translateX(100px)',
+				opacity: '0',
+				transition: 'all 0.3s ease'
+			});
+			
+			document.body.appendChild(feedback);
+			
+			// Animate in
+			setTimeout(() => {
+				feedback.style.transform = 'translateX(0)';
+				feedback.style.opacity = '1';
+			}, 10);
+			
+			// Remove after 2 seconds
+			setTimeout(() => {
+				feedback.style.transform = 'translateX(100px)';
+				feedback.style.opacity = '0';
+				setTimeout(() => {
+					if (feedback.parentNode) {
+						feedback.parentNode.removeChild(feedback);
+					}
+				}, 300);
+			}, 2000);
+		}
+
+		// Article submission form handling
+		document.addEventListener('DOMContentLoaded', function() {
+			const articleForm = document.getElementById('articleSubmissionForm');
+			const photoInput = document.getElementById('articlePhotos');
+			const photoPreview = document.getElementById('photoPreview');
+
+			// Photo preview functionality
+			photoInput.addEventListener('change', function(e) {
+				photoPreview.innerHTML = '';
+				const files = Array.from(e.target.files);
+				
+				files.forEach(file => {
+					if (file.type.startsWith('image/')) {
+						const reader = new FileReader();
+						reader.onload = function(e) {
+							const preview = document.createElement('div');
+							preview.className = 'preview-item';
+							preview.innerHTML = `
+								<img src="${e.target.result}" alt="Preview" class="preview-image">
+								<span class="preview-name">${file.name}</span>
+								<span class="preview-size">${(file.size / 1024 / 1024).toFixed(2)} MB</span>
+							`;
+							photoPreview.appendChild(preview);
+						};
+						reader.readAsDataURL(file);
+					}
+				});
+			});
+
+			// Form submission
+			if (articleForm) {
+				articleForm.addEventListener('submit', function(e) {
+					e.preventDefault();
+					
+					if (validateArticleForm()) {
+						submitArticleForm();
+					}
+				});
+			}
+		});
+
+		function validateArticleForm() {
+			const form = document.getElementById('articleSubmissionForm');
+			let isValid = true;
+			
+			// Clear previous errors
+			document.querySelectorAll('.form-error').forEach(error => {
+				error.textContent = '';
+				error.classList.remove('show');
+			});
+			
+			// Required fields validation
+			const requiredFields = ['articleTitle', 'articleCategory', 'authorName', 'authorEmail', 'articleContent', 'articlePhotos', 'photoPermission', 'termsAgreed'];
+			
+			requiredFields.forEach(fieldName => {
+				const field = document.getElementById(fieldName);
+				let value;
+				
+				if (field.type === 'checkbox') {
+					value = field.checked;
+				} else if (field.type === 'file') {
+					value = field.files.length > 0;
+				} else {
+					value = field.value.trim();
+				}
+				
+				if (!value) {
+					showFieldError(fieldName, 'This field is required');
+					isValid = false;
+				}
+			});
+			
+			// Email validation
+			const email = document.getElementById('authorEmail').value;
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (email && !emailRegex.test(email)) {
+				showFieldError('authorEmail', 'Please enter a valid email address');
+				isValid = false;
+			}
+			
+			// File size validation
+			const photoFiles = document.getElementById('articlePhotos').files;
+			Array.from(photoFiles).forEach(file => {
+				if (file.size > 5 * 1024 * 1024) { // 5MB limit
+					showFieldError('articlePhotos', `File "${file.name}" is too large. Maximum size is 5MB.`);
+					isValid = false;
+				}
+			});
+			
+			// Additional files validation
+			const additionalFiles = document.getElementById('additionalFiles').files;
+			Array.from(additionalFiles).forEach(file => {
+				if (file.size > 10 * 1024 * 1024) { // 10MB limit
+					showFieldError('additionalFiles', `File "${file.name}" is too large. Maximum size is 10MB.`);
+					isValid = false;
+				}
+			});
+			
+			return isValid;
+		}
+
+		function showFieldError(fieldName, message) {
+			const field = document.getElementById(fieldName);
+			const errorElement = field.parentNode.querySelector('.form-error');
+			if (errorElement) {
+				errorElement.textContent = message;
+				errorElement.classList.add('show');
+			}
+		}
+
+		function submitArticleForm() {
+			const form = document.getElementById('articleSubmissionForm');
+			const submitButton = form.querySelector('button[type="submit"]');
+			const formData = new FormData(form);
+			
+			// Set loading state
+			submitButton.disabled = true;
+			submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+			
+			// Create article object
+			const articleData = {
+				title: formData.get('articleTitle'),
+				category: formData.get('articleCategory'),
+				authorName: formData.get('authorName'),
+				authorEmail: formData.get('authorEmail'),
+				content: formData.get('articleContent'),
+				summary: formData.get('articleSummary') || '',
+				relatedEvent: formData.get('relatedEvent') || '',
+				targetIssue: formData.get('targetIssue') || '',
+				photoPermission: formData.get('photoPermission') === 'on',
+				contactPermission: formData.get('contactPermission') === 'on',
+				termsAgreed: formData.get('termsAgreed') === 'on',
+				submittedBy: AuthManager.getUsername() || 'Anonymous',
+				submissionDate: new Date().toISOString(),
+				photoCount: formData.get('articlePhotos').files.length,
+				additionalFileCount: formData.get('additionalFiles').files.length
+			};
+			
+			// Simulate API call (replace with actual backend integration)
+			setTimeout(() => {
+				// Reset form
+				form.reset();
+				document.getElementById('photoPreview').innerHTML = '';
+				
+				// Reset button
+				submitButton.disabled = false;
+				submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Article';
+				
+				// Show success message
+				if (typeof Utils !== 'undefined' && Utils.showToast) {
+					Utils.showToast('Article submitted successfully! Our editorial team will review it and contact you within 2-3 weeks.', 'success');
+				} else {
+					alert('Article submitted successfully! Our editorial team will review it and contact you within 2-3 weeks.');
+				}
+				
+			}, 2000);
+		}
 	</script>
 </body>
 </html>
