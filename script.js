@@ -6,8 +6,49 @@ const CONFIG = {
     scrollThreshold: 100,
     animationDuration: 300,
     debounceDelay: 16, // ~60fps
-    throttleDelay: 100
+    throttleDelay: 100,
+    errorReporting: true,
+    performanceMonitoring: true
 };
+
+// Global Error Handler
+window.addEventListener('error', function(event) {
+    console.error('Global Error:', event.error);
+    
+    if (CONFIG.errorReporting) {
+        // Send error to analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'exception', {
+                description: event.error?.message || 'Unknown error',
+                fatal: false
+            });
+        }
+        
+        // Show user-friendly error message
+        Utils.showToast('Something went wrong. Please try again.', 'error');
+    }
+});
+
+// Unhandled Promise Rejection Handler
+window.addEventListener('unhandledrejection', function(event) {
+    console.error('Unhandled Promise Rejection:', event.reason);
+    
+    if (CONFIG.errorReporting) {
+        // Send error to analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'exception', {
+                description: event.reason?.message || 'Promise rejection',
+                fatal: false
+            });
+        }
+        
+        // Show user-friendly error message
+        Utils.showToast('A network error occurred. Please check your connection.', 'error');
+    }
+    
+    // Prevent the default handler
+    event.preventDefault();
+});
 
 // Utility functions
 const Utils = {
@@ -84,6 +125,67 @@ const Utils = {
         container.style.zIndex = '9999';
         document.body.appendChild(container);
         return container;
+    },
+
+    // Performance monitoring
+    measurePerformance: function(name, fn) {
+        if (!CONFIG.performanceMonitoring) return fn();
+        
+        const start = performance.now();
+        const result = fn();
+        const end = performance.now();
+        
+        console.log(`Performance: ${name} took ${end - start} milliseconds`);
+        
+        // Send to analytics if available
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'timing_complete', {
+                name: name,
+                value: Math.round(end - start)
+            });
+        }
+        
+        return result;
+    },
+
+    // Network status monitoring
+    monitorNetworkStatus: function() {
+        const updateNetworkStatus = () => {
+            const isOnline = navigator.onLine;
+            const statusElement = document.getElementById('network-status');
+            
+            if (statusElement) {
+                statusElement.textContent = isOnline ? 'Online' : 'Offline';
+                statusElement.className = isOnline ? 'status-online' : 'status-offline';
+            }
+            
+            // Show notification for status changes
+            if (isOnline) {
+                Utils.showToast('Connection restored!', 'success');
+            } else {
+                Utils.showToast('You are now offline. Some features may not be available.', 'warning');
+            }
+        };
+        
+        window.addEventListener('online', updateNetworkStatus);
+        window.addEventListener('offline', updateNetworkStatus);
+        
+        // Initial check
+        updateNetworkStatus();
+    },
+
+    // Enhanced error handling for async operations
+    handleAsyncError: function(error, context = 'Unknown') {
+        console.error(`Error in ${context}:`, error);
+        
+        if (CONFIG.errorReporting && typeof gtag !== 'undefined') {
+            gtag('event', 'exception', {
+                description: `${context}: ${error.message || error}`,
+                fatal: false
+            });
+        }
+        
+        return Utils.showToast(`An error occurred in ${context}. Please try again.`, 'error');
     }
 };
 
@@ -944,6 +1046,9 @@ const App = {
         CopyrightManager.init();
         ChatbotManager.init();
         HootIdeasFormManager.init();
+        
+        // Initialize monitoring
+        Utils.monitorNetworkStatus();
 
         // Initialize Bootstrap components if available
         this.initializeBootstrapComponents();

@@ -27,9 +27,10 @@
 			background-position: center;
 			background-repeat: no-repeat;
 			color: var(--white);
-			padding: 4rem 0;
+			padding: 200px 0 300px;
 			text-align: center;
 			position: relative;
+			min-height: 500px;
 		}
 
 		.pink-hatters-hero::before {
@@ -97,8 +98,8 @@
 		}
 
 		.pink-hatters-features {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			display: flex;
+			flex-direction: column;
 			gap: 2rem;
 			margin: 3rem 0;
 		}
@@ -106,22 +107,29 @@
 		.feature-card {
 			background: linear-gradient(135deg, #ff69b4, #dda0dd);
 			color: var(--white);
-			padding: 2rem;
+			padding: 2.5rem;
 			border-radius: 15px;
-			text-align: center;
+			text-align: left;
 			box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+			width: 100%;
+			display: flex;
+			align-items: flex-start;
+			gap: 1.5rem;
 		}
 
 		.feature-card h3 {
 			font-size: 1.5rem;
-			margin-bottom: 1rem;
+			margin-bottom: 0;
 			font-weight: 600;
+			flex-shrink: 0;
+			min-width: 200px;
 		}
 
 		.feature-card p {
 			font-size: 1rem;
 			line-height: 1.6;
 			margin: 0;
+			flex: 1;
 		}
 
 		.pink-hatters-quote {
@@ -206,7 +214,17 @@
 			}
 
 			.pink-hatters-features {
-				grid-template-columns: 1fr;
+				flex-direction: column;
+			}
+
+			.feature-card {
+				flex-direction: column;
+				text-align: center;
+				gap: 1rem;
+			}
+
+			.feature-card h3 {
+				min-width: auto;
 			}
 
 			.pink-hatters-quote {
@@ -274,6 +292,15 @@
 						<li role="none"><a href="crafts.html" role="menuitem">Crafts</a></li>
 						<li role="none"><a href="printables.html" role="menuitem">Printables</a></li>
 						<li role="none"><a href="hoot-ideas.html" role="menuitem">Hoot Ideas</a></li>
+						<li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
+						<li role="none"><a href="hatter-commandments.html" role="menuitem">Hatter Commandments & Creed</a></li>
+						<li role="none"><a href="hatter-customs.html" role="menuitem">Hatter Customs</a></li>
+						<li role="none"><a href="queens-coronation.html" role="menuitem">Queen's Coronation Ceremony</a></li>
+						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
+						<li role="none"><a href="website-guide.html" role="menuitem">Website Guide</a></li>
+						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
+						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
+						<li role="none"><a href="chapter-organisation.html" role="menuitem">Chapter Organisation & Administration</a></li>
 					</ul>
 				</li>
 			</ul>

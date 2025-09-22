@@ -13,6 +13,9 @@
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 	
+	<!-- Bootstrap 5 CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="styles.css">
 </head>
@@ -40,15 +43,11 @@
 				<li class="nav-dropdown protected-nav" role="none" style="display: none;">
 					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Members</a>
 					<ul class="dropdown-menu" role="menu" aria-label="Members submenu">
-						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
 						<li role="none"><a href="discussions.html" role="menuitem">Discussions</a></li>
 						<li role="none"><a href="news-notes.html" role="menuitem">News and Notes</a></li>
 						<li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
-						<li role="none"><a href="website-guide.html" role="menuitem">Website Guide</a></li>
-						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
 						<li role="none"><a href="account.html" role="menuitem">My Account</a></li>
 						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
-						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
 						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
 						<li role="none"><a href="rules-of-association.html" role="menuitem">Rules of Association</a></li>
 					</ul>
@@ -62,6 +61,16 @@
 						<li role="none"><a href="games.html" role="menuitem">Games</a></li>
 						<li role="none"><a href="crafts.html" role="menuitem">Crafts</a></li>
 						<li role="none"><a href="printables.html" role="menuitem">Printables</a></li>
+						<li role="none"><a href="hoot-ideas.html" role="menuitem">Hoot Ideas</a></li>
+						<li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
+						<li role="none"><a href="hatter-commandments.html" role="menuitem">Hatter Commandments & Creed</a></li>
+						<li role="none"><a href="hatter-customs.html" role="menuitem">Hatter Customs</a></li>
+						<li role="none"><a href="queens-coronation.html" role="menuitem">Queen's Coronation Ceremony</a></li>
+						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
+						<li role="none"><a href="website-guide.html" role="menuitem">Website Guide</a></li>
+						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
+						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
+						<li role="none"><a href="chapter-organisation.html" role="menuitem">Chapter Organisation & Administration</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -288,16 +297,11 @@
 		</div>
 	</footer>
 
-	<!-- JavaScript -->
-	<script>
-		// Update current year in footer
-		document.getElementById('current-year').textContent = new Date().getFullYear();
-
-		// Registration form submission
-		document.querySelector('.form').addEventListener('submit', function(e) {
-			e.preventDefault();
-			alert('Thank you for your interest in joining Red Hatters WA! Registration functionality would be implemented here. This is a demo page.');
-		});
-	</script>
+	<!-- Bootstrap 5 JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	
+	<!-- Custom JavaScript -->
+	<script src="config.js"></script>
+	<script src="script.js"></script>
 </body>
 </html>

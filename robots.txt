@@ -1,0 +1,48 @@
+# Red Hatters WA - Robots.txt
+# https://redhatterswa.com.au
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /backup/
+
+# Allow important pages
+Allow: /about-us.html
+Allow: /benefits.html
+Allow: /contact-us.html
+Allow: /faq.html
+Allow: /donate.html
+Allow: /events.html
+Allow: /resources.html
+Allow: /hoot-ideas.html
+Allow: /wa-chapters.html
+
+# Sitemap location
+Sitemap: https://redhatterswa.com.au/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

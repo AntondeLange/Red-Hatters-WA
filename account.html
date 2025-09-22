@@ -22,8 +22,8 @@
 <body>
 	<!-- Header -->
 	<header class="header" id="header">
-		<nav class="nav container">
-			<a href="index.html" class="logo">
+		<nav class="nav container" role="navigation" aria-label="Main navigation" id="navigation">
+			<a href="index.html" class="logo" aria-label="Red Hatters WA Home">
 				<img src="images/RHSWA-horizontal.png" alt="Red Hatters WA" />
 			</a>
 			<ul class="nav-menu" role="menubar">
@@ -69,6 +69,13 @@
 						<li role="none"><a href="hoot-ideas.html" role="menuitem">Hoot Ideas</a></li>
 						<li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
 						<li role="none"><a href="hatter-commandments.html" role="menuitem">Hatter Commandments & Creed</a></li>
+						<li role="none"><a href="hatter-customs.html" role="menuitem">Hatter Customs</a></li>
+						<li role="none"><a href="queens-coronation.html" role="menuitem">Queen's Coronation Ceremony</a></li>
+						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
+						<li role="none"><a href="website-guide.html" role="menuitem">Website Guide</a></li>
+						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
+						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
+						<li role="none"><a href="chapter-organisation.html" role="menuitem">Chapter Organisation & Administration</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -115,7 +122,7 @@
 				<div class="account-content">
 					<div class="content-panel active" id="profile">
 						<h2>Profile Information</h2>
-						<form class="profile-form account-form">
+						<form class="profile-form account-form" novalidate>
 							<div class="form-row">
 								<div class="form-group">
 									<label for="firstName">First Name</label>
@@ -237,7 +244,7 @@
 					</div>
 					<div class="content-panel" id="settings">
 						<h2>Account Settings</h2>
-						<form class="settings-form account-form">
+						<form class="settings-form account-form" novalidate>
 							<div class="settings-sections">
 								<div class="settings-card">
 									<h3>Privacy Settings</h3>
@@ -284,6 +291,7 @@
 							</div>
 							<div class="settings-card">
 								<h3>Change Password</h3>
+								<form class="password-form account-form" novalidate>
 								<div class="form-group">
 									<label for="currentPassword">Current Password</label>
 									<div class="password-input-container">
@@ -312,6 +320,8 @@
 									</div>
 								</div>
 							</div>
+							<button type="submit" class="btn btn-primary">Change Password</button>
+							</form>
 							</div>
 							<button type="submit" class="btn btn-primary">Save All Settings</button>
 						</form>
