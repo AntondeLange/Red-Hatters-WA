@@ -5,6 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>History - Red Hatters WA</title>
 	<meta name="description" content="Learn about the history of the Red Hat Society, from its founding by Sue Ellen Cooper to its introduction to Australia by Florence Slattery." />
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/jpeg" href="images/Australian Red Hat Society – Western Australia.jpg">
+	<link rel="shortcut icon" type="image/jpeg" href="images/Australian Red Hat Society – Western Australia.jpg">
+	<link rel="apple-touch-icon" href="images/Australian Red Hat Society – Western Australia.jpg">
+	
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +34,7 @@
 		.history-container {
 			max-width: 1000px;
 			margin: 0 auto;
+			position: relative;
 		}
 
 		.history-timeline {
@@ -68,6 +75,7 @@
 			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 			width: 45%;
 			position: relative;
+			min-height: 200px;
 		}
 
 		.timeline-item:nth-child(odd) .timeline-content {
@@ -147,6 +155,38 @@
 
 		.timeline-image.red i {
 			color: var(--primary-red);
+		}
+
+		/* Timeline Image Containers */
+		.timeline-image-container {
+			width: 450px;
+			height: 257.38px;
+			background: var(--white);
+			border-radius: 15px;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+			position: relative;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.timeline-image-container img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			border-radius: 15px;
+		}
+
+		/* Position image containers opposite to content */
+		.timeline-item:nth-child(odd) .timeline-image-container {
+			margin-left: auto;
+			margin-right: 0;
+		}
+
+		.timeline-item:nth-child(even) .timeline-image-container {
+			margin-right: auto;
+			margin-left: 0;
 		}
 
 		.history-hero {
@@ -347,6 +387,11 @@
 				width: 100%;
 				height: 250px;
 			}
+
+			/* Hide timeline image containers on mobile for cleaner layout */
+			.timeline-image-container {
+				display: none;
+			}
 		}
 	</style>
 </head>
@@ -371,51 +416,45 @@
 				</li>
 				<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
 				<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+				<!-- Member-only navigation (hidden on public pages) -->
 				<li class="nav-dropdown protected-nav" role="none" style="display: none;">
-					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Members</a>
-					<ul class="dropdown-menu" role="menu" aria-label="Members submenu">
-						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Community</a>
+					<ul class="dropdown-menu" role="menu" aria-label="Community submenu">
+						<li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
+						<li role="none"><a href="events.html" role="menuitem">Events</a></li>
 						<li role="none"><a href="discussions.html" role="menuitem">Discussions</a></li>
 						<li role="none"><a href="news-notes.html" role="menuitem">News and Notes</a></li>
-						<li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
+						<li role="none"><a href="newsletter.html" role="menuitem">Newsletter</a></li>
 						<li role="none"><a href="website-guide.html" role="menuitem">Website Guide</a></li>
-						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
-						<li role="none"><a href="account.html" role="menuitem">My Account</a></li>
-						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
-						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
-						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
-						<li role="none"><a href="rules-of-association.html" role="menuitem">Rules of Association</a></li>
+						<li role="none"><a href="offers.html" role="menuitem">Shops & Offers</a></li>
 					</ul>
 				</li>
 				<li class="nav-dropdown protected-nav" role="none" style="display: none;">
-					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Resources</a>
-					<ul class="dropdown-menu" role="menu" aria-label="Resources submenu">
-						<li role="none"><a href="resources.html" role="menuitem">Resources</a></li>
-						<li role="none"><a href="events.html" role="menuitem">Events</a></li>
-						<li role="none"><a href="newsletter.html" role="menuitem">Newsletter</a></li>
-						<li role="none"><a href="games.html" role="menuitem">Games</a></li>
-						<li role="none"><a href="crafts.html" role="menuitem">Crafts</a></li>
-						<li role="none"><a href="printables.html" role="menuitem">Printables</a></li>
-						<li role="none"><a href="hoot-ideas.html" role="menuitem">Hoot Ideas</a></li>
-						<li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
-						<li role="none"><a href="hatter-commandments.html" role="menuitem">Hatter Commandments & Creed</a></li>
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Organisation & Administration</a>
+					<ul class="dropdown-menu" role="menu" aria-label="Organisation & Administration submenu">
 						<li role="none"><a href="hatter-customs.html" role="menuitem">Hatter Customs</a></li>
-						<li role="none"><a href="queens-coronation.html" role="menuitem">Queen's Coronation Ceremony</a></li>
+						<li role="none"><a href="rules-of-association.html" role="menuitem">Rules of Association</a></li>
 						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
-						<li role="none"><a href="website-guide.html" role="menuitem">Website Guide</a></li>
 						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
-						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
-						<li role="none"><a href="chapter-organisation.html" role="menuitem">Chapter Organisation & Administration</a></li>
+						<li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
+						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
+						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
 					</ul>
+				</li>
+				<li class="protected-nav" role="none" style="display: none;">
+					<a href="resources.html" role="menuitem">Resources</a>
 				</li>
 			</ul>
 			<div class="nav-buttons">
-				<div class="user-display protected-nav" style="display: none;"></div>
+				<!-- Public navigation buttons -->
 				<div class="split-button public-nav">
 					<a href="register.html" class="cta-button" aria-label="Join Red Hatters WA">Join</a>
 					<a href="login.html" class="login-button" aria-label="Sign in to your account">Sign In</a>
 				</div>
-				<div class="logout-section protected-nav" style="display: none;">
+				<!-- Member navigation buttons (hidden on public pages) -->
+				<div class="user-display protected-nav" style="display: none;"></div>
+				<div class="member-nav protected-nav" style="display: none;">
+					<a href="account.html" class="btn btn-outline-primary" aria-label="My Account">My Account</a>
 					<a href="#" class="logout-button" onclick="AuthManager.logout()" aria-label="Sign out">Logout</a>
 				</div>
 			</div>
@@ -440,6 +479,9 @@
 							<h3>The Beginning</h3>
 							<p>In November 1997, Sue Ellen Cooper purchased a red fedora hat from a thrift shop and gave it along with a copy of "The Warning" poem to her 55-year-old friend as a birthday gift. This simple gesture would change the lives of millions of women worldwide.</p>
 						</div>
+						<div class="timeline-image-container">
+							<img src="images/Red_Hat_Society_logo.png" alt="Red Hat Society Logo">
+						</div>
 						<div class="timeline-year">1997</div>
 						<div class="timeline-image">
 							<i class="fas fa-gift"></i>
@@ -450,6 +492,9 @@
 						<div class="timeline-content">
 							<h3>Birth of the Red Hat Society</h3>
 							<p>On April 25th, 1998, Sue Ellen and a group of 5 friends got together for an afternoon tea while wearing red hats with purple clothing. This gathering marked the official birth of the "Red Hat Society" and established April 25th as "Red Hat Society Day."</p>
+						</div>
+						<div class="timeline-image-container">
+							<img src="images/rhs clipart 2.jpg" alt="Red Hat Society Clipart">
 						</div>
 						<div class="timeline-year red">1998</div>
 						<div class="timeline-image red">
@@ -462,6 +507,9 @@
 							<h3>Pink Hatters Introduced</h3>
 							<p>In 2000, the custom of ladies under 50 wearing pink hats with lavender clothing was introduced, creating the "Pink Hatters" and making the society accessible to women of all ages.</p>
 						</div>
+						<div class="timeline-image-container">
+							<img src="images/rhs clipart 4.webp" alt="Red Hat Society Clipart">
+						</div>
 						<div class="timeline-year">2000</div>
 						<div class="timeline-image">
 							<i class="fas fa-heart"></i>
@@ -472,6 +520,9 @@
 						<div class="timeline-content">
 							<h3>Global Expansion</h3>
 							<p>By 2004, there were 40,000 chapters worldwide! The movement had grown from a small group of friends to a global phenomenon, bringing joy and friendship to women across the world.</p>
+						</div>
+						<div class="timeline-image-container">
+							<img src="images/rhs clipart 3.jpg" alt="Red Hat Society Clipart">
 						</div>
 						<div class="timeline-year red">2004</div>
 						<div class="timeline-image red">
@@ -484,6 +535,9 @@
 							<h3>Cultural Impact</h3>
 							<p>In 2005, Red Hat ladies were featured on the popular TV show "The Simpsons," bringing the society into mainstream culture and introducing it to millions of viewers worldwide.</p>
 						</div>
+						<div class="timeline-image-container">
+							<img src="images/rhs clipart 5.webp" alt="Red Hat Society Clipart">
+						</div>
 						<div class="timeline-year">2005</div>
 						<div class="timeline-image">
 							<i class="fas fa-tv"></i>
@@ -494,6 +548,9 @@
 						<div class="timeline-content">
 							<h3>Historical Recognition</h3>
 							<p>In 2011, the first red hat was put on display in the Smithsonian Museum of American History, cementing the Red Hat Society's place in American cultural history.</p>
+						</div>
+						<div class="timeline-image-container">
+							<img src="images/rhs clipart 7.jpg" alt="Red Hat Society Clipart">
 						</div>
 						<div class="timeline-year red">2011</div>
 						<div class="timeline-image red">

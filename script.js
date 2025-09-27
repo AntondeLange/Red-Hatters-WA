@@ -1,5 +1,5 @@
 // Red Hatters WA - Enhanced JavaScript with Bootstrap 5 Integration
-// Version 2.0 - Streamlined and Optimized
+// Version 2.1 - Cache Busting and Performance Optimized
 
 // Global configuration
 const CONFIG = {
@@ -8,7 +8,52 @@ const CONFIG = {
     debounceDelay: 16, // ~60fps
     throttleDelay: 100,
     errorReporting: true,
-    performanceMonitoring: true
+    performanceMonitoring: true,
+    version: '2.1' // Cache busting version
+};
+
+// Cache Busting Utility
+const CacheBuster = {
+    // Force reload with cache busting
+    forceReload: function() {
+        const timestamp = new Date().getTime();
+        const currentUrl = new URL(window.location);
+        currentUrl.searchParams.set('_cb', timestamp);
+        window.location.href = currentUrl.toString();
+    },
+    
+    // Check if page needs refresh (for development)
+    checkForUpdates: function() {
+        // Only run in development mode
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            const lastVersion = localStorage.getItem('rhwa_version');
+            if (lastVersion !== CONFIG.version) {
+                console.log('New version detected, clearing cache...');
+                this.clearCache();
+                localStorage.setItem('rhwa_version', CONFIG.version);
+            }
+        }
+    },
+    
+    // Clear various caches
+    clearCache: function() {
+        // Clear service worker cache if available
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                for(let registration of registrations) {
+                    registration.unregister();
+                }
+            });
+        }
+        
+        // Clear localStorage cache markers
+        const keys = Object.keys(localStorage);
+        keys.forEach(key => {
+            if (key.startsWith('rhwa_cache_')) {
+                localStorage.removeItem(key);
+            }
+        });
+    }
 };
 
 // Global Error Handler
@@ -234,15 +279,27 @@ const DropdownManager = {
             toggle.addEventListener('click', function(e) {
                 e.preventDefault();
                 const dropdown = this.nextElementSibling;
-                const isOpen = dropdown.style.display === 'block';
+                const isOpen = dropdown.classList.contains('show');
                 
-                // Close all other dropdowns
+                // Close all other dropdowns and reset their aria-expanded
                 document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                    menu.style.display = 'none';
+                    menu.classList.remove('show');
+                    menu.classList.add('hide');
+                });
+                document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+                    toggle.setAttribute('aria-expanded', 'false');
                 });
                 
                 // Toggle current dropdown
-                dropdown.style.display = isOpen ? 'none' : 'block';
+                if (isOpen) {
+                    dropdown.classList.remove('show');
+                    dropdown.classList.add('hide');
+                    this.setAttribute('aria-expanded', 'false');
+                } else {
+                    dropdown.classList.remove('hide');
+                    dropdown.classList.add('show');
+                    this.setAttribute('aria-expanded', 'true');
+                }
             });
         });
 
@@ -250,7 +307,11 @@ const DropdownManager = {
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.nav-dropdown')) {
                 document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                    menu.style.display = 'none';
+                    menu.classList.remove('show');
+                    menu.classList.add('hide');
+                });
+                document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+                    toggle.setAttribute('aria-expanded', 'false');
                 });
             }
         });
@@ -875,7 +936,24 @@ const TabManager = {
 
 // Authentication Manager
 const AuthManager = {
+    // Session management
+    sessionTimeout: 30 * 60 * 1000, // 30 minutes in milliseconds
+    inactivityTimer: null,
+    warningTimer: null,
+    
     isLoggedIn: function() {
+        const loginTime = localStorage.getItem('redHattersLoginTime');
+        if (!loginTime) return false;
+        
+        const now = Date.now();
+        const timeSinceLogin = now - parseInt(loginTime);
+        
+        // Check if session has expired
+        if (timeSinceLogin > this.sessionTimeout) {
+            this.logout();
+            return false;
+        }
+        
         return localStorage.getItem('redHattersLoggedIn') === 'true';
     },
 
@@ -896,7 +974,9 @@ const AuthManager = {
                 localStorage.setItem('redHattersUsername', username);
                 localStorage.setItem('redHattersUserRole', 'member');
                 localStorage.setItem('redHattersUserEmail', `${username}@redhatterswa.com.au`);
+                localStorage.setItem('redHattersLoginTime', Date.now().toString());
                 Utils.showToast(`Welcome back, ${username}!`, 'success');
+                this.startSessionManagement();
                 return true;
             }
             // For demo purposes, accept any username/password combination
@@ -905,7 +985,9 @@ const AuthManager = {
                 localStorage.setItem('redHattersUsername', username);
                 localStorage.setItem('redHattersUserRole', 'member');
                 localStorage.setItem('redHattersUserEmail', `${username}@redhatterswa.com.au`);
+                localStorage.setItem('redHattersLoginTime', Date.now().toString());
                 Utils.showToast(`Welcome, ${username}!`, 'success');
+                this.startSessionManagement();
                 return true;
             }
         }
@@ -917,7 +999,66 @@ const AuthManager = {
     logout: function() {
         localStorage.removeItem('redHattersLoggedIn');
         localStorage.removeItem('redHattersUsername');
+        localStorage.removeItem('redHattersUserRole');
+        localStorage.removeItem('redHattersUserEmail');
+        localStorage.removeItem('redHattersLoginTime');
+        this.stopSessionManagement();
         window.location.href = 'index.html';
+    },
+
+    startSessionManagement: function() {
+        this.stopSessionManagement(); // Clear any existing timers
+        
+        // Reset timers on user activity
+        const resetTimers = () => {
+            this.resetInactivityTimer();
+        };
+        
+        // Listen for user activity
+        document.addEventListener('mousedown', resetTimers);
+        document.addEventListener('mousemove', resetTimers);
+        document.addEventListener('keypress', resetTimers);
+        document.addEventListener('scroll', resetTimers);
+        document.addEventListener('touchstart', resetTimers);
+        
+        // Start the initial timer
+        this.resetInactivityTimer();
+    },
+
+    stopSessionManagement: function() {
+        if (this.inactivityTimer) {
+            clearTimeout(this.inactivityTimer);
+            this.inactivityTimer = null;
+        }
+        if (this.warningTimer) {
+            clearTimeout(this.warningTimer);
+            this.warningTimer = null;
+        }
+    },
+
+    resetInactivityTimer: function() {
+        if (this.inactivityTimer) {
+            clearTimeout(this.inactivityTimer);
+        }
+        
+        // Set warning timer (5 minutes before logout)
+        this.warningTimer = setTimeout(() => {
+            this.showSessionWarning();
+        }, this.sessionTimeout - (5 * 60 * 1000));
+        
+        // Set logout timer
+        this.inactivityTimer = setTimeout(() => {
+            this.handleSessionTimeout();
+        }, this.sessionTimeout);
+    },
+
+    showSessionWarning: function() {
+        Utils.showToast('Your session will expire in 5 minutes due to inactivity. Click anywhere to extend your session.', 'warning', 10000);
+    },
+
+    handleSessionTimeout: function() {
+        Utils.showToast('Your session has expired due to inactivity. Please log in again.', 'error');
+        this.logout();
     },
 
     // Clear demo state for public pages
@@ -936,8 +1077,8 @@ const AuthManager = {
         const protectedPages = [
             'members-corner.html', 'member-search.html', 'member-role.html', 'member-handbook.html',
             'resources.html', 'events.html', 'newsletter.html', 'games.html', 'crafts.html', 
-            'printables.html', 'news-notes.html', 'discussions.html', 'offers.html', 'donate.html',
-            'account.html', 'wa-chapters.html'
+            'printables.html', 'recipes.html', 'news-notes.html', 'discussions.html', 'offers.html',
+            'account.html', 'wa-chapters.html', 'hatter-customs.html'
         ];
         
         const currentPage = window.location.pathname.split('/').pop();
@@ -992,7 +1133,12 @@ const AuthManager = {
         if (logoutButton) {
             logoutButton.style.display = isLoggedIn ? 'block' : 'none';
         }
-    }
+    },
+
+    // Note: Donate and Contact Us links are now handled by HTML structure
+    // - Public pages: standalone links in navbar
+    // - Member pages: links inside About dropdown
+    // No JavaScript needed for this functionality
 };
 
 // Copyright year updater
@@ -1010,6 +1156,9 @@ const CopyrightManager = {
 // Initialize all components
 const App = {
     init: function() {
+        // Check for cache updates first
+        CacheBuster.checkForUpdates();
+        
         // Wait for DOM to be ready
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', this.initializeComponents.bind(this));
@@ -1021,7 +1170,7 @@ const App = {
     initializeComponents: function() {
         // Clear any demo login state for public pages
         const currentPage = window.location.pathname.split('/').pop();
-        const publicPages = ['index.html', 'about-us.html', 'benefits.html', 'history.html', 'pinkhatters.html', 'faq.html', 'contact-us.html', 'register.html', 'login.html'];
+        const publicPages = ['index.html', 'about-us.html', 'benefits.html', 'history.html', 'pinkhatters.html', 'faq.html', 'contact-us.html', 'register.html', 'login.html', 'donate.html'];
         
         if (publicPages.includes(currentPage)) {
             // Clear demo login state for public pages
@@ -1033,6 +1182,11 @@ const App = {
         // Initialize authentication first
         AuthManager.checkProtectedAccess();
         AuthManager.updateNavigation();
+        
+        // Start session management if user is logged in
+        if (AuthManager.isLoggedIn()) {
+            AuthManager.startSessionManagement();
+        }
         
         // Initialize all managers
         HeaderManager.init();
@@ -1875,6 +2029,296 @@ const HootIdeasFormManager = {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { Utils, App, ChatbotManager, HootIdeasFormManager };
 }
+
+// RSVP System for Events
+const RSVPSystem = {
+    // Get RSVP data from localStorage
+    getRSVPs: function() {
+        const rsvps = localStorage.getItem('redhat_rsvps');
+        return rsvps ? JSON.parse(rsvps) : {};
+    },
+    
+    // Save RSVP data to localStorage
+    saveRSVPs: function(rsvps) {
+        localStorage.setItem('redhat_rsvps', JSON.stringify(rsvps));
+    },
+    
+    // Get current user (simplified - in real app would get from auth system)
+    getCurrentUser: function() {
+        return {
+            id: 'demo_user_001',
+            name: 'Demo User',
+            email: 'demo@redhatterswa.com'
+        };
+    },
+    
+    // RSVP to an event
+    rsvpToEvent: function(eventId, status = 'yes') {
+        const rsvps = this.getRSVPs();
+        const user = this.getCurrentUser();
+        
+        if (!rsvps[eventId]) {
+            rsvps[eventId] = {
+                eventId: eventId,
+                attendees: [],
+                totalCount: 0
+            };
+        }
+        
+        // Remove user if already RSVP'd
+        rsvps[eventId].attendees = rsvps[eventId].attendees.filter(attendee => attendee.id !== user.id);
+        
+        // Add user with new status
+        if (status !== 'no') {
+            rsvps[eventId].attendees.push({
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                status: status,
+                rsvpDate: new Date().toISOString()
+            });
+        }
+        
+        // Update total count
+        rsvps[eventId].totalCount = rsvps[eventId].attendees.length;
+        
+        this.saveRSVPs(rsvps);
+        return rsvps[eventId];
+    },
+    
+    // Get RSVP status for an event
+    getEventRSVP: function(eventId) {
+        const rsvps = this.getRSVPs();
+        return rsvps[eventId] || { attendees: [], totalCount: 0 };
+    },
+    
+    // Check if user has RSVP'd to an event
+    hasUserRSVPd: function(eventId) {
+        const rsvps = this.getRSVPs();
+        const user = this.getCurrentUser();
+        
+        if (!rsvps[eventId]) return false;
+        return rsvps[eventId].attendees.some(attendee => attendee.id === user.id);
+    },
+    
+    // Get user's RSVP status for an event
+    getUserRSVPStatus: function(eventId) {
+        const rsvps = this.getRSVPs();
+        const user = this.getCurrentUser();
+        
+        if (!rsvps[eventId]) return null;
+        const attendee = rsvps[eventId].attendees.find(attendee => attendee.id === user.id);
+        return attendee ? attendee.status : null;
+    },
+    
+    // Get all events user has RSVP'd to
+    getUserRSVPEvents: function() {
+        const rsvps = this.getRSVPs();
+        const user = this.getCurrentUser();
+        const userEvents = [];
+        
+        for (let eventId in rsvps) {
+            const rsvp = rsvps[eventId];
+            const userAttendee = rsvp.attendees.find(attendee => attendee.id === user.id);
+            if (userAttendee) {
+                userEvents.push({
+                    eventId: eventId,
+                    status: userAttendee.status,
+                    rsvpDate: userAttendee.rsvpDate,
+                    totalAttendees: rsvp.totalCount
+                });
+            }
+        }
+        
+        return userEvents;
+    }
+};
+
+// My Events functionality for account page
+const MyEventsManager = {
+    // Load and display user's RSVP'd events
+    loadMyEvents: function() {
+        const userEvents = RSVPSystem.getUserRSVPEvents();
+        const upcomingContainer = document.getElementById('upcoming-events-list');
+        const pastContainer = document.getElementById('past-events-list');
+        
+        if (!upcomingContainer || !pastContainer) return;
+        
+        // Clear existing content
+        upcomingContainer.innerHTML = '';
+        pastContainer.innerHTML = '';
+        
+        if (userEvents.length === 0) {
+            upcomingContainer.innerHTML = '<div class="no-events"><p>You haven\'t RSVP\'d to any events yet.</p><a href="events.html" class="btn btn-primary">Browse Events</a></div>';
+            return;
+        }
+        
+        // Group events by upcoming/past
+        const now = new Date();
+        const upcomingEvents = [];
+        const pastEvents = [];
+        
+        userEvents.forEach(userEvent => {
+            // This is a simplified check - in a real app, you'd fetch event details
+            const eventDate = new Date(); // Placeholder - would get actual event date
+            if (eventDate >= now) {
+                upcomingEvents.push(userEvent);
+            } else {
+                pastEvents.push(userEvent);
+            }
+        });
+        
+        // Display upcoming events
+        this.displayEvents(upcomingEvents, upcomingContainer, 'upcoming');
+        
+        // Display past events
+        this.displayEvents(pastEvents, pastContainer, 'past');
+    },
+    
+    // Display events in a container
+    displayEvents: function(events, container, type) {
+        if (events.length === 0) {
+            const message = type === 'upcoming' ? 'No upcoming events.' : 'No past events.';
+            container.innerHTML = `<div class="no-events"><p>${message}</p></div>`;
+            return;
+        }
+        
+        events.forEach(userEvent => {
+            const eventElement = this.createEventElement(userEvent, type);
+            container.appendChild(eventElement);
+        });
+    },
+    
+    // Create event element
+    createEventElement: function(userEvent, type) {
+        const eventDiv = document.createElement('div');
+        eventDiv.className = 'event-item';
+        
+        // This is simplified - in a real app, you'd fetch actual event details
+        const eventDetails = this.getEventDetails(userEvent.eventId);
+        
+        eventDiv.innerHTML = `
+            <div class="event-date">
+                <span class="day">${eventDetails.day}</span>
+                <span class="month">${eventDetails.month}</span>
+            </div>
+            <div class="event-details">
+                <h3>${eventDetails.title}</h3>
+                <p>${eventDetails.location}</p>
+                <span class="event-status ${userEvent.status}">${userEvent.status.charAt(0).toUpperCase() + userEvent.status.slice(1)}</span>
+            </div>
+            <div class="event-actions">
+                <a href="events.html" class="btn btn-secondary">View Details</a>
+                <button class="btn btn-outline-primary" onclick="MyEventsManager.showRSVPModal('${userEvent.eventId}')">Manage RSVP</button>
+                <button class="btn btn-outline-danger" onclick="MyEventsManager.cancelRSVP('${userEvent.eventId}')">Cancel RSVP</button>
+            </div>
+        `;
+        
+        return eventDiv;
+    },
+    
+    // Get event details (simplified - would fetch from API in real app)
+    getEventDetails: function(eventId) {
+        // This is a placeholder - in a real app, you'd have event data
+        const eventTemplates = {
+            'event-001': { title: 'Christmas High Tea', location: 'The Ritz Carlton, Perth', day: '15', month: 'Dec' },
+            'event-002': { title: 'Craft Workshop: Holiday Decorations', location: 'Community Center, Fremantle', day: '20', month: 'Dec' },
+            'event-003': { title: 'New Year Celebration', location: 'Crown Perth', day: '31', month: 'Dec' }
+        };
+        
+        return eventTemplates[eventId] || { title: 'Event', location: 'Location TBD', day: 'TBD', month: 'TBD' };
+    },
+    
+    // Cancel RSVP
+    cancelRSVP: function(eventId) {
+        if (confirm('Are you sure you want to cancel your RSVP for this event?')) {
+            RSVPSystem.rsvpToEvent(eventId, 'no');
+            this.loadMyEvents(); // Refresh the display
+            this.showNotification('Your RSVP has been cancelled.');
+        }
+    },
+    
+    // Update RSVP status
+    updateRSVPStatus: function(eventId, newStatus) {
+        RSVPSystem.rsvpToEvent(eventId, newStatus);
+        this.loadMyEvents(); // Refresh the display
+        
+        const statusMessages = {
+            'yes': 'You have confirmed your attendance!',
+            'maybe': 'You have marked yourself as maybe attending.',
+            'no': 'You have cancelled your RSVP.'
+        };
+        
+        this.showNotification(statusMessages[newStatus]);
+    },
+    
+    // Show RSVP management modal for My Events
+    showRSVPModal: function(eventId) {
+        const userEvent = RSVPSystem.getUserRSVPEvents().find(e => e.eventId === eventId);
+        if (!userEvent) return;
+        
+        const eventDetails = this.getEventDetails(eventId);
+        const rsvpData = RSVPSystem.getEventRSVP(eventId);
+        
+        const modal = document.createElement('div');
+        modal.className = 'rsvp-modal';
+        modal.innerHTML = `
+            <div class="rsvp-modal-content">
+                <div class="rsvp-modal-header">
+                    <h3>Manage RSVP</h3>
+                    <button class="rsvp-modal-close">&times;</button>
+                </div>
+                <div class="rsvp-modal-body">
+                    <h4>${eventDetails.title}</h4>
+                    <p><strong>Date:</strong> ${eventDetails.day} ${eventDetails.month}</p>
+                    <p><strong>Location:</strong> ${eventDetails.location}</p>
+                    
+                    <div class="rsvp-status">
+                        <p><strong>Your Status:</strong> <span class="status-${userEvent.status}">${userEvent.status.toUpperCase()}</span></p>
+                    </div>
+                    
+                    <div class="rsvp-actions">
+                        <button class="btn btn-success" onclick="MyEventsManager.updateRSVPStatus('${eventId}', 'yes')">Confirm Attendance</button>
+                        <button class="btn btn-warning" onclick="MyEventsManager.updateRSVPStatus('${eventId}', 'maybe')">Maybe</button>
+                        <button class="btn btn-danger" onclick="MyEventsManager.updateRSVPStatus('${eventId}', 'no')">Cancel RSVP</button>
+                    </div>
+                    
+                    <div class="rsvp-attendees">
+                        <h5>Attendees (${rsvpData.totalCount})</h5>
+                        <div class="attendees-list">
+                            ${rsvpData.attendees.map(attendee => `
+                                <div class="attendee-item">
+                                    <span class="attendee-name">${attendee.name}</span>
+                                    <span class="attendee-status status-${attendee.status}">${attendee.status}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // Close modal handlers
+        modal.querySelector('.rsvp-modal-close').onclick = () => modal.remove();
+        modal.onclick = (e) => {
+            if (e.target === modal) modal.remove();
+        };
+    },
+    
+    // Show notification
+    showNotification: function(message) {
+        const notification = document.createElement('div');
+        notification.className = 'rsvp-notification';
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    }
+};
 
 // Add global function to clear demo state (for debugging)
 window.clearDemoState = function() {

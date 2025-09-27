@@ -6,6 +6,11 @@
 	<title>About Us - Red Hatters WA</title>
 	<meta name="description" content="Learn about the Red Hat Society and our mission to celebrate women over 50.">
 	
+	<!-- Favicon -->
+	<link rel="icon" type="image/jpeg" href="images/Australian Red Hat Society – Western Australia.jpg">
+	<link rel="shortcut icon" type="image/jpeg" href="images/Australian Red Hat Society – Western Australia.jpg">
+	<link rel="apple-touch-icon" href="images/Australian Red Hat Society – Western Australia.jpg">
+	
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 	
@@ -39,47 +44,45 @@
 				</li>
 				<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
 				<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+				<!-- Member-only navigation (hidden on public pages) -->
 				<li class="nav-dropdown protected-nav" role="none" style="display: none;">
-					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Members</a>
-					<ul class="dropdown-menu" role="menu" aria-label="Members submenu">
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Community</a>
+					<ul class="dropdown-menu" role="menu" aria-label="Community submenu">
+						<li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
+						<li role="none"><a href="events.html" role="menuitem">Events</a></li>
 						<li role="none"><a href="discussions.html" role="menuitem">Discussions</a></li>
 						<li role="none"><a href="news-notes.html" role="menuitem">News and Notes</a></li>
-						<li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
-						<li role="none"><a href="account.html" role="menuitem">My Account</a></li>
-						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
-						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
-						<li role="none"><a href="rules-of-association.html" role="menuitem">Rules of Association</a></li>
+						<li role="none"><a href="newsletter.html" role="menuitem">Newsletter</a></li>
+						<li role="none"><a href="website-guide.html" role="menuitem">Website Guide</a></li>
+						<li role="none"><a href="offers.html" role="menuitem">Shops & Offers</a></li>
 					</ul>
 				</li>
 				<li class="nav-dropdown protected-nav" role="none" style="display: none;">
-					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Resources</a>
-					<ul class="dropdown-menu" role="menu" aria-label="Resources submenu">
-						<li role="none"><a href="resources.html" role="menuitem">Resources</a></li>
-						<li role="none"><a href="events.html" role="menuitem">Events</a></li>
-						<li role="none"><a href="newsletter.html" role="menuitem">Newsletter</a></li>
-						<li role="none"><a href="games.html" role="menuitem">Games</a></li>
-						<li role="none"><a href="crafts.html" role="menuitem">Crafts</a></li>
-						<li role="none"><a href="printables.html" role="menuitem">Printables</a></li>
-						<li role="none"><a href="hoot-ideas.html" role="menuitem">Hoot Ideas</a></li>
-						<li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
-						<li role="none"><a href="hatter-commandments.html" role="menuitem">Hatter Commandments & Creed</a></li>
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Organisation & Administration</a>
+					<ul class="dropdown-menu" role="menu" aria-label="Organisation & Administration submenu">
 						<li role="none"><a href="hatter-customs.html" role="menuitem">Hatter Customs</a></li>
-						<li role="none"><a href="queens-coronation.html" role="menuitem">Queen's Coronation Ceremony</a></li>
+						<li role="none"><a href="rules-of-association.html" role="menuitem">Rules of Association</a></li>
 						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
-						<li role="none"><a href="website-guide.html" role="menuitem">Website Guide</a></li>
 						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
-						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
-						<li role="none"><a href="chapter-organisation.html" role="menuitem">Chapter Organisation & Administration</a></li>
+						<li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
+						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
+						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
 					</ul>
+				</li>
+				<li class="protected-nav" role="none" style="display: none;">
+					<a href="resources.html" role="menuitem">Resources</a>
 				</li>
 			</ul>
 			<div class="nav-buttons">
-				<div class="user-display protected-nav" style="display: none;"></div>
+				<!-- Public navigation buttons -->
 				<div class="split-button public-nav">
 					<a href="register.html" class="cta-button" aria-label="Join Red Hatters WA">Join</a>
 					<a href="login.html" class="login-button" aria-label="Sign in to your account">Sign In</a>
 				</div>
-				<div class="logout-section protected-nav" style="display: none;">
+				<!-- Member navigation buttons (hidden on public pages) -->
+				<div class="user-display protected-nav" style="display: none;"></div>
+				<div class="member-nav protected-nav" style="display: none;">
+					<a href="account.html" class="btn btn-outline-primary" aria-label="My Account">My Account</a>
 					<a href="#" class="logout-button" onclick="AuthManager.logout()" aria-label="Sign out">Logout</a>
 				</div>
 			</div>
@@ -123,9 +126,32 @@
 					<img src="images/IMG_5259.jpg" alt="Red Hat Society history" />
 				</div>
 				<div class="about-text">
-					<p>The Red Hat Society was founded in 1998 by Sue Ellen Cooper, who was inspired by Jenny Joseph's poem "Warning." The poem describes an older woman who wears purple and a red hat, and Sue Ellen decided to give a red hat to a friend as a birthday gift, along with a copy of the poem.</p>
-					<p>This simple gesture sparked a movement that has grown into a worldwide sisterhood. What started as a small group of friends has become a global phenomenon, with chapters in over 40 countries and thousands of members who have found friendship, fun, and fulfillment through the Red Hat Society.</p>
-					<p>Today, we continue to honor the spirit of the original poem while creating our own traditions and memories that will last a lifetime.</p>
+					<p>In the fall of 1997, Sue Ellen Cooper, an artist from Fullerton, California, bought a red hat on a trip to Tucson, Arizona. Cooper then bought another red hat and gave it to a friend as a birthday gift. Cooper was inspired by the Jenny Joseph poem, "Warning", which was popularized by a <em>Reader's Digest</em> article written by Liz Carpenter. The poem begins: "When I am an old woman, I shall wear purple, with a red hat which doesn't go and doesn't suit me." Cooper wanted to encourage her friend to grow older in a playful manner.</p>
+					<p>Cooper repeated the gift to several other friends upon request, and eventually several of the women bought purple outfits and held a tea party on April 25, 1998, at which the Red Hat Society began. The society first gained national attention through an article written by journalist Lori Basheda for <em>The Orange County Register</em>, which was reprinted in newspapers across the country.</p>
+					<p>Cooper facilitated the growth of the organization and now serves as "Exalted Queen Mother" of the organization. She has written two books about the society: <em>The Red Hat Society: Friendship and Fun After Fifty</em> (2004) and <em>The Red Hat Society's Laugh Lines: Stories of Inspiration and Hattitude</em> (2005).</p>
+					<p>As of 2020, Red Hat Society membership has more than 35,000 members internationally, with chapters in over 40 countries including Argentina, Australia, Austria, Canada, Ecuador, England, Finland, Germany, Greece, Guam, Ireland, Italy, Luxembourg, Mexico, Namibia, The Netherlands, New Zealand, Norway, Panama, Peru, Puerto Rico, Scotland, South Africa, Sweden, Taiwan, Trinidad and Tobago, and Wales.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Organization Structure Section -->
+	<section class="content-section">
+		<div class="container">
+			<div class="section-header">
+				<h2>Organization Structure</h2>
+				<p>Understanding how the Red Hat Society is organized worldwide</p>
+			</div>
+			<div class="about-content">
+				<div class="about-text">
+					<h3>Leadership & Membership</h3>
+					<p>A founder or leader of a local chapter is usually referred to as a "Queen." Members 50 and over are called "Red Hatters" and wear red hats and purple attire to all functions. A woman under age 50 may also become a member, but she wears a pink hat and lavender attire to the society's events until reaching her 50th birthday. She is referred to as a "Pink Hatter." During her birthday month (or the society's birthday month of April), a member might wear her colors in reverse, i.e., a purple or lavender hat and red or pink attire.</p>
+					
+					<h3>Activities & Traditions</h3>
+					<p>Both Red and Pink Hatters often wear very elaborately decorated hats and attention-getting fashion accessories, such as a feather boa, at the group's get-togethers. The society's events vary depending on the chapter, but common activities among Red Hatters include hosting tea parties, playing games, and going to movies or theater events.</p>
+				</div>
+				<div class="about-image">
+					<img src="images/IMG_5259.jpg" alt="Red Hat Society organization" />
 				</div>
 			</div>
 		</div>
@@ -140,7 +166,7 @@
 					<p>Years of Sisterhood</p>
 				</div>
 				<div class="stat-item">
-					<h3>50,000+</h3>
+					<h3>35,000+</h3>
 					<p>Members Worldwide</p>
 				</div>
 				<div class="stat-item">
@@ -184,6 +210,36 @@
 					<li>Special recognition programs</li>
 					<li>Networking with members from across Australia</li>
 				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- Call to Action Section -->
+	<section class="cta-section">
+		<div class="container">
+			<div class="cta-content">
+				<div class="cta-text">
+					<h2>Ready to Join Our Sisterhood?</h2>
+					<p>Discover the joy of friendship, fun, and frivolity with women who understand that life is meant to be celebrated at every age. Join thousands of Red Hatters worldwide who have found their tribe.</p>
+					<div class="cta-benefits">
+						<div class="benefit-item">
+							<i class="fas fa-heart"></i>
+							<span>Lifelong Friendships</span>
+						</div>
+						<div class="benefit-item">
+							<i class="fas fa-calendar-alt"></i>
+							<span>Exciting Events</span>
+						</div>
+						<div class="benefit-item">
+							<i class="fas fa-crown"></i>
+							<span>Royal Treatment</span>
+						</div>
+					</div>
+				</div>
+				<div class="cta-actions">
+					<a href="register.html" class="cta-button primary">Join Now</a>
+					<a href="benefits.html" class="cta-button secondary">Learn More</a>
+				</div>
 			</div>
 		</div>
 	</section>

@@ -36,52 +36,41 @@
 						<li role="none"><a href="history.html" role="menuitem">History</a></li>
 						<li role="none"><a href="pinkhatters.html" role="menuitem">Pink Hatters</a></li>
 						<li role="none"><a href="faq.html" role="menuitem">FAQ</a></li>
-						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
+						<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
+						<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
 					</ul>
 				</li>
-				<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
-				<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+				<!-- Member-only navigation -->
 				<li class="nav-dropdown" role="none">
-					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Members</a>
-					<ul class="dropdown-menu" role="menu" aria-label="Members submenu">
-						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Community</a>
+					<ul class="dropdown-menu" role="menu" aria-label="Community submenu">
+						<li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
+						<li role="none"><a href="events.html" role="menuitem" aria-current="page">Events</a></li>
 						<li role="none"><a href="discussions.html" role="menuitem">Discussions</a></li>
 						<li role="none"><a href="news-notes.html" role="menuitem">News and Notes</a></li>
-						<li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
+						<li role="none"><a href="newsletter.html" role="menuitem">Newsletter</a></li>
 						<li role="none"><a href="website-guide.html" role="menuitem">Website Guide</a></li>
-						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
-						<li role="none"><a href="account.html" role="menuitem">My Account</a></li>
-						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
-						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
-						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
-						<li role="none"><a href="rules-of-association.html" role="menuitem">Rules of Association</a></li>
+						<li role="none"><a href="offers.html" role="menuitem">Shops & Offers</a></li>
 					</ul>
 				</li>
 				<li class="nav-dropdown" role="none">
-					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Resources</a>
-					<ul class="dropdown-menu" role="menu" aria-label="Resources submenu">
-						<li role="none"><a href="resources.html" role="menuitem">Resources</a></li>
-						<li role="none"><a href="events.html" role="menuitem" aria-current="page">Events</a></li>
-						<li role="none"><a href="newsletter.html" role="menuitem">Newsletter</a></li>
-						<li role="none"><a href="games.html" role="menuitem">Games</a></li>
-						<li role="none"><a href="crafts.html" role="menuitem">Crafts</a></li>
-						<li role="none"><a href="printables.html" role="menuitem">Printables</a></li>
-						<li role="none"><a href="hoot-ideas.html" role="menuitem">Hoot Ideas</a></li>
-						<li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
-						<li role="none"><a href="hatter-commandments.html" role="menuitem">Hatter Commandments & Creed</a></li>
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Organisation & Administration</a>
+					<ul class="dropdown-menu" role="menu" aria-label="Organisation & Administration submenu">
 						<li role="none"><a href="hatter-customs.html" role="menuitem">Hatter Customs</a></li>
-						<li role="none"><a href="queens-coronation.html" role="menuitem">Queen's Coronation Ceremony</a></li>
+						<li role="none"><a href="rules-of-association.html" role="menuitem">Rules of Association</a></li>
 						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
-						<li role="none"><a href="website-guide.html" role="menuitem">Website Guide</a></li>
 						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
-						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
-						<li role="none"><a href="chapter-organisation.html" role="menuitem">Chapter Organisation & Administration</a></li>
+						<li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
+						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
+						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
 					</ul>
 				</li>
+				<li role="none"><a href="resources.html" role="menuitem">Resources</a></li>
 			</ul>
 			<div class="nav-buttons">
 				<div class="user-display"></div>
-				<div class="logout-section">
+				<div class="member-split-button">
+					<a href="account.html" class="account-button" aria-label="My Account">My Account</a>
 					<a href="#" class="logout-button" onclick="AuthManager.logout()" aria-label="Sign out">Logout</a>
 				</div>
 			</div>
@@ -386,6 +375,7 @@
 		const events = [
 			// Red Hat Events - December 2024
 			{
+				id: "event-001",
 				title: "Christmas High Tea",
 				date: "2024-12-15",
 				time: "2:00 PM",
@@ -396,6 +386,7 @@
 				image: "images/IMG_5259.jpg"
 			},
 			{
+				id: "event-002",
 				title: "Craft Workshop: Holiday Decorations",
 				date: "2024-12-20",
 				time: "10:00 AM",
@@ -406,6 +397,7 @@
 				image: "images/IMG_5259.jpg"
 			},
 			{
+				id: "event-003",
 				title: "New Year's Eve Gala",
 				date: "2024-12-31",
 				time: "7:00 PM",
@@ -418,6 +410,7 @@
 			
 			// Red Hat Events - January 2025
 			{
+				id: "event-004",
 				title: "New Year Brunch",
 				date: "2025-01-05",
 				time: "11:00 AM",
@@ -428,6 +421,7 @@
 				image: "images/IMG_5259.jpg"
 			},
 			{
+				id: "event-005",
 				title: "Summer Garden Party",
 				date: "2025-01-18",
 				time: "3:00 PM",
@@ -440,6 +434,7 @@
 			
 			// Red Hat Events - February 2025
 			{
+				id: "event-006",
 				title: "Valentine's Day Lunch",
 				date: "2025-02-14",
 				time: "12:00 PM",
@@ -450,6 +445,7 @@
 				image: "images/IMG_5259.jpg"
 			},
 			{
+				id: "event-007",
 				title: "Fremantle Markets Adventure",
 				date: "2025-02-22",
 				time: "9:00 AM",
@@ -462,6 +458,7 @@
 			
 			// Member Birthdays
 			{
+				id: "event-008",
 				title: "Margaret's Birthday",
 				date: "2024-12-08",
 				time: "All Day",
@@ -472,6 +469,7 @@
 				image: "images/IMG_5259.jpg"
 			},
 			{
+				id: "event-009",
 				title: "Susan's Birthday",
 				date: "2024-12-12",
 				time: "All Day",
@@ -647,6 +645,153 @@
 			}
 		];
 
+		// RSVP System is now centralized in script.js
+		
+		// Handle RSVP button click
+		function handleRSVP(eventId) {
+			const user = RSVPSystem.getCurrentUser();
+			const hasRSVPd = RSVPSystem.hasUserRSVPd(eventId);
+			const currentStatus = RSVPSystem.getUserRSVPStatus(eventId);
+			
+			if (hasRSVPd) {
+				// Show RSVP management modal
+				showRSVPModal(eventId, currentStatus);
+			} else {
+				// RSVP to event
+				RSVPSystem.rsvpToEvent(eventId, 'yes');
+				updateEventDisplay(eventId);
+				showRSVPConfirmation('You have successfully RSVP\'d to this event!');
+				
+				// Notify My Events to refresh if on account page
+				if (typeof MyEventsManager !== 'undefined' && MyEventsManager.loadMyEvents) {
+					MyEventsManager.loadMyEvents();
+				}
+			}
+		}
+		
+		// Show RSVP management modal
+		function showRSVPModal(eventId, currentStatus) {
+			const event = events.find(e => e.id === eventId);
+			const rsvpData = RSVPSystem.getEventRSVP(eventId);
+			
+			const modal = document.createElement('div');
+			modal.className = 'rsvp-modal';
+			modal.innerHTML = `
+				<div class="rsvp-modal-content">
+					<div class="rsvp-modal-header">
+						<h3>RSVP Management</h3>
+						<button class="rsvp-modal-close">&times;</button>
+					</div>
+					<div class="rsvp-modal-body">
+						<h4>${event.title}</h4>
+						<p><strong>Date:</strong> ${formatDate(event.date)}</p>
+						<p><strong>Time:</strong> ${event.time}</p>
+						<p><strong>Location:</strong> ${event.location}</p>
+						
+						<div class="rsvp-status">
+							<p><strong>Your Status:</strong> <span class="status-${currentStatus}">${currentStatus.toUpperCase()}</span></p>
+						</div>
+						
+						<div class="rsvp-actions">
+							<button class="btn btn-success" onclick="updateRSVP('${eventId}', 'yes')">Confirm Attendance</button>
+							<button class="btn btn-warning" onclick="updateRSVP('${eventId}', 'maybe')">Maybe</button>
+							<button class="btn btn-danger" onclick="updateRSVP('${eventId}', 'no')">Cancel RSVP</button>
+						</div>
+						
+						<div class="rsvp-attendees">
+							<h5>Attendees (${rsvpData.totalCount})</h5>
+							<div class="attendees-list">
+								${rsvpData.attendees.map(attendee => `
+									<div class="attendee-item">
+										<span class="attendee-name">${attendee.name}</span>
+										<span class="attendee-status status-${attendee.status}">${attendee.status}</span>
+									</div>
+								`).join('')}
+							</div>
+						</div>
+					</div>
+				</div>
+			`;
+			
+			document.body.appendChild(modal);
+			
+			// Close modal handlers
+			modal.querySelector('.rsvp-modal-close').onclick = () => modal.remove();
+			modal.onclick = (e) => {
+				if (e.target === modal) modal.remove();
+			};
+		}
+		
+		// Update RSVP status
+		function updateRSVP(eventId, status) {
+			RSVPSystem.rsvpToEvent(eventId, status);
+			updateEventDisplay(eventId);
+			
+			// Close modal
+			document.querySelector('.rsvp-modal').remove();
+			
+			const statusMessages = {
+				'yes': 'You have confirmed your attendance!',
+				'maybe': 'You have marked yourself as maybe attending.',
+				'no': 'You have cancelled your RSVP.'
+			};
+			
+			showRSVPConfirmation(statusMessages[status]);
+			
+			// Notify My Events to refresh if on account page
+			if (typeof MyEventsManager !== 'undefined' && MyEventsManager.loadMyEvents) {
+				MyEventsManager.loadMyEvents();
+			}
+		}
+		
+		// Update event display with RSVP data
+		function updateEventDisplay(eventId) {
+			const rsvpData = RSVPSystem.getEventRSVP(eventId);
+			const hasRSVPd = RSVPSystem.hasUserRSVPd(eventId);
+			const currentStatus = RSVPSystem.getUserRSVPStatus(eventId);
+			
+			// Find the event card and update it
+			const eventCard = document.querySelector(`[data-event-id="${eventId}"]`).closest('.event-card');
+			const attendeesSpan = eventCard.querySelector('.event-attendees');
+			const rsvpBtn = eventCard.querySelector('.rsvp-btn');
+			const rsvpText = rsvpBtn.querySelector('.rsvp-text');
+			const rsvpCount = rsvpBtn.querySelector('.rsvp-count');
+			
+			// Update attendees count
+			attendeesSpan.innerHTML = `<i class="fas fa-users"></i> ${rsvpData.totalCount} attending`;
+			
+			// Update RSVP button
+			if (hasRSVPd) {
+				rsvpBtn.className = 'btn btn-success rsvp-btn';
+				rsvpText.textContent = `RSVP'd (${currentStatus})`;
+				rsvpCount.style.display = 'inline';
+			} else {
+				rsvpBtn.className = 'btn btn-primary rsvp-btn';
+				rsvpText.textContent = 'RSVP Now';
+				rsvpCount.style.display = 'none';
+			}
+		}
+		
+		// Show RSVP confirmation
+		function showRSVPConfirmation(message) {
+			const notification = document.createElement('div');
+			notification.className = 'rsvp-notification';
+			notification.textContent = message;
+			document.body.appendChild(notification);
+			
+			setTimeout(() => {
+				notification.remove();
+			}, 3000);
+		}
+		
+		// Initialize RSVP system
+		function initializeRSVP() {
+			// Update all event displays with current RSVP data
+			events.forEach(event => {
+				updateEventDisplay(event.id);
+			});
+		}
+
 		// Filter functionality
 		document.querySelectorAll('.filter-btn').forEach(btn => {
 			btn.addEventListener('click', function() {
@@ -683,7 +828,10 @@
 								<i class="fas fa-users"></i> ${event.attendees} attending
 							</span>
 						</div>
-						<a href="#" class="btn btn-primary">RSVP Now</a>
+						<button class="btn btn-primary rsvp-btn" data-event-id="${event.id}" onclick="handleRSVP('${event.id}')">
+							<span class="rsvp-text">RSVP Now</span>
+							<span class="rsvp-count" style="display: none;">(${event.attendees})</span>
+						</button>
 					</div>
 				</div>
 			`).join('');

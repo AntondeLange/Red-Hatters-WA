@@ -50,7 +50,8 @@ window.RedHattersConfig = {
             donation: '/api/donation',
             events: '/api/events',
             members: '/api/members',
-            hoot_ideas: '/api/hoot-ideas'
+            hoot_ideas: '/api/hoot-ideas',
+            news_submission: '/api/news-submission'
         }
     },
 
@@ -63,7 +64,8 @@ window.RedHattersConfig = {
         profile: 'https://formspree.io/f/YOUR_PROFILE_FORM_ID',
         password: 'https://formspree.io/f/YOUR_PASSWORD_FORM_ID',
         settings: 'https://formspree.io/f/YOUR_SETTINGS_FORM_ID',
-        hoot_ideas: 'https://formspree.io/f/YOUR_HOOT_IDEAS_FORM_ID'
+        hoot_ideas: 'https://formspree.io/f/YOUR_HOOT_IDEAS_FORM_ID',
+        news_submission: 'https://formspree.io/f/YOUR_NEWS_FORM_ID'
     },
 
     // Email Configuration

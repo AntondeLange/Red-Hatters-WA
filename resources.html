@@ -5,6 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Resources - Red Hatters WA</title>
 	<meta name="description" content="Access member resources, handbooks, guides, and helpful information for Red Hatters WA members." />
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/jpeg" href="images/Australian Red Hat Society – Western Australia.jpg">
+	<link rel="shortcut icon" type="image/jpeg" href="images/Australian Red Hat Society – Western Australia.jpg">
+	<link rel="apple-touch-icon" href="images/Australian Red Hat Society – Western Australia.jpg">
+	
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +21,397 @@
 	
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="styles.css">
+	
+	<!-- Resources Tab Styles -->
+	<style>
+		.resources-dashboard {
+			display: flex;
+			gap: 1.5rem;
+			margin-top: 2rem;
+		}
+
+		.resources-sidebar {
+			flex: 0 0 200px;
+			background: var(--white);
+			border-radius: 15px;
+			padding: 1.25rem;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+			height: fit-content;
+		}
+
+		.resources-nav {
+			display: flex;
+			flex-direction: column;
+			gap: 0.25rem;
+		}
+
+		.resources-nav .nav-link {
+			display: block;
+			padding: 0.6rem 0.8rem;
+			color: var(--text-dark);
+			text-decoration: none;
+			border-radius: 8px;
+			transition: all 0.3s ease;
+			font-weight: 500;
+			font-size: 0.9rem;
+		}
+
+		.resources-nav .nav-link:hover {
+			background: var(--light-purple);
+			color: var(--primary-purple);
+		}
+
+		.resources-nav .nav-link.active {
+			background: var(--primary-purple);
+			color: var(--white);
+		}
+
+		.resources-content {
+			flex: 1;
+			background: var(--white);
+			border-radius: 15px;
+			padding: 1.5rem;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		}
+
+		.content-panel {
+			display: none !important;
+		}
+
+		.content-panel.active {
+			display: block !important;
+		}
+
+		/* Horizontal Stack Layouts - Force Override */
+		.resources-content .resources-grid {
+			display: flex !important;
+			flex-direction: column !important;
+			grid-template-columns: none !important;
+			gap: 1.5rem;
+			margin: 2rem 0;
+		}
+
+		.resources-content .featured-projects {
+			display: flex !important;
+			flex-direction: column !important;
+			grid-template-columns: none !important;
+			gap: 1.5rem;
+			margin: 2rem 0;
+		}
+
+		.resources-content .projects-gallery {
+			display: flex !important;
+			flex-direction: column !important;
+			grid-template-columns: none !important;
+			gap: 1.5rem;
+			margin: 2rem 0;
+		}
+
+		.resources-content .featured-printables {
+			display: flex !important;
+			flex-direction: column !important;
+			grid-template-columns: none !important;
+			gap: 1.5rem;
+			margin: 2rem 0;
+		}
+
+		.resources-content .ideas-grid {
+			display: flex !important;
+			flex-direction: column !important;
+			grid-template-columns: none !important;
+			gap: 1.5rem;
+			margin: 1.5rem 0;
+		}
+
+		.resources-content .cookbooks-grid {
+			display: flex !important;
+			flex-direction: column !important;
+			grid-template-columns: none !important;
+			gap: 2rem;
+			margin: 2rem 0;
+		}
+
+		.resources-content .recipe-categories {
+			display: flex !important;
+			flex-direction: column !important;
+			grid-template-columns: none !important;
+			gap: 1.5rem;
+			margin: 2rem 0;
+		}
+
+		/* Override any remaining grid properties */
+		.resources-content .card {
+			width: 100% !important;
+			max-width: none !important;
+			flex-shrink: 0 !important;
+		}
+
+		/* Fix all other grid layouts in Resources tabs */
+		.resources-content .features-grid {
+			display: flex !important;
+			flex-direction: column !important;
+			grid-template-columns: none !important;
+			gap: 1.5rem;
+			margin: 2rem 0;
+		}
+
+		.resources-content .game-categories {
+			display: flex !important;
+			flex-direction: column !important;
+			grid-template-columns: none !important;
+			gap: 1.5rem;
+			margin: 2rem 0;
+		}
+
+		.resources-content .craft-categories {
+			display: flex !important;
+			flex-direction: column !important;
+			grid-template-columns: none !important;
+			gap: 1.5rem;
+			margin: 2rem 0;
+		}
+
+		.resources-content .printable-categories {
+			display: flex !important;
+			flex-direction: column !important;
+			grid-template-columns: none !important;
+			gap: 1.5rem;
+			margin: 2rem 0;
+		}
+
+		.resources-content .featured-games {
+			display: flex !important;
+			flex-direction: column !important;
+			grid-template-columns: none !important;
+			gap: 1.5rem;
+			margin: 2rem 0;
+		}
+
+		/* Fix individual cards in grids */
+		.resources-content .feature-card,
+		.resources-content .category-card,
+		.resources-content .printable-card,
+		.resources-content .game-card {
+			width: 100% !important;
+			max-width: none !important;
+			flex-shrink: 0 !important;
+		}
+
+		/* Compact Section Headers */
+		.section-header {
+			margin: 1.5rem 0 1rem 0;
+		}
+
+		.section-header h2 {
+			font-size: 1.8rem;
+			margin-bottom: 0.5rem;
+		}
+
+		.section-header h3 {
+			font-size: 1.4rem;
+			margin-bottom: 0.5rem;
+		}
+
+		.section-header h4 {
+			font-size: 1.2rem;
+			margin-bottom: 0.5rem;
+		}
+
+		/* Compact Cards */
+		.card {
+			padding: 1.25rem;
+		}
+
+		.card h3 {
+			font-size: 1.2rem;
+			margin-bottom: 0.75rem;
+		}
+
+		.card h4 {
+			font-size: 1.1rem;
+			margin-bottom: 0.5rem;
+		}
+
+		/* Compact Forms */
+		.submit-game, .submit-project, .submit-printable, .submit-ideas, .submit-recipe {
+			margin-top: 2rem;
+		}
+
+		.form-group {
+			margin-bottom: 1rem;
+		}
+
+		.form-group label {
+			font-size: 0.9rem;
+			margin-bottom: 0.4rem;
+		}
+
+		.form-group input,
+		.form-group select,
+		.form-group textarea {
+			padding: 0.6rem;
+			font-size: 0.9rem;
+		}
+
+		/* Responsive Design */
+		@media (max-width: 768px) {
+			.resources-dashboard {
+				flex-direction: column;
+				gap: 1rem;
+			}
+
+			.resources-sidebar {
+				flex: none;
+			}
+
+			.resources-nav {
+				flex-direction: row;
+				overflow-x: auto;
+				padding-bottom: 0.5rem;
+			}
+
+			.resources-nav .nav-link {
+				white-space: nowrap;
+				flex-shrink: 0;
+			}
+
+			.resources-content {
+				padding: 1rem;
+			}
+
+			.resources-grid,
+			.featured-projects,
+			.projects-gallery,
+			.featured-printables,
+			.ideas-grid,
+			.cookbooks-grid,
+			.recipe-categories {
+				gap: 1rem;
+			}
+		}
+
+		.calendar-container {
+			background: var(--light-gray);
+			border-radius: 15px;
+			padding: 2rem;
+			margin: 2rem 0;
+		}
+
+		.calendar-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 2rem;
+		}
+
+		.calendar-title-container {
+			display: flex;
+			gap: 1rem;
+		}
+
+		.calendar-select {
+			padding: 0.5rem 1rem;
+			border: 2px solid var(--primary-purple);
+			border-radius: 8px;
+			background: var(--white);
+			font-size: 1rem;
+		}
+
+		.calendar-nav {
+			background: var(--primary-purple);
+			color: var(--white);
+			border: none;
+			padding: 0.75rem 1rem;
+			border-radius: 8px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		.calendar-nav:hover {
+			background: var(--primary-red);
+		}
+
+		.calendar-grid {
+			display: grid;
+			grid-template-columns: repeat(7, 1fr);
+			gap: 1px;
+			background: var(--text-dark);
+			border-radius: 8px;
+			overflow: hidden;
+		}
+
+		.calendar-day {
+			background: var(--white);
+			padding: 1rem;
+			min-height: 80px;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+		}
+
+		.calendar-day-header {
+			background: var(--primary-purple);
+			color: var(--white);
+			font-weight: 600;
+			text-align: center;
+		}
+
+		.calendar-day-number {
+			font-weight: 600;
+			margin-bottom: 0.5rem;
+		}
+
+		.calendar-event {
+			background: var(--primary-red);
+			color: var(--white);
+			padding: 0.25rem 0.5rem;
+			border-radius: 4px;
+			font-size: 0.8rem;
+			margin: 0.25rem 0;
+			text-align: center;
+		}
+
+		/* Responsive Design */
+		@media (max-width: 768px) {
+			.resources-dashboard {
+				flex-direction: column;
+			}
+
+			.resources-sidebar {
+				flex: none;
+			}
+
+			.resources-nav {
+				flex-direction: row;
+				overflow-x: auto;
+				padding-bottom: 1rem;
+			}
+
+			.resources-nav .nav-link {
+				white-space: nowrap;
+				flex-shrink: 0;
+			}
+
+			.calendar-header {
+				flex-direction: column;
+				gap: 1rem;
+			}
+
+			.calendar-title-container {
+				justify-content: center;
+			}
+
+			.calendar-grid {
+				grid-template-columns: repeat(7, 1fr);
+			}
+
+			.calendar-day {
+				min-height: 60px;
+				padding: 0.5rem;
+			}
+		}
+	</style>
 </head>
 <body>
 	<!-- Header -->
@@ -30,50 +427,45 @@
 					<ul class="dropdown-menu" role="menu" aria-label="About submenu">
 						<li role="none"><a href="about-us.html" role="menuitem">About Us</a></li>
 						<li role="none"><a href="benefits.html" role="menuitem">Benefits</a></li>
+						<li role="none"><a href="history.html" role="menuitem">History</a></li>
+						<li role="none"><a href="pinkhatters.html" role="menuitem">Pink Hatters</a></li>
 						<li role="none"><a href="faq.html" role="menuitem">FAQ</a></li>
-						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
+						<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
+						<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
 					</ul>
 				</li>
-				<li role="none"><a href="donate.html" role="menuitem">Donate</a></li>
-				<li role="none"><a href="contact-us.html" role="menuitem">Contact Us</a></li>
+				<!-- Member-only navigation -->
 				<li class="nav-dropdown" role="none">
-					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Members</a>
-					<ul class="dropdown-menu" role="menu" aria-label="Members submenu">
-						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Community</a>
+					<ul class="dropdown-menu" role="menu" aria-label="Community submenu">
+						<li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
+						<li role="none"><a href="events.html" role="menuitem">Events</a></li>
 						<li role="none"><a href="discussions.html" role="menuitem">Discussions</a></li>
 						<li role="none"><a href="news-notes.html" role="menuitem">News and Notes</a></li>
-						<li role="none"><a href="members-corner.html" role="menuitem">Members' Corner</a></li>
-						<li role="none"><a href="account.html" role="menuitem">My Account</a></li>
-						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
-						<li role="none"><a href="member-search.html" role="menuitem">Find Members</a></li>
+						<li role="none"><a href="newsletter.html" role="menuitem">Newsletter</a></li>
+						<li role="none"><a href="website-guide.html" role="menuitem">Website Guide</a></li>
+						<li role="none"><a href="offers.html" role="menuitem">Shops & Offers</a></li>
 					</ul>
 				</li>
 				<li class="nav-dropdown" role="none">
-					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Resources</a>
-					<ul class="dropdown-menu" role="menu" aria-label="Resources submenu">
-						<li role="none"><a href="resources.html" role="menuitem" aria-current="page">Resources</a></li>
-						<li role="none"><a href="events.html" role="menuitem">Events</a></li>
-						<li role="none"><a href="newsletter.html" role="menuitem">Newsletter</a></li>
-						<li role="none"><a href="games.html" role="menuitem">Games</a></li>
-						<li role="none"><a href="crafts.html" role="menuitem">Crafts</a></li>
-						<li role="none"><a href="printables.html" role="menuitem">Printables</a></li>
-						<li role="none"><a href="hoot-ideas.html" role="menuitem">Hoot Ideas</a></li>
-						<li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
-						<li role="none"><a href="hatter-commandments.html" role="menuitem">Hatter Commandments & Creed</a></li>
+					<a href="#" class="dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false">Organisation & Administration</a>
+					<ul class="dropdown-menu" role="menu" aria-label="Organisation & Administration submenu">
 						<li role="none"><a href="hatter-customs.html" role="menuitem">Hatter Customs</a></li>
-						<li role="none"><a href="queens-coronation.html" role="menuitem">Queen's Coronation Ceremony</a></li>
+						<li role="none"><a href="rules-of-association.html" role="menuitem">Rules of Association</a></li>
 						<li role="none"><a href="member-role.html" role="menuitem">Member Role</a></li>
-						<li role="none"><a href="website-guide.html" role="menuitem">Website Guide</a></li>
 						<li role="none"><a href="member-handbook.html" role="menuitem">Member Handbook</a></li>
-						<li role="none"><a href="offers.html" role="menuitem">Offers</a></li>
-						<li role="none"><a href="chapter-organisation.html" role="menuitem">Chapter Organisation & Administration</a></li>
+						<li role="none"><a href="emergency-contact.html" role="menuitem">Emergency Contact</a></li>
+						<li role="none"><a href="member-search.html" role="menuitem">Member Search</a></li>
+						<li role="none"><a href="wa-chapters.html" role="menuitem">WA Chapters</a></li>
 					</ul>
 				</li>
+				<li role="none"><a href="resources.html" role="menuitem" aria-current="page">Resources</a></li>
 			</ul>
 			<div class="nav-buttons">
-				<div class="split-button">
-					<a href="register.html" class="cta-button" aria-label="Join Red Hatters WA">Join</a>
-					<a href="login.html" class="login-button" aria-label="Sign in to your account">Sign In</a>
+				<div class="user-display"></div>
+				<div class="member-split-button">
+					<a href="account.html" class="account-button" aria-label="My Account">My Account</a>
+					<a href="#" class="logout-button" onclick="AuthManager.logout()" aria-label="Sign out">Logout</a>
 				</div>
 			</div>
 		</nav>
@@ -90,121 +482,1123 @@
 	<!-- Main Resources Section -->
 	<section class="content-section">
 		<div class="container">
-			<div class="section-header">
-				<h2>Essential Resources</h2>
-				<p>Everything you need to know about being a Red Hat Society member</p>
-			</div>
-			<div class="features-grid">
-				<div class="feature-card">
-					<div class="feature-icon">📚</div>
-					<h3>Member Handbook</h3>
-					<p>Complete guide covering traditions, customs, chapter management, and everything you need to know about the Red Hat Society.</p>
-					<a href="member-handbook.html" class="btn btn-secondary">Read Handbook</a>
+			<div class="resources-dashboard">
+				<div class="resources-sidebar">
+					<nav class="resources-nav">
+						<a href="#overview" class="nav-link active">Overview</a>
+						<a href="#games" class="nav-link">Games</a>
+						<a href="#crafts" class="nav-link">Crafts</a>
+						<a href="#printables" class="nav-link">Printables</a>
+						<a href="#recipes" class="nav-link">Recipes</a>
+						<a href="#hoot-ideas" class="nav-link">Hoot Ideas</a>
+					</nav>
 				</div>
-				<div class="feature-card">
-					<div class="feature-icon">🎯</div>
-					<h3>Chapter Start-Up Guide</h3>
-					<p>Step-by-step instructions for starting your own chapter, including requirements, procedures, and helpful tips.</p>
-					<a href="#" class="btn btn-secondary">Start Chapter</a>
-				</div>
-				<div class="feature-card">
-					<div class="feature-icon">👑</div>
-					<h3>Queen Resources</h3>
-					<p>Special resources for chapter Queens including leadership guides, event planning tools, and member management tips.</p>
-					<a href="#" class="btn btn-secondary">Queen Tools</a>
-				</div>
-				<div class="feature-card">
-					<div class="feature-icon">📋</div>
-					<h3>Event Planning</h3>
-					<p>Templates, checklists, and ideas for planning successful chapter events and activities.</p>
-					<a href="#" class="btn btn-secondary">Plan Events</a>
-				</div>
-				<div class="feature-card">
-					<div class="feature-icon">💡</div>
-					<h3>Hoot Ideas</h3>
-					<p>Creative suggestions for chapter activities, outings, crafts, and social events to keep members engaged.</p>
-					<a href="hoot-ideas.html" class="btn btn-secondary">Browse Ideas</a>
-				</div>
-				<div class="feature-card">
-					<div class="feature-icon">📞</div>
-					<h3>Contact Directory</h3>
-					<p>Important contacts, regional coordinators, and support resources for members and chapters.</p>
-					<a href="contact-us.html" class="btn btn-secondary">View Contacts</a>
-				</div>
-			</div>
-		</div>
-	</section>
+				<div class="resources-content">
+					<div class="content-panel active" id="overview">
+						<h2>Essential Resources</h2>
+						<p>Everything you need to know about being a Red Hat Society member</p>
+						<div class="features-grid">
+							<div class="feature-card">
+								<div class="feature-icon">📚</div>
+								<h3>Member Handbook</h3>
+								<p>Complete guide covering traditions, customs, chapter management, and everything you need to know about the Red Hat Society.</p>
+								<a href="member-handbook.html" class="btn btn-primary">Read Handbook</a>
+							</div>
+							<div class="feature-card">
+								<div class="feature-icon">📖</div>
+								<h3>Website Guide</h3>
+								<p>Learn how to navigate our website and make the most of all available features and resources.</p>
+								<a href="website-guide.html" class="btn btn-primary">View Guide</a>
+							</div>
+							<div class="feature-card">
+								<div class="feature-icon">👑</div>
+								<h3>Member Role Guide</h3>
+								<p>Understand different roles within the Red Hat Society and how you can contribute to your chapter.</p>
+								<a href="member-role.html" class="btn btn-primary">Learn More</a>
+							</div>
+						</div>
+					</div>
+					
+					
+					<div class="content-panel" id="games">
+						<div class="section-header">
+							<h2>Game Categories</h2>
+							<p>Choose from a variety of games perfect for Red Hat gatherings</p>
+						</div>
+						<div class="game-categories">
+							<div class="category-card">
+								<div class="category-icon">🪑</div>
+								<h3>Seated Games</h3>
+								<p>Perfect for dining events and comfortable gatherings where everyone can participate while seated.</p>
+								<div class="game-count">12 Games</div>
+								<a href="#seated-games" class="btn btn-primary">View Games</a>
+							</div>
+							<div class="category-card">
+								<div class="category-icon">📝</div>
+								<h3>Pen & Paper Games</h3>
+								<p>Classic word games, trivia, and creative activities that require only paper and writing utensils.</p>
+								<div class="game-count">18 Games</div>
+								<a href="#pen-paper-games" class="btn btn-primary">View Games</a>
+							</div>
+							<div class="category-card">
+								<div class="category-icon">🏃‍♀️</div>
+								<h3>Active Games</h3>
+								<p>Energetic activities and movement-based games for outdoor events and large chapter gatherings.</p>
+								<div class="game-count">15 Games</div>
+								<a href="#active-games" class="btn btn-primary">View Games</a>
+							</div>
+							<div class="category-card">
+								<div class="category-icon">🎲</div>
+								<h3>Board & Card Games</h3>
+								<p>Traditional and modern board games, card games, and tabletop activities for small chapters.</p>
+								<div class="game-count">20 Games</div>
+								<a href="#board-games" class="btn btn-primary">View Games</a>
+							</div>
+						</div>
 
-	<!-- Digital Resources Section -->
-	<section class="content-section" style="background: var(--light-gray);">
-		<div class="container">
-			<div class="section-header">
-				<h2>Digital Resources</h2>
-				<p>Online tools and materials available to all members</p>
-			</div>
-			<div class="features-grid">
-				<div class="card">
-					<h3>Member Portal</h3>
-					<p>Access your personal member dashboard, update your profile, manage your chapter membership, and connect with other members.</p>
-					<ul style="margin: 15px 0; padding-left: 20px;">
-						<li>Update personal information</li>
-						<li>View chapter activities</li>
-						<li>Access member directory</li>
-						<li>Download resources</li>
-					</ul>
-					<a href="account.html" class="btn btn-primary">Access Portal</a>
-				</div>
-				<div class="card">
-					<h3>Digital Magazine</h3>
-					<p>Our exclusive member magazine featuring stories, tips, member spotlights, and the latest Red Hat Society news.</p>
-					<ul style="margin: 15px 0; padding-left: 20px;">
-						<li>Published twice yearly</li>
-						<li>Member stories and features</li>
-						<li>Chapter spotlights</li>
-						<li>Upcoming events calendar</li>
-					</ul>
-					<a href="newsletter.html" class="btn btn-primary">Read Magazine</a>
-				</div>
-				<div class="card">
-					<h3>Resource Library</h3>
-					<p>Downloadable materials including forms, templates, guidelines, and educational content for members and chapters.</p>
-					<ul style="margin: 15px 0; padding-left: 20px;">
-						<li>Chapter forms and templates</li>
-						<li>Event planning materials</li>
-						<li>Educational guides</li>
-						<li>Marketing resources</li>
-					</ul>
-					<a href="#" class="btn btn-primary">Browse Library</a>
-				</div>
-			</div>
-		</div>
-	</section>
+						<div class="section-header" style="margin-top: 3rem;">
+							<h2>Featured Games</h2>
+							<p>Popular games that are always a hit at Red Hat events</p>
+						</div>
+						<div class="featured-games">
+							<div class="game-card">
+								<div class="game-image">
+									<img src="images/IMG_5259.jpg" alt="Red Hat Trivia">
+									<div class="game-badge">Popular</div>
+								</div>
+								<div class="game-content">
+									<h3>Red Hat Trivia</h3>
+									<p class="game-category">Seated Game</p>
+									<p>Test your knowledge of Red Hat Society history, traditions, and fun facts. Perfect for chapter meetings and social gatherings.</p>
+									<div class="game-details">
+										<span><i class="fas fa-users"></i> 4-20 Players</span>
+										<span><i class="fas fa-clock"></i> 30-45 min</span>
+										<span><i class="fas fa-star"></i> 4.8 Rating</span>
+									</div>
+									<a href="#" class="btn btn-primary">View Instructions</a>
+								</div>
+							</div>
+							<div class="game-card">
+								<div class="game-image">
+									<img src="images/IMG_5259.jpg" alt="Memory Lane">
+								</div>
+								<div class="game-content">
+									<h3>Memory Lane</h3>
+									<p class="game-category">Pen & Paper Game</p>
+									<p>Share stories and memories from different decades. A wonderful way to get to know your fellow Red Hatters better.</p>
+									<div class="game-details">
+										<span><i class="fas fa-users"></i> 6-15 Players</span>
+										<span><i class="fas fa-clock"></i> 45-60 min</span>
+										<span><i class="fas fa-star"></i> 4.9 Rating</span>
+									</div>
+									<a href="#" class="btn btn-primary">View Instructions</a>
+								</div>
+							</div>
+							<div class="game-card">
+								<div class="game-image">
+									<img src="images/IMG_5259.jpg" alt="Hat Parade">
+								</div>
+								<div class="game-content">
+									<h3>Hat Parade</h3>
+									<p class="game-category">Active Game</p>
+									<p>Show off your most fabulous hats in a fun parade and fashion show. Great for outdoor events and celebrations.</p>
+									<div class="game-details">
+										<span><i class="fas fa-users"></i> 8-30 Players</span>
+										<span><i class="fas fa-clock"></i> 20-30 min</span>
+										<span><i class="fas fa-star"></i> 4.7 Rating</span>
+									</div>
+									<a href="#" class="btn btn-primary">View Instructions</a>
+								</div>
+							</div>
+						</div>
 
-	<!-- Fun Resources Section -->
-	<section class="content-section">
-		<div class="container">
-			<div class="section-header">
-				<h2>Fun & Creative Resources</h2>
-				<p>Activities, crafts, and entertainment to keep your chapter engaged</p>
-			</div>
-			<div class="features-grid">
-				<div class="feature-card">
-					<div class="feature-icon">🎨</div>
-					<h3>Crafts & DIY</h3>
-					<p>Creative project ideas, tutorials, and inspiration for chapter craft activities and personal projects.</p>
-					<a href="crafts.html" class="btn btn-secondary">Explore Crafts</a>
-				</div>
-				<div class="feature-card">
-					<div class="feature-icon">🎮</div>
-					<h3>Games & Activities</h3>
-					<p>Fun games, icebreakers, and chapter activities perfect for chapter meetings and social events.</p>
-					<a href="games.html" class="btn btn-secondary">Play Games</a>
-				</div>
-				<div class="feature-card">
-					<div class="feature-icon">📄</div>
-					<h3>Printables</h3>
-					<p>Downloadable materials including invitations, certificates, name tags, and decorative items for events.</p>
-					<a href="printables.html" class="btn btn-secondary">Download</a>
+						<div class="section-header" style="margin-top: 3rem;">
+							<h2>Seated Games</h2>
+							<p>Perfect for dining events and comfortable gatherings</p>
+						</div>
+						<div class="games-list">
+							<div class="game-item">
+								<div class="game-info">
+									<h3>Red Hat Trivia</h3>
+									<p>Test your knowledge of Red Hat Society history, traditions, and fun facts.</p>
+									<div class="game-meta">
+										<span><i class="fas fa-users"></i> 4-20 Players</span>
+										<span><i class="fas fa-clock"></i> 30-45 min</span>
+										<span><i class="fas fa-star"></i> 4.8 Rating</span>
+									</div>
+								</div>
+								<div class="game-actions">
+									<a href="#" class="btn btn-secondary">View Instructions</a>
+									<a href="#" class="btn btn-primary">Download PDF</a>
+								</div>
+							</div>
+							<div class="game-item">
+								<div class="game-info">
+									<h3>Name That Tune</h3>
+									<p>Guess songs from different decades. Perfect for music lovers and nostalgia enthusiasts.</p>
+									<div class="game-meta">
+										<span><i class="fas fa-users"></i> 6-15 Players</span>
+										<span><i class="fas fa-clock"></i> 20-30 min</span>
+										<span><i class="fas fa-star"></i> 4.6 Rating</span>
+									</div>
+								</div>
+								<div class="game-actions">
+									<a href="#" class="btn btn-secondary">View Instructions</a>
+									<a href="#" class="btn btn-primary">Download PDF</a>
+								</div>
+							</div>
+							<div class="game-item">
+								<div class="game-info">
+									<h3>Would You Rather</h3>
+									<p>Fun questions to spark conversations and laughter. Great icebreaker for new members.</p>
+									<div class="game-meta">
+										<span><i class="fas fa-users"></i> 4-12 Players</span>
+										<span><i class="fas fa-clock"></i> 15-25 min</span>
+										<span><i class="fas fa-star"></i> 4.7 Rating</span>
+									</div>
+								</div>
+								<div class="game-actions">
+									<a href="#" class="btn btn-secondary">View Instructions</a>
+									<a href="#" class="btn btn-primary">Download PDF</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="section-header" style="margin-top: 3rem;">
+							<h2>Game Resources</h2>
+							<p>Everything you need to host successful game sessions</p>
+						</div>
+						<div class="resources-grid">
+							<div class="card">
+								<div class="resource-icon">📋</div>
+								<h3>Game Instructions</h3>
+								<p>Detailed instructions for all games including setup, rules, and variations.</p>
+								<a href="#" class="btn btn-primary">Download All</a>
+							</div>
+							<div class="card">
+								<div class="resource-icon">🎯</div>
+								<h3>Game Templates</h3>
+								<p>Printable templates, score sheets, and game materials for easy setup.</p>
+								<a href="#" class="btn btn-primary">View Templates</a>
+							</div>
+							<div class="card">
+								<div class="resource-icon">🏆</div>
+								<h3>Prizes & Rewards</h3>
+								<p>Ideas for prizes, certificates, and recognition for game winners.</p>
+								<a href="#" class="btn btn-primary">View Ideas</a>
+							</div>
+							<div class="card">
+								<div class="resource-icon">📱</div>
+								<h3>Digital Games</h3>
+								<p>Online games and apps that can be played on tablets or smartphones.</p>
+								<a href="#" class="btn btn-primary">Explore Apps</a>
+							</div>
+						</div>
+
+						<div class="section-header" style="margin-top: 3rem;">
+							<h2>Share Your Game Ideas</h2>
+							<p>Have a great game idea? Share it with the Red Hat community!</p>
+						</div>
+						<div class="submit-game">
+							<div class="card">
+								<h3>Submit a Game</h3>
+								<p>Share your favorite games and activities with fellow Red Hatters. Include instructions, materials needed, and any special tips.</p>
+								<form class="game-form">
+									<div class="form-group">
+										<label for="gameName">Game Name</label>
+										<input type="text" id="gameName" name="gameName" required>
+									</div>
+									<div class="form-group">
+										<label for="gameCategory">Category</label>
+										<select id="gameCategory" name="gameCategory" required>
+											<option value="">Select a category</option>
+											<option value="seated">Seated Games</option>
+											<option value="pen-paper">Pen & Paper Games</option>
+											<option value="active">Active Games</option>
+											<option value="board">Board & Card Games</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="gameDescription">Description</label>
+										<textarea id="gameDescription" name="gameDescription" rows="4" required></textarea>
+									</div>
+									<div class="form-group">
+										<label for="gameInstructions">Instructions</label>
+										<textarea id="gameInstructions" name="gameInstructions" rows="6" required></textarea>
+									</div>
+									<button type="submit" class="btn btn-primary">Submit Game</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					
+					<div class="content-panel" id="crafts">
+						<div class="section-header">
+							<h2>Craft Categories</h2>
+							<p>Explore different types of crafts and DIY projects</p>
+						</div>
+						<div class="craft-categories">
+							<div class="category-card">
+								<div class="category-icon">🎨</div>
+								<h3>Paper Crafts</h3>
+								<p>Scrapbooking, card making, origami, and paper decorations for all occasions.</p>
+								<div class="craft-count">25 Projects</div>
+								<a href="#paper-crafts" class="btn btn-primary">View Projects</a>
+							</div>
+							<div class="category-card">
+								<div class="category-icon">🧵</div>
+								<h3>Textile Arts</h3>
+								<p>Sewing, embroidery, knitting, crocheting, and fabric crafts for every skill level.</p>
+								<div class="craft-count">18 Projects</div>
+								<a href="#textile-crafts" class="btn btn-primary">View Projects</a>
+							</div>
+							<div class="category-card">
+								<div class="category-icon">🏺</div>
+								<h3>Home Decor</h3>
+								<p>DIY home decorations, seasonal crafts, and creative ways to personalize your space.</p>
+								<div class="craft-count">22 Projects</div>
+								<a href="#home-decor" class="btn btn-primary">View Projects</a>
+							</div>
+							<div class="category-card">
+								<div class="category-icon">🎁</div>
+								<h3>Gift Ideas</h3>
+								<p>Handmade gifts, party favors, and thoughtful creations for friends and family.</p>
+								<div class="craft-count">15 Projects</div>
+								<a href="#gift-ideas" class="btn btn-primary">View Projects</a>
+							</div>
+						</div>
+
+						<div class="section-header" style="margin-top: 3rem;">
+							<h2>Featured Projects</h2>
+							<p>Popular crafts that are perfect for Red Hat gatherings</p>
+						</div>
+						<div class="featured-projects">
+							<div class="project-card">
+								<div class="project-image">
+									<img src="images/IMG_5259.jpg" alt="Red Hat Wreath">
+									<div class="project-badge">Featured</div>
+								</div>
+								<div class="project-content">
+									<h3>Red Hat Wreath</h3>
+									<p class="project-category">Home Decor</p>
+									<p>Create a beautiful wreath using red and purple materials to celebrate your Red Hat pride.</p>
+									<div class="project-details">
+										<span><i class="fas fa-clock"></i> 2-3 hours</span>
+										<span><i class="fas fa-star"></i> Beginner</span>
+										<span><i class="fas fa-heart"></i> 4.9 Rating</span>
+									</div>
+									<a href="#" class="btn btn-primary">View Tutorial</a>
+								</div>
+							</div>
+							<div class="project-card">
+								<div class="project-image">
+									<img src="images/IMG_5259.jpg" alt="Memory Scrapbook">
+								</div>
+								<div class="project-content">
+									<h3>Memory Scrapbook</h3>
+									<p class="project-category">Paper Crafts</p>
+									<p>Preserve your Red Hat memories with a beautiful scrapbook featuring photos and mementos.</p>
+									<div class="project-details">
+										<span><i class="fas fa-clock"></i> 4-6 hours</span>
+										<span><i class="fas fa-star"></i> Intermediate</span>
+										<span><i class="fas fa-heart"></i> 4.8 Rating</span>
+									</div>
+									<a href="#" class="btn btn-primary">View Tutorial</a>
+								</div>
+							</div>
+							<div class="project-card">
+								<div class="project-image">
+									<img src="images/IMG_5259.jpg" alt="Embroidered Handkerchief">
+								</div>
+								<div class="project-content">
+									<h3>Embroidered Handkerchief</h3>
+									<p class="project-category">Textile Arts</p>
+									<p>Create elegant embroidered handkerchiefs with Red Hat motifs for special occasions.</p>
+									<div class="project-details">
+										<span><i class="fas fa-clock"></i> 3-4 hours</span>
+										<span><i class="fas fa-star"></i> Advanced</span>
+										<span><i class="fas fa-heart"></i> 4.7 Rating</span>
+									</div>
+									<a href="#" class="btn btn-primary">View Tutorial</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="section-header" style="margin-top: 3rem;">
+							<h2>Paper Crafts</h2>
+							<p>Beautiful projects using paper and cardstock</p>
+						</div>
+						<div class="projects-gallery">
+							<div class="gallery-item">
+								<div class="gallery-image">
+									<img src="images/IMG_5259.jpg" alt="Greeting Cards">
+								</div>
+								<div class="gallery-content">
+									<h3>Handmade Greeting Cards</h3>
+									<p>Create beautiful cards for birthdays, holidays, and special occasions.</p>
+									<div class="gallery-meta">
+										<span><i class="fas fa-clock"></i> 1-2 hours</span>
+										<span><i class="fas fa-star"></i> Beginner</span>
+									</div>
+								</div>
+							</div>
+							<div class="gallery-item">
+								<div class="gallery-image">
+									<img src="images/IMG_5259.jpg" alt="Origami Flowers">
+								</div>
+								<div class="gallery-content">
+									<h3>Origami Flowers</h3>
+									<p>Fold beautiful paper flowers to decorate your home or give as gifts.</p>
+									<div class="gallery-meta">
+										<span><i class="fas fa-clock"></i> 30-45 min</span>
+										<span><i class="fas fa-star"></i> Intermediate</span>
+									</div>
+								</div>
+							</div>
+							<div class="gallery-item">
+								<div class="gallery-image">
+									<img src="images/IMG_5259.jpg" alt="Paper Quilling">
+								</div>
+								<div class="gallery-content">
+									<h3>Paper Quilling Art</h3>
+									<p>Create intricate designs using rolled paper strips for wall art and decorations.</p>
+									<div class="gallery-meta">
+										<span><i class="fas fa-clock"></i> 2-3 hours</span>
+										<span><i class="fas fa-star"></i> Advanced</span>
+									</div>
+								</div>
+							</div>
+							<div class="gallery-item">
+								<div class="gallery-image">
+									<img src="images/IMG_5259.jpg" alt="Gift Boxes">
+								</div>
+								<div class="gallery-content">
+									<h3>Decorative Gift Boxes</h3>
+									<p>Make custom gift boxes for presents and party favors.</p>
+									<div class="gallery-meta">
+										<span><i class="fas fa-clock"></i> 1 hour</span>
+										<span><i class="fas fa-star"></i> Beginner</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="section-header" style="margin-top: 3rem;">
+							<h2>Craft Resources</h2>
+							<p>Everything you need for successful crafting sessions</p>
+						</div>
+						<div class="resources-grid">
+							<div class="card">
+								<div class="resource-icon">📋</div>
+								<h3>Project Instructions</h3>
+								<p>Step-by-step tutorials with photos and detailed instructions for all skill levels.</p>
+								<a href="#" class="btn btn-primary">Browse Tutorials</a>
+							</div>
+							<div class="card">
+								<div class="resource-icon">🛒</div>
+								<h3>Supply Lists</h3>
+								<p>Complete lists of materials and tools needed for each project, with shopping links.</p>
+								<a href="#" class="btn btn-primary">View Lists</a>
+							</div>
+							<div class="card">
+								<div class="resource-icon">📱</div>
+								<h3>Video Tutorials</h3>
+								<p>Watch detailed video instructions for complex projects and techniques.</p>
+								<a href="#" class="btn btn-primary">Watch Videos</a>
+							</div>
+							<div class="card">
+								<div class="resource-icon">👥</div>
+								<h3>Craft Chapters</h3>
+								<p>Join local craft chapters and workshops to learn new techniques with fellow crafters.</p>
+								<a href="#" class="btn btn-primary">Find Chapters</a>
+							</div>
+						</div>
+
+						<div class="section-header" style="margin-top: 3rem;">
+							<h2>Share Your Craft Projects</h2>
+							<p>Have a great craft idea? Share it with the Red Hat community!</p>
+						</div>
+						<div class="submit-project">
+							<div class="card">
+								<h3>Submit a Project</h3>
+								<p>Share your favorite craft projects and DIY ideas with fellow Red Hatters. Include photos, instructions, and any special tips.</p>
+								<form class="craft-form">
+									<div class="form-group">
+										<label for="projectName">Project Name</label>
+										<input type="text" id="projectName" name="projectName" required>
+									</div>
+									<div class="form-group">
+										<label for="projectCategory">Category</label>
+										<select id="projectCategory" name="projectCategory" required>
+											<option value="">Select a category</option>
+											<option value="paper">Paper Crafts</option>
+											<option value="textile">Textile Arts</option>
+											<option value="home">Home Decor</option>
+											<option value="gift">Gift Ideas</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="projectDescription">Description</label>
+										<textarea id="projectDescription" name="projectDescription" rows="4" required></textarea>
+									</div>
+									<div class="form-group">
+										<label for="projectInstructions">Instructions</label>
+										<textarea id="projectInstructions" name="projectInstructions" rows="6" required></textarea>
+									</div>
+									<div class="form-group">
+										<label for="projectMaterials">Materials Needed</label>
+										<textarea id="projectMaterials" name="projectMaterials" rows="3" required></textarea>
+									</div>
+									<button type="submit" class="btn btn-primary">Submit Project</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					
+					<div class="content-panel" id="printables">
+						<div class="section-header">
+							<h2>Printable Categories</h2>
+							<p>Browse our collection of free printable materials</p>
+						</div>
+						<div class="printable-categories">
+							<div class="category-card">
+								<div class="category-icon">🎮</div>
+								<h3>Games & Activities</h3>
+								<p>Bingo cards, word searches, and interactive games for Hatter events.</p>
+								<div class="printable-count">8 Items</div>
+								<a href="#games" class="btn btn-primary">View Items</a>
+							</div>
+							<div class="category-card">
+								<div class="category-icon">🎁</div>
+								<h3>Gift & Craft Items</h3>
+								<p>Gift boxes, bookmarks, tokens, and craft templates for special occasions.</p>
+								<div class="printable-count">12 Items</div>
+								<a href="#gifts" class="btn btn-primary">View Items</a>
+							</div>
+							<div class="category-card">
+								<div class="category-icon">📋</div>
+								<h3>Info & Business Cards</h3>
+								<p>Membership cards, business cards, info cards, and promotional materials.</p>
+								<div class="printable-count">15 Items</div>
+								<a href="#info" class="btn btn-primary">View Items</a>
+							</div>
+							<div class="category-card">
+								<div class="category-icon">📚</div>
+								<h3>Books & Resources</h3>
+								<p>Songbooks, handbooks, certificates, and educational materials.</p>
+								<div class="printable-count">6 Items</div>
+								<a href="#resources" class="btn btn-primary">View Items</a>
+							</div>
+						</div>
+
+						<div class="section-header" style="margin-top: 3rem;">
+							<h2>Featured Printables</h2>
+							<p>Popular and useful printable materials</p>
+						</div>
+						<div class="featured-printables">
+							<div class="printable-card">
+								<div class="printable-image">
+									<img src="images/IMG_5259.jpg" alt="Bingo Cards">
+									<div class="printable-badge">Popular</div>
+								</div>
+								<div class="printable-content">
+									<h3>Bingo Cards</h3>
+									<p class="printable-category">Games & Activities</p>
+									<p>Sets of bingo cards for up to 40 players, perfect for Hatter events and chapter meetings.</p>
+									<div class="printable-details">
+										<span><i class="fas fa-file-pdf"></i> PDF</span>
+										<span><i class="fas fa-download"></i> 2.5 MB</span>
+										<div class="like-system">
+											<button class="like-btn" data-printable="bingo" onclick="toggleLike('bingo')">
+												<i class="fas fa-heart"></i>
+												<span class="like-count" id="like-count-bingo">48</span>
+											</button>
+										</div>
+									</div>
+									<div class="printable-actions">
+										<a href="#" class="btn btn-secondary" onclick="previewPrintable('bingo')">
+											<i class="fas fa-eye"></i> Preview
+										</a>
+										<a href="printables/bingo-cards.pdf" class="btn btn-primary" download>
+											<i class="fas fa-download"></i> Download
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="printable-card">
+								<div class="printable-image">
+									<img src="images/IMG_5259.jpg" alt="Hatter Bookmarks">
+									<div class="printable-badge">New</div>
+								</div>
+								<div class="printable-content">
+									<h3>Hatter Bookmarks</h3>
+									<p class="printable-category">Gift & Craft Items</p>
+									<p>10 different hatter themed bookmarks perfect as little gifts for fellow Red Hatters.</p>
+									<div class="printable-details">
+										<span><i class="fas fa-file-pdf"></i> PDF</span>
+										<span><i class="fas fa-download"></i> 1.8 MB</span>
+										<div class="like-system">
+											<button class="like-btn" data-printable="bookmarks" onclick="toggleLike('bookmarks')">
+												<i class="fas fa-heart"></i>
+												<span class="like-count" id="like-count-bookmarks">32</span>
+											</button>
+										</div>
+									</div>
+									<div class="printable-actions">
+										<a href="#" class="btn btn-secondary" onclick="previewPrintable('bookmarks')">
+											<i class="fas fa-eye"></i> Preview
+										</a>
+										<a href="printables/hatter-bookmarks.pdf" class="btn btn-primary" download>
+											<i class="fas fa-download"></i> Download
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="printable-card">
+								<div class="printable-image">
+									<img src="images/IMG_5259.jpg" alt="Membership Cards">
+								</div>
+								<div class="printable-content">
+									<h3>Membership Cards</h3>
+									<p class="printable-category">Info & Business Cards</p>
+									<p>Customizable membership cards for chapter members with space for names and chapter info.</p>
+									<div class="printable-details">
+										<span><i class="fas fa-file-pdf"></i> PDF</span>
+										<span><i class="fas fa-download"></i> 3.2 MB</span>
+										<div class="like-system">
+											<button class="like-btn" data-printable="membership" onclick="toggleLike('membership')">
+												<i class="fas fa-heart"></i>
+												<span class="like-count" id="like-count-membership">41</span>
+											</button>
+										</div>
+									</div>
+									<div class="printable-actions">
+										<a href="#" class="btn btn-secondary" onclick="previewPrintable('membership')">
+											<i class="fas fa-eye"></i> Preview
+										</a>
+										<a href="printables/membership-cards.pdf" class="btn btn-primary" download>
+											<i class="fas fa-download"></i> Download
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="section-header" style="margin-top: 3rem;">
+							<h2>Gift & Craft Items</h2>
+							<p>Beautiful gifts and craft templates for special occasions</p>
+						</div>
+						<div class="featured-printables">
+							<div class="printable-card">
+								<div class="printable-image">
+									<img src="images/IMG_5259.jpg" alt="Gift Boxes">
+								</div>
+								<div class="printable-content">
+									<h3>Hatter Gift Boxes</h3>
+									<p class="printable-category">Gift & Craft Items</p>
+									<p>Square and pillow gift boxes in Red/Purple and Pink/Lavender designs. Christmas themed boxes also available.</p>
+									<div class="printable-details">
+										<span><i class="fas fa-file-pdf"></i> PDF</span>
+										<span><i class="fas fa-download"></i> 2.3 MB</span>
+										<div class="like-system">
+											<button class="like-btn" data-printable="giftboxes" onclick="toggleLike('giftboxes')">
+												<i class="fas fa-heart"></i>
+												<span class="like-count" id="like-count-giftboxes">27</span>
+											</button>
+										</div>
+									</div>
+									<div class="printable-actions">
+										<a href="#" class="btn btn-secondary" onclick="previewPrintable('giftboxes')">
+											<i class="fas fa-eye"></i> Preview
+										</a>
+										<a href="printables/gift-boxes.pdf" class="btn btn-primary" download>
+											<i class="fas fa-download"></i> Download
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="printable-card">
+								<div class="printable-image">
+									<img src="images/IMG_5259.jpg" alt="Luggage Tags">
+								</div>
+								<div class="printable-content">
+									<h3>Luggage Tags</h3>
+									<p class="printable-category">Gift & Craft Items</p>
+									<p>Red/Purple and Pink/Lavender luggage tags for travel and identification.</p>
+									<div class="printable-details">
+										<span><i class="fas fa-file-pdf"></i> PDF</span>
+										<span><i class="fas fa-download"></i> 1.5 MB</span>
+										<div class="like-system">
+											<button class="like-btn" data-printable="luggage" onclick="toggleLike('luggage')">
+												<i class="fas fa-heart"></i>
+												<span class="like-count" id="like-count-luggage">19</span>
+											</button>
+										</div>
+									</div>
+									<div class="printable-actions">
+										<a href="#" class="btn btn-secondary" onclick="previewPrintable('luggage')">
+											<i class="fas fa-eye"></i> Preview
+										</a>
+										<a href="printables/luggage-tags.pdf" class="btn btn-primary" download>
+											<i class="fas fa-download"></i> Download
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="section-header" style="margin-top: 3rem;">
+							<h2>Submit Your Printables</h2>
+							<p>Have a great printable idea? Share it with the Red Hat community!</p>
+						</div>
+						<div class="submit-printable">
+							<div class="card">
+								<h3>Submit a Printable</h3>
+								<p>Share your favorite printable materials and templates with fellow Red Hatters. Include descriptions and any special instructions.</p>
+								<form class="printable-form">
+									<div class="form-group">
+										<label for="printableName">Printable Name</label>
+										<input type="text" id="printableName" name="printableName" required>
+									</div>
+									<div class="form-group">
+										<label for="printableCategory">Category</label>
+										<select id="printableCategory" name="printableCategory" required>
+											<option value="">Select a category</option>
+											<option value="games">Games & Activities</option>
+											<option value="gifts">Gift & Craft Items</option>
+											<option value="info">Info & Business Cards</option>
+											<option value="resources">Books & Resources</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="printableDescription">Description</label>
+										<textarea id="printableDescription" name="printableDescription" rows="4" required></textarea>
+									</div>
+									<div class="form-group">
+										<label for="printableFile">Upload File</label>
+										<input type="file" id="printableFile" name="printableFile" accept=".pdf,.jpg,.png" required>
+									</div>
+									<button type="submit" class="btn btn-primary">Submit Printable</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					
+					<div class="content-panel" id="recipes">
+						<div class="section-header">
+							<h2>Official Red Hat Society Cookbooks</h2>
+							<p>Explore our collection of official cookbooks filled with delicious recipes perfect for Red Hat gatherings and celebrations.</p>
+						</div>
+						
+						<div class="cookbooks-grid">
+							<!-- The Red Hat Society Cookbook -->
+							<div class="cookbook-card">
+								<div class="cookbook-image">
+									<img src="images/The Red Hat Society Cookbook.jpg" alt="The Red Hat Society Cookbook cover" loading="lazy">
+								</div>
+								<div class="cookbook-content">
+									<h3>The Red Hat Society Cookbook</h3>
+									<p class="cookbook-description">A delightful collection of recipes from Red Hat Society members around the world. This cookbook features everything from appetizers and main courses to desserts and beverages, perfect for your next Red Hat gathering.</p>
+									<div class="cookbook-details">
+										<div class="detail-item">
+											<i class="fas fa-utensils"></i>
+											<span>Over 200 recipes</span>
+										</div>
+										<div class="detail-item">
+											<i class="fas fa-users"></i>
+											<span>Member contributions</span>
+										</div>
+										<div class="detail-item">
+											<i class="fas fa-star"></i>
+											<span>Tested & approved</span>
+										</div>
+									</div>
+									<div class="cookbook-actions">
+										<a href="https://www.amazon.com/Red-Hat-Society-Cookbook-Recipes/dp/1401603335" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+											<i class="fas fa-shopping-cart"></i>
+											Purchase on Amazon
+										</a>
+										<button class="btn btn-secondary" onclick="showRecipePreview('red-hat-cookbook')">
+											<i class="fas fa-eye"></i>
+											Preview Recipes
+										</button>
+									</div>
+								</div>
+							</div>
+
+							<!-- Eat Dessert First! Cookbook -->
+							<div class="cookbook-card">
+								<div class="cookbook-image">
+									<img src="images/Eat Dessert First!.jpg" alt="Eat Dessert First! Red Hat Society Cookbook cover" loading="lazy">
+								</div>
+								<div class="cookbook-content">
+									<h3>Eat Dessert First!</h3>
+									<p class="cookbook-description">Indulge in this sweet collection of dessert recipes that embody the Red Hat Society's philosophy of living life to the fullest. From elegant cakes to simple cookies, these recipes are perfect for any celebration.</p>
+									<div class="cookbook-details">
+										<div class="detail-item">
+											<i class="fas fa-birthday-cake"></i>
+											<span>Dessert recipes</span>
+										</div>
+										<div class="detail-item">
+											<i class="fas fa-heart"></i>
+											<span>Made with love</span>
+										</div>
+										<div class="detail-item">
+											<i class="fas fa-gem"></i>
+											<span>Special occasions</span>
+										</div>
+									</div>
+									<div class="cookbook-actions">
+										<a href="https://www.amazon.com/Eat-Dessert-First-Society-Cookbook/dp/1401603637/ref=pd_sbs_d_sccl_1_2/139-6752393-1613538?pd_rd_w=urgfq&content-id=amzn1.sym.2cd14f8d-eb5c-4042-b934-4a05eafd2874&pf_rd_p=2cd14f8d-eb5c-4042-b934-4a05eafd2874&pf_rd_r=CPSHK2ZHRTPMVWDYBY8D&pd_rd_wg=KUZE4&pd_rd_r=afc93dec-73c3-439f-9f3a-8097f2b44444&pd_rd_i=1401603637&psc=1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+											<i class="fas fa-shopping-cart"></i>
+											Purchase on Amazon
+										</a>
+										<button class="btn btn-secondary" onclick="showRecipePreview('dessert-cookbook')">
+											<i class="fas fa-eye"></i>
+											Preview Recipes
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="section-header" style="margin-top: 3rem;">
+							<h2>Recipe Categories</h2>
+							<p>Browse recipes by category to find the perfect dish for your next Red Hat gathering</p>
+						</div>
+						
+						<div class="recipe-categories">
+							<div class="category-card">
+								<div class="category-icon">
+									<i class="fas fa-apple-alt"></i>
+								</div>
+								<h3>Appetizers & Starters</h3>
+								<p>Perfect finger foods and starters for your Red Hat events</p>
+								<a href="#" class="btn btn-primary">Browse Appetizers</a>
+							</div>
+							
+							<div class="category-card">
+								<div class="category-icon">
+									<i class="fas fa-drumstick-bite"></i>
+								</div>
+								<h3>Main Courses</h3>
+								<p>Hearty and delicious main dishes for any occasion</p>
+								<a href="#" class="btn btn-primary">Browse Mains</a>
+							</div>
+							
+							<div class="category-card">
+								<div class="category-icon">
+									<i class="fas fa-birthday-cake"></i>
+								</div>
+								<h3>Desserts</h3>
+								<p>Sweet treats and desserts to end your meal perfectly</p>
+								<a href="#" class="btn btn-primary">Browse Desserts</a>
+							</div>
+							
+							<div class="category-card">
+								<div class="category-icon">
+									<i class="fas fa-coffee"></i>
+								</div>
+								<h3>Beverages</h3>
+								<p>Refreshing drinks and specialty beverages</p>
+								<a href="#" class="btn btn-primary">Browse Beverages</a>
+							</div>
+						</div>
+
+						<div class="section-header" style="margin-top: 3rem;">
+							<h2>Share Your Recipes</h2>
+							<p>Have a great recipe to share? Submit it to the Red Hat community!</p>
+						</div>
+						<div class="submit-recipe">
+							<div class="card">
+								<h3>Submit a Recipe</h3>
+								<p>Share your favorite recipes with fellow Red Hatters. Include ingredients, instructions, and any special tips or serving suggestions.</p>
+								<form class="recipe-form">
+									<div class="form-group">
+										<label for="recipeName">Recipe Name</label>
+										<input type="text" id="recipeName" name="recipeName" required>
+									</div>
+									<div class="form-group">
+										<label for="recipeCategory">Category</label>
+										<select id="recipeCategory" name="recipeCategory" required>
+											<option value="">Select a category</option>
+											<option value="appetizers">Appetizers</option>
+											<option value="main-courses">Main Courses</option>
+											<option value="desserts">Desserts</option>
+											<option value="beverages">Beverages</option>
+											<option value="sides">Side Dishes</option>
+											<option value="snacks">Snacks</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="recipeDescription">Description</label>
+										<textarea id="recipeDescription" name="recipeDescription" rows="3" required></textarea>
+									</div>
+									<div class="form-group">
+										<label for="recipeIngredients">Ingredients</label>
+										<textarea id="recipeIngredients" name="recipeIngredients" rows="6" required placeholder="List each ingredient on a new line"></textarea>
+									</div>
+									<div class="form-group">
+										<label for="recipeInstructions">Instructions</label>
+										<textarea id="recipeInstructions" name="recipeInstructions" rows="8" required placeholder="Step-by-step cooking instructions"></textarea>
+									</div>
+									<div class="form-group">
+										<label for="recipeServings">Servings</label>
+										<input type="number" id="recipeServings" name="recipeServings" min="1" required>
+									</div>
+									<div class="form-group">
+										<label for="recipePrepTime">Prep Time (minutes)</label>
+										<input type="number" id="recipePrepTime" name="recipePrepTime" min="0">
+									</div>
+									<div class="form-group">
+										<label for="recipeCookTime">Cook Time (minutes)</label>
+										<input type="number" id="recipeCookTime" name="recipeCookTime" min="0">
+									</div>
+									<button type="submit" class="btn btn-primary">Submit Recipe</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					
+					<div class="content-panel" id="hoot-ideas">
+						<div class="section-header">
+							<h2>Hoot Ideas</h2>
+							<p>Looking for ideas for your next Red Hatting get-together? Browse our comprehensive collection of activity ideas, themes, and event suggestions to make your gatherings unforgettable!</p>
+						</div>
+
+						<!-- Daily Celebrations Section -->
+						<section class="hoot-section">
+							<h3><i class="fas fa-calendar-day"></i> Daily Celebrations Hoot Ideas</h3>
+							<div class="ideas-grid">
+								<div class="idea-card">
+									<h4>Mystery Dinner</h4>
+									<p>Wacky dinner served at home with surprise courses and themed decorations.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Bag Lady Fashion Show</h4>
+									<p>Show off your most creative and outrageous outfits in a fun fashion parade.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Literal Fashion Show</h4>
+									<p>Dress up as your royal title or create literal interpretations of fashion themes.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Shopping Centre Scavenger Hunts</h4>
+									<p>Organize fun scavenger hunts at local shopping centres with creative challenges.</p>
+								</div>
+							</div>
+						</section>
+
+						<!-- Active Ideas Section -->
+						<section class="hoot-section">
+							<h3><i class="fas fa-running"></i> Active Ideas</h3>
+							<div class="ideas-grid">
+								<div class="idea-card">
+									<h4>Mini Golf / Croquet / Bowling</h4>
+									<p>Fun group activities that everyone can enjoy regardless of skill level.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Ice Skating / Rollerskating</h4>
+									<p>Glide into fun with these classic group activities.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Visit the Snow</h4>
+									<p>Plan a winter wonderland adventure for those who love the cold.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Pool Party / Beach Party / Dance Party</h4>
+									<p>Water fun, sand, and dancing - perfect for any season!</p>
+								</div>
+								<div class="idea-card">
+									<h4>Dance Lessons</h4>
+									<p>Learn new moves together - from ballroom to line dancing.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Hot Air Ballooning</h4>
+									<p>Soar above the landscape for a truly memorable experience.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Fishing</h4>
+									<p>Relaxing day by the water with friends and fishing rods.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Horse Riding</h4>
+									<p>Enjoy the countryside on horseback with guided trail rides.</p>
+								</div>
+							</div>
+						</section>
+
+						<!-- Cafe/Restaurant Ideas Section -->
+						<section class="hoot-section">
+							<h3><i class="fas fa-utensils"></i> Cafe/Restaurant & "Going Out" Ideas</h3>
+							<div class="ideas-grid">
+								<div class="idea-card">
+									<h4>Yum Cha / Banquet / High Tea</h4>
+									<p>Elegant dining experiences perfect for special celebrations.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Ice Cream Parlour or Dessert Only Dinner</h4>
+									<p>Sweet treats and indulgence - because dessert first is always a good idea!</p>
+								</div>
+								<div class="idea-card">
+									<h4>PJ Party in a Cafe/Restaurant</h4>
+									<p>Comfortable and cozy dining in your most comfortable attire.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Go to the Theatre/Cinema</h4>
+									<p>Cultural outings to enjoy shows, movies, and performances together.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Casino</h4>
+									<p>Try your luck with friends in a fun, responsible gaming environment.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Number Dinner</h4>
+									<p>Choose a number and try to incorporate that into your dinner as much as possible. For example, if you choose number 7, you could pick a restaurant that has #7 as the street number, eating at 7pm, eating the 7th item on the menu or selecting items that cost $7 or have a 7 in the price etc.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Progressive Dinners</h4>
+									<p>Start your meal off at one venue, then move to a new venue for the next course.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Valentines Dinner</h4>
+									<p>Bring husbands along for a romantic group dinner celebration.</p>
+								</div>
+							</div>
+						</section>
+
+						<!-- General Ideas Section -->
+						<section class="hoot-section">
+							<h3><i class="fas fa-star"></i> General Ideas</h3>
+							<div class="ideas-grid">
+								<div class="idea-card">
+									<h4>Dress as Your Royal Title</h4>
+									<p>For a bit of fun have everyone dress up as something to do with their Royal title! So for example Countess Champagne might decorate her dress with champagne corks.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Calendar</h4>
+									<p>Create a calendar at the end of the year from photos of your Chapter from throughout the year. You could even do a funny "sexy" calendar with each member taking on a month and having a glamorous photo shoot.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Debutante Ball</h4>
+									<p>For the ladies who haven't had one, have a Red Hatter one!</p>
+								</div>
+								<div class="idea-card">
+									<h4>Mystery Car Trip</h4>
+									<p>Carpool and follow in convoy to a mystery location (The leader knows where to go!)</p>
+								</div>
+								<div class="idea-card">
+									<h4>"Fake Wedding"</h4>
+									<p>Where you hold a wedding ceremony for fun - complete with bridesmaids and groomsmen!</p>
+								</div>
+								<div class="idea-card">
+									<h4>Game Show</h4>
+									<p>Go on a gameshow like Family Feud or create your own version.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Celebrate "0" Birthdays</h4>
+									<p>(60/70 etc.) and have a "Golduation" when turning 80.</p>
+								</div>
+								<div class="idea-card">
+									<h4>5 Year Celebration</h4>
+									<p>School uniform dressup event (kids go to school at 5).</p>
+								</div>
+								<div class="idea-card">
+									<h4>Bus Trip</h4>
+									<p>Hire a bus and go on an outing together to explore new places.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Fundraiser for Charity</h4>
+									<p>Organize events to raise money for causes close to your hearts.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Masquerade Ball</h4>
+									<p>Elegant masked ball with mystery and intrigue.</p>
+								</div>
+							</div>
+						</section>
+
+						<!-- Gardens, Park & Outdoor Ideas Section -->
+						<section class="hoot-section">
+							<h3><i class="fas fa-tree"></i> Gardens, Park & Outdoor Ideas</h3>
+							<div class="ideas-grid">
+								<div class="idea-card">
+									<h4>Visit Botanical Gardens / Zoo</h4>
+									<p>Explore nature and wildlife in beautiful garden settings.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Picnic in a Park</h4>
+									<p>Classic outdoor gathering with food, games, and fresh air.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Boat Ride</h4>
+									<p>Scenic water adventures - from river cruises to sailing.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Peddle Boats on a Lake</h4>
+									<p>Fun and active way to enjoy the water together.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Go to the Horse Races</h4>
+									<p>Dress up and enjoy the excitement of race day.</p>
+								</div>
+							</div>
+						</section>
+
+						<!-- Shopping Ideas Section -->
+						<section class="hoot-section">
+							<h3><i class="fas fa-shopping-bag"></i> Shopping Ideas</h3>
+							<div class="ideas-grid">
+								<div class="idea-card">
+									<h4>Go on a Shopping Spree Tour</h4>
+									<p>Visit discount outlets like DFO for great bargains and fun shopping.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Antique Shopping</h4>
+									<p>Explore antique stores and markets for unique finds and treasures.</p>
+								</div>
+								<div class="idea-card">
+									<h4>Fashion Show Shopping</h4>
+									<p>Shop for outfits and then have a fashion show to show off your purchases.</p>
+								</div>
+							</div>
+						</section>
+
+						<!-- Submit Ideas Section -->
+						<section class="hoot-section">
+							<h3><i class="fas fa-lightbulb"></i> Share Your Ideas</h3>
+							<div class="submit-ideas">
+								<div class="card">
+									<h4>Submit a Hoot Idea</h4>
+									<p>Have a great idea for a Red Hat gathering? Share it with the community!</p>
+									<form class="idea-form">
+										<div class="form-group">
+											<label for="ideaTitle">Idea Title</label>
+											<input type="text" id="ideaTitle" name="ideaTitle" required>
+										</div>
+										<div class="form-group">
+											<label for="ideaCategory">Category</label>
+											<select id="ideaCategory" name="ideaCategory" required>
+												<option value="">Select a category</option>
+												<option value="daily">Daily Celebrations</option>
+												<option value="active">Active Ideas</option>
+												<option value="dining">Cafe/Restaurant</option>
+												<option value="general">General Ideas</option>
+												<option value="outdoor">Outdoor Ideas</option>
+												<option value="shopping">Shopping Ideas</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label for="ideaDescription">Description</label>
+											<textarea id="ideaDescription" name="ideaDescription" rows="4" required></textarea>
+										</div>
+										<button type="submit" class="btn btn-primary">Submit Idea</button>
+									</form>
+								</div>
+							</div>
+						</section>
+					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -288,6 +1682,136 @@
 	<script>
 		// Update current year in footer
 		document.getElementById('current-year').textContent = new Date().getFullYear();
+
+		// Tab functionality
+		document.addEventListener('DOMContentLoaded', function() {
+			const navLinks = document.querySelectorAll('.resources-nav .nav-link');
+			const contentPanels = document.querySelectorAll('.content-panel');
+
+			console.log('Found nav links:', navLinks.length);
+			console.log('Found content panels:', contentPanels.length);
+
+			navLinks.forEach(link => {
+				link.addEventListener('click', function(e) {
+					e.preventDefault();
+					
+					console.log('Tab clicked:', this.textContent);
+					
+					// Remove active class from all links and panels
+					navLinks.forEach(l => l.classList.remove('active'));
+					contentPanels.forEach(p => p.classList.remove('active'));
+					
+					// Add active class to clicked link
+					this.classList.add('active');
+					
+					// Show corresponding panel
+					const targetId = this.getAttribute('href').substring(1);
+					const targetPanel = document.getElementById(targetId);
+					console.log('Target ID:', targetId, 'Target panel:', targetPanel);
+					
+					if (targetPanel) {
+						targetPanel.classList.add('active');
+						console.log('Panel activated:', targetId);
+					}
+				});
+			});
+
+			// Calendar functionality
+			const prevMonthBtn = document.getElementById('prevMonth');
+			const nextMonthBtn = document.getElementById('nextMonth');
+			const monthSelect = document.getElementById('monthSelect');
+			const yearSelect = document.getElementById('yearSelect');
+			const calendarGrid = document.getElementById('calendarGrid');
+
+			let currentDate = new Date();
+			let currentMonth = currentDate.getMonth();
+			let currentYear = currentDate.getFullYear();
+
+			// Set initial values
+			monthSelect.value = currentMonth;
+			yearSelect.value = currentYear;
+
+			function generateCalendar() {
+				calendarGrid.innerHTML = '';
+				
+				// Day headers
+				const dayHeaders = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+				dayHeaders.forEach(day => {
+					const dayHeader = document.createElement('div');
+					dayHeader.className = 'calendar-day calendar-day-header';
+					dayHeader.textContent = day;
+					calendarGrid.appendChild(dayHeader);
+				});
+
+				// Get first day of month and number of days
+				const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+				const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+				// Add empty cells for days before month starts
+				for (let i = 0; i < firstDay; i++) {
+					const emptyDay = document.createElement('div');
+					emptyDay.className = 'calendar-day';
+					calendarGrid.appendChild(emptyDay);
+				}
+
+				// Add days of month
+				for (let day = 1; day <= daysInMonth; day++) {
+					const dayElement = document.createElement('div');
+					dayElement.className = 'calendar-day';
+					
+					const dayNumber = document.createElement('div');
+					dayNumber.className = 'calendar-day-number';
+					dayNumber.textContent = day;
+					dayElement.appendChild(dayNumber);
+
+					// Add sample events (you can replace this with real data)
+					if (day % 7 === 0) {
+						const event = document.createElement('div');
+						event.className = 'calendar-event';
+						event.textContent = 'Chapter Meeting';
+						dayElement.appendChild(event);
+					}
+
+					calendarGrid.appendChild(dayElement);
+				}
+			}
+
+			// Event listeners
+			prevMonthBtn.addEventListener('click', function() {
+				currentMonth--;
+				if (currentMonth < 0) {
+					currentMonth = 11;
+					currentYear--;
+				}
+				monthSelect.value = currentMonth;
+				yearSelect.value = currentYear;
+				generateCalendar();
+			});
+
+			nextMonthBtn.addEventListener('click', function() {
+				currentMonth++;
+				if (currentMonth > 11) {
+					currentMonth = 0;
+					currentYear++;
+				}
+				monthSelect.value = currentMonth;
+				yearSelect.value = currentYear;
+				generateCalendar();
+			});
+
+			monthSelect.addEventListener('change', function() {
+				currentMonth = parseInt(this.value);
+				generateCalendar();
+			});
+
+			yearSelect.addEventListener('change', function() {
+				currentYear = parseInt(this.value);
+				generateCalendar();
+			});
+
+			// Generate initial calendar
+			generateCalendar();
+		});
 	</script>
 </body>
 </html>
