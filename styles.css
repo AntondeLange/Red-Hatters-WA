@@ -1019,9 +1019,9 @@ img {
 	transform: translateY(-10px) !important;
 }
 
-/* Desktop dropdown behavior */
+/* Desktop dropdown behavior - only when not controlled by JavaScript */
 @media (min-width: 769px) {
-	.nav-dropdown:hover .dropdown-menu {
+	.nav-dropdown:hover .dropdown-menu:not(.show):not(.hide) {
 		display: block;
 		opacity: 1;
 		transform: translateY(0);

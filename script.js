@@ -9,7 +9,7 @@ const CONFIG = {
     throttleDelay: 100,
     errorReporting: true,
     performanceMonitoring: true,
-    version: '2.1' // Cache busting version
+    version: '2.2' // Cache busting version
 };
 
 // Cache Busting Utility
