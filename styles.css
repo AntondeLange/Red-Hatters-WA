@@ -1074,47 +1074,53 @@ img {
 	clear: none !important;
 }
 
-.cta-button {
-	background: var(--primary-red);
-	color: var(--white);
-	padding: 0.6rem 1.2rem;
-	text-decoration: none;
-	font-weight: 600;
-	font-size: 14px;
-	text-transform: uppercase;
-	transition: all 0.3s ease;
-	border: none;
-	cursor: pointer;
-	border-radius: 0;
-	min-height: 36px;
-	display: flex;
-	align-items: center;
+/* Navigation CTA Button - High specificity to override other rules */
+.nav-buttons .cta-button,
+.split-button .cta-button {
+	background: var(--primary-red) !important;
+	color: var(--white) !important;
+	padding: 0.6rem 1.2rem !important;
+	text-decoration: none !important;
+	font-weight: 600 !important;
+	font-size: 14px !important;
+	text-transform: uppercase !important;
+	transition: all 0.3s ease !important;
+	border: none !important;
+	cursor: pointer !important;
+	border-radius: 0 !important;
+	min-height: 36px !important;
+	display: flex !important;
+	align-items: center !important;
 }
 
-.cta-button:hover {
-	background: var(--black);
+.nav-buttons .cta-button:hover,
+.split-button .cta-button:hover {
+	background: var(--black) !important;
 }
 
-.login-button {
-	background: var(--white);
-	color: var(--primary-red);
-	padding: 0.6rem 1.2rem;
-	text-decoration: none;
-	font-weight: 600;
-	font-size: 14px;
-	text-transform: uppercase;
-	transition: all 0.3s ease;
-	border: 2px solid var(--primary-red);
-	cursor: pointer;
-	border-radius: 0;
-	border-left: 1px solid var(--primary-red);
-	min-height: 36px;
-	display: flex;
-	align-items: center;
+/* Navigation Login Button - High specificity to override other rules */
+.nav-buttons .login-button,
+.split-button .login-button {
+	background: var(--white) !important;
+	color: var(--primary-red) !important;
+	padding: 0.6rem 1.2rem !important;
+	text-decoration: none !important;
+	font-weight: 600 !important;
+	font-size: 14px !important;
+	text-transform: uppercase !important;
+	transition: all 0.3s ease !important;
+	border: 2px solid var(--primary-red) !important;
+	cursor: pointer !important;
+	border-radius: 0 !important;
+	border-left: 1px solid var(--primary-red) !important;
+	min-height: 36px !important;
+	display: flex !important;
+	align-items: center !important;
 }
 
-.login-button:hover {
-	background: var(--light-pink);
+.nav-buttons .login-button:hover,
+.split-button .login-button:hover {
+	background: var(--light-pink) !important;
 }
 
 .logout-button {
