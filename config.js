@@ -156,7 +156,8 @@ window.RedHattersConfig = {
     utils: {
         // Get current environment config
         getCurrentConfig: function() {
-            return this.environment[this.environment.current];
+            const currentEnv = this.environment.current || 'fallback';
+            return this.environment[currentEnv];
         },
         
         // Get API endpoint
