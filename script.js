@@ -9,7 +9,7 @@ const CONFIG = {
     throttleDelay: 100,
     errorReporting: true,
     performanceMonitoring: true,
-    version: '2.2' // Cache busting version
+    version: '2.3' // Cache busting version
 };
 
 // Cache Busting Utility
@@ -273,13 +273,32 @@ const SmoothScroll = {
 // Dropdown menu functionality
 const DropdownManager = {
     init: function() {
-        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        console.log('DropdownManager: Initializing...');
         
-        dropdownToggles.forEach(toggle => {
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        console.log('DropdownManager: Found', dropdownToggles.length, 'dropdown toggles');
+        
+        if (dropdownToggles.length === 0) {
+            console.warn('DropdownManager: No dropdown toggles found!');
+            return;
+        }
+        
+        dropdownToggles.forEach((toggle, index) => {
+            console.log(`DropdownManager: Setting up toggle ${index + 1}`);
+            
             toggle.addEventListener('click', function(e) {
+                console.log('DropdownManager: Toggle clicked');
                 e.preventDefault();
+                e.stopPropagation();
+                
                 const dropdown = this.nextElementSibling;
+                if (!dropdown) {
+                    console.error('DropdownManager: No dropdown menu found for toggle');
+                    return;
+                }
+                
                 const isOpen = dropdown.classList.contains('show');
+                console.log('DropdownManager: Current state - isOpen:', isOpen);
                 
                 // Close all other dropdowns and reset their aria-expanded
                 document.querySelectorAll('.dropdown-menu').forEach(menu => {
@@ -295,10 +314,12 @@ const DropdownManager = {
                     dropdown.classList.remove('show');
                     dropdown.classList.add('hide');
                     this.setAttribute('aria-expanded', 'false');
+                    console.log('DropdownManager: Closing dropdown');
                 } else {
                     dropdown.classList.remove('hide');
                     dropdown.classList.add('show');
                     this.setAttribute('aria-expanded', 'true');
+                    console.log('DropdownManager: Opening dropdown');
                 }
             });
         });
@@ -315,6 +336,8 @@ const DropdownManager = {
                 });
             }
         });
+        
+        console.log('DropdownManager: Initialization complete');
     }
 };
 
@@ -1189,9 +1212,12 @@ const App = {
         }
         
         // Initialize all managers
+        console.log('App: Initializing managers...');
         HeaderManager.init();
         SmoothScroll.init();
+        console.log('App: About to initialize DropdownManager...');
         DropdownManager.init();
+        console.log('App: DropdownManager initialization complete');
         FAQManager.init();
         EventFilter.init();
         FormManager.init();
@@ -1200,6 +1226,7 @@ const App = {
         CopyrightManager.init();
         ChatbotManager.init();
         HootIdeasFormManager.init();
+        console.log('App: All managers initialized');
         
         // Initialize monitoring
         Utils.monitorNetworkStatus();
@@ -1211,6 +1238,8 @@ const App = {
     initializeBootstrapComponents: function() {
         // Initialize Bootstrap tooltips
         if (typeof bootstrap !== 'undefined') {
+            console.log('App: Initializing Bootstrap components...');
+            
             const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
             tooltipTriggerList.map(function (tooltipTriggerEl) {
                 return new bootstrap.Tooltip(tooltipTriggerEl);
@@ -1221,6 +1250,16 @@ const App = {
             popoverTriggerList.map(function (popoverTriggerEl) {
                 return new bootstrap.Popover(popoverTriggerEl);
             });
+            
+            // Initialize Bootstrap dropdowns as fallback
+            const dropdownTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="dropdown"]'));
+            dropdownTriggerList.map(function (dropdownTriggerEl) {
+                return new bootstrap.Dropdown(dropdownTriggerEl);
+            });
+            
+            console.log('App: Bootstrap components initialized');
+        } else {
+            console.warn('App: Bootstrap not available');
         }
     }
 };
