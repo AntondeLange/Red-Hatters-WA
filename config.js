@@ -184,6 +184,6 @@ window.RedHattersConfig = {
 
 // Make config globally available
 window.RedHattersConfig.debug('Configuration loaded', {
-    environment: window.RedHattersConfig.environment.current,
+    environment: window.RedHattersConfig.environment.current || 'fallback',
     apiUrl: window.RedHattersConfig.utils.getCurrentConfig().apiUrl
 });

@@ -281,7 +281,7 @@
 					<h2>Get In Touch</h2>
 					<p>Ready to join our amazing community? We'd love to hear from you!</p>
 					<div class="contact-image">
-						<img src="images/AussieHattingWA.JPG" alt="Red Hatters WA members in Australia" loading="lazy" />
+						<img src="images/AussieHattingWA.jpg" alt="Red Hatters WA members in Australia" loading="lazy" />
 					</div>
 					<div class="contact-details">
 						<p><strong>Email:</strong> info@redhatterswa.com.au</p>
@@ -379,7 +379,7 @@
 	<div class="chatbot-container" id="public-chatbot">
 		<div class="chatbot-header">
 			<div class="chatbot-avatar">
-				<img src="images/rhswa-logo-small.png" alt="Red Hatters WA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+				<img src="images/RHSWA-horizontal.png" alt="Red Hatters WA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
 				<div class="chatbot-avatar-fallback" style="display: none;">
 					<i class="fas fa-robot"></i>
 				</div>
@@ -421,8 +421,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 	
 	<!-- Custom JavaScript -->
-	<script src="config.js?v=2.4"></script>
-	<script src="script.js?v=2.4"></script>
+	<script src="config.js?v=2.5"></script>
+	<script src="script.js?v=2.5"></script>
 	
 	<!-- Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
@@ -482,7 +482,7 @@
 	<script>
 		if ('serviceWorker' in navigator) {
 			window.addEventListener('load', () => {
-				navigator.serviceWorker.register('/sw.js')
+				navigator.serviceWorker.register('./sw.js')
 					.then(registration => {
 						console.log('SW registered: ', registration);
 					})
